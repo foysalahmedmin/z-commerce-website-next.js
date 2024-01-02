@@ -2,26 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+  :root {
+    --color-primary: 195, 147, 113;
+    --color-text-base: 0, 0, 0;
+    --color-text-muted: 0, 0, 0;
+    --color-background-body: 245, 245, 245;
+    --color-background-muted: 225, 225, 225;
+    --color-background-start-rgb: 214, 219, 220;
+    --color-background-end-rgb: 255, 255, 255;
+  }
+
+  .theme-dark {
+    --color-primary: 195, 147, 113;
+    --color-text-base: 255, 255, 255;
+    --color-text-muted: 255, 255, 255;
+    --color-background-body: 9, 9, 9;
+    --color-background-muted: 25, 25, 25;
+    --color-background-start-rgb: 0, 0, 0;
+    --color-background-end-rgb: 0, 0, 0;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --color-text-base: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  body {
+    @apply text-skin-base;
+  }
 }
