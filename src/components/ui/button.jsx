@@ -53,7 +53,8 @@ const Button = React.forwardRef(
     },
     ref,
   ) => {
-    const loading = isLoading && (loadingVariant || "default");
+    const loading =
+      isLoading && size !== "icon" && (loadingVariant || "default");
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
