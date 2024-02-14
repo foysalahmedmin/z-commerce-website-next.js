@@ -23,17 +23,17 @@ const menus = [
   },
 ];
 
-const NavMenus = () => {
+const NavMenus = ({ className }) => {
   const pathname = usePathname();
   return (
     <>
       {menus.map((menu) => {
         return (
-          <li key={menu.name}>
+          <li key={menu.name} className={className}>
             <Link
               href={menu.path}
               className={cn(
-                "after:bg-color relative py-1 transition-all duration-500 after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[.1rem] after:w-0 after:transition-all after:duration-500 after:content-[''] hover:after:w-full",
+                "relative py-1 transition-all duration-500 after:absolute after:bottom-0 after:left-0 after:right-0 after:mx-auto after:h-[.1rem] after:w-0 after:bg-color after:transition-all after:duration-500 after:content-[''] hover:after:w-full",
                 {
                   "text-primary after:w-full after:bg-primary ":
                     pathname === menu.path,

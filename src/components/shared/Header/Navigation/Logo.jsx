@@ -7,16 +7,17 @@ import Image from "next/image";
 const Logo = ({ className }) => {
   const { theme } = useTheme();
   return (
-    <div className={cn("inline-block h-10 w-10", className)}>
+    <div className={cn("inline", className)}>
       <Image
+        className="object-contain object-center"
         src={
           theme === "dark"
             ? "/images/shared/logo-dark.png"
             : "/images/shared/logo.png"
         }
         alt="logo"
-        width={60}
-        height={60}
+        width={24}
+        height={24}
         loading="lazy"
       />
     </div>

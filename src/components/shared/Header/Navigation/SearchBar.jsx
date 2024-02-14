@@ -1,9 +1,10 @@
+import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 const SearchBar = () => {
   return (
-    <div>
+    <Button size="none" variant="none">
       <Search className="h-6 w-6" />
-    </div>
+    </Button>
   );
 };
 
