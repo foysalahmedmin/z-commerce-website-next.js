@@ -6,23 +6,27 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ShoppingCart } from "lucide-react";
+import { ListMinus } from "lucide-react";
+import NavMenus from "./NavMenus";
 
-const CartBar = () => {
+const NavMenuBar = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="none" size="none">
-          <ShoppingCart className="h-6 w-6" />
+          <ListMinus className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right">
+      <SheetContent side="left">
         <SheetHeader className="h-16">
-          <SheetTitle>Carts</SheetTitle>
+          <SheetTitle>Nav Menus</SheetTitle>
         </SheetHeader>
+        <ul className="flex flex-col gap-4">
+          <NavMenus />
+        </ul>
       </SheetContent>
     </Sheet>
   );
 };
 
-export default CartBar;
+export default NavMenuBar;

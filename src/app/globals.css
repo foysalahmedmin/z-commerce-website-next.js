@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --color: 0 0% 0%;
-    --color-foreground: 0 0% 0%;
+    --color-foreground: 0 0% 100%;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -25,12 +25,12 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 142.1 76.2% 36.3%;
-    --radius: 0rem;
+    --radius: 0.5rem;
   }
 
   .dark {
     --color: 0 0% 100%;
-    --color-foreground: 0 0% 100%;
+    --color-foreground: 0 0% 0%;
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;
     --card: 24 9.8% 10%;
