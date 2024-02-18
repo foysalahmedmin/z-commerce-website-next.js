@@ -6,19 +6,19 @@ import { usePathname } from "next/navigation";
 
 const menus = [
   {
-    name: "Home",
+    label: "Home",
     path: "/",
   },
   {
-    name: "Shop",
+    label: "Shop",
     path: "/shop",
   },
   {
-    name: "About",
+    label: "About",
     path: "/about",
   },
   {
-    name: "Contact",
+    label: "Contact",
     path: "/contact",
   },
 ];
@@ -29,7 +29,7 @@ const NavMenus = ({ className }) => {
     <>
       {menus.map((menu) => {
         return (
-          <li key={menu.name} className={className}>
+          <li key={menu.label} className={className}>
             <Link
               href={menu.path}
               className={cn(
@@ -40,7 +40,7 @@ const NavMenus = ({ className }) => {
                 },
               )}
             >
-              <span>{menu.name}</span>
+              <span>{menu.label}</span>
             </Link>
           </li>
         );

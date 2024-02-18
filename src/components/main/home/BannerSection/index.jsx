@@ -6,49 +6,108 @@ import {
   CarouselPagination,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { ArrowUpRight } from "lucide-react";
+import BannerSlide from "./BannerSlide";
 
 const BannerSection = () => {
+  const data = [
+    {
+      title: " Houseplant The Perfect Choice.",
+      subTitle: "Welcome to Z-Commerce",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus euismod, nunc id lobortis facilisis, nunc augue
+      condimentum nunc, eu scelerisque nunc nibh id nunc.`,
+      image: {
+        src: "/images/home/home-banner-5.png",
+        alt: "home-slider-image-5",
+      },
+      button: {
+        label: "Shop Now",
+        path: "/shop",
+        icon: ArrowUpRight,
+      },
+    },
+    {
+      title: " Houseplant The Perfect Choice.",
+      subTitle: "Welcome to Z-Commerce",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus euismod, nunc id lobortis facilisis, nunc augue
+      condimentum nunc, eu scelerisque nunc nibh id nunc.`,
+      image: {
+        src: "/images/home/home-banner-1.png",
+        alt: "home-slider-image-1",
+      },
+      button: {
+        label: "Shop Now",
+        path: "/shop",
+        icon: ArrowUpRight,
+      },
+    },
+    {
+      title: " Houseplant The Perfect Choice.",
+      subTitle: "Welcome to Z-Commerce",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus euismod, nunc id lobortis facilisis, nunc augue
+      condimentum nunc, eu scelerisque nunc nibh id nunc.`,
+      image: {
+        src: "/images/home/home-banner-2.png",
+        alt: "home-slider-image-2",
+      },
+      button: {
+        label: "Shop Now",
+        path: "/shop",
+        icon: ArrowUpRight,
+      },
+    },
+    {
+      title: " Houseplant The Perfect Choice.",
+      subTitle: "Welcome to Z-Commerce",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus euismod, nunc id lobortis facilisis, nunc augue
+      condimentum nunc, eu scelerisque nunc nibh id nunc.`,
+      image: {
+        src: "/images/home/home-banner-3.png",
+        alt: "home-slider-image-3",
+      },
+      button: {
+        label: "Shop Now",
+        path: "/shop",
+        icon: ArrowUpRight,
+      },
+    },
+    {
+      title: " Houseplant The Perfect Choice.",
+      subTitle: "Welcome to Z-Commerce",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus euismod, nunc id lobortis facilisis, nunc augue
+      condimentum nunc, eu scelerisque nunc nibh id nunc.`,
+      image: {
+        src: "/images/home/home-banner-4.png",
+        alt: "home-slider-image-4",
+      },
+      button: {
+        label: "Shop Now",
+        path: "/shop",
+        icon: ArrowUpRight,
+      },
+    },
+  ];
   return (
-    <section>
-      <div className="">
-        <Carousel className="w-full" opts={{ loop: true }}>
-          <CarouselContent>
-            <CarouselItem className="relative">
-              <div className="container flex h-full  min-h-[calc(100vh-6.5rem)] items-center">
-                <div className="flex items-center justify-between gap-6 px-6">
-                  <div className="max-w-md">
-                    <div className="mb-4">
-                      <h1 className="mb-4 text-2xl lg:text-4xl">
-                        Houseplant <br /> The Perfect Choice.
-                      </h1>
-                      <hr className="max-w-40 border-2 border-color" />
-                    </div>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Phasellus euismod, nunc id lobortis facilisis, nunc augue
-                      condimentum nunc, eu scelerisque nunc nibh id nunc.
-                    </p>
-                  </div>
-                  <div className=""></div>
-                </div>
-              </div>
-              <div className="banner-circle absolute right-[2.5%] top-[2.5%] -z-10 h-80 w-80 origin-top-right rounded-[60%_10%_30%_60%] bg-primary/50" />
+    <section className="bg-card">
+      <Carousel className="w-full" opts={{ loop: true }} autoplay>
+        <CarouselContent>
+          {data.map((payload, index) => (
+            <CarouselItem key={index}>
+              <BannerSlide payload={payload} />
             </CarouselItem>
-            <CarouselItem>
-              <div className="container flex h-full  min-h-[calc(100vh-6.5rem)] items-center">
-                <div>
-                  <h1>The Perfect Choice.</h1>
-                </div>
-              </div>
-            </CarouselItem>
-          </CarouselContent>
-          <div className="container absolute left-0 right-0 top-1/2 mx-auto -translate-y-1/2">
-            <CarouselPrevious className="left-0" />
-            <CarouselNext className="right-0" />
-          </div>
-          <CarouselPagination />
-        </Carousel>
-      </div>
+          ))}
+        </CarouselContent>
+        <div className="container absolute left-0 right-0 top-1/2 mx-auto hidden -translate-y-1/2 md:block">
+          <CarouselPrevious className="left-6" />
+          <CarouselNext className="right-6" />
+        </div>
+        <CarouselPagination />
+      </Carousel>
     </section>
   );
 };
