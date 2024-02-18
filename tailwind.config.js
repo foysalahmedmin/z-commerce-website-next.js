@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // corePlugins: {
+  //   preflight: false,
+  // },
   darkMode: ["class"],
   content: [
     './pages/**/*.{js,jsx}',
@@ -73,6 +76,29 @@ module.exports = {
             transform: 'scale(1)'
           }
         },
+        "banner-circle": {
+          '0%': {
+            position: 'absolute',
+            top: '50%',
+            right: '50%',
+            borderRadius: "100%",
+            transform: 'translate(50%, -50%) scale(.5)',
+          },
+          '40%': {
+            position: 'absolute',
+            top: '2.5%',
+            right: '2.5%',
+            transform: 'translate(0%, 0%) scale(1.3)',
+            borderRadius: "60% 50% 50% 60%", 
+          },
+          '100%': {
+            position: 'absolute',
+            top: '2.5%',
+            right: '2.5%',
+            borderRadius: "60% 10% 30% 60%",
+            transform: 'translate(0%, 0%) scale(1)',
+          }
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -84,6 +110,7 @@ module.exports = {
       },
       animation: {
         "pop": "pop .5s ease-in-out",
+        "banner-circle": "banner-circle 1.5s ease-in-out",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
