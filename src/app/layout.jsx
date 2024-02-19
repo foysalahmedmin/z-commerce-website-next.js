@@ -1,8 +1,12 @@
 import { ThemeProvider } from "@/components/provider/ThemeProvider";
-import { Inter } from "next/font/google";
+import { Inter, Roboto_Serif } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const roboto_serif = Roboto_Serif({
+  subsets: ["latin"],
+  variable: "--font-roboto-serif ",
+});
 
 export const metadata = {
   title: "Z Commerce",
@@ -12,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className + " " + roboto_serif.variable}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

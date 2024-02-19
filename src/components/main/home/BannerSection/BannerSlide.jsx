@@ -20,7 +20,7 @@ const BannerSlide = ({ payload }) => {
               </h3>
             )}
             {title && (
-              <h1 className="max-w-xs text-2xl lg:text-4xl">{title}</h1>
+              <h1 className="max-w-sm text-3xl lg:text-5xl">{title}</h1>
             )}
             {title && <hr className="my-4 max-w-40 border-2 border-color" />}
 

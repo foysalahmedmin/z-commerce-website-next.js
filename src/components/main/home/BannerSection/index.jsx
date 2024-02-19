@@ -18,8 +18,8 @@ const BannerSection = () => {
       Phasellus euismod, nunc id lobortis facilisis, nunc augue
       condimentum nunc, eu scelerisque nunc nibh id nunc.`,
       image: {
-        src: "/images/home/home-banner-5.png",
-        alt: "home-slider-image-5",
+        src: "/images/home/home-banner-4.png",
+        alt: "home-slider-image-4",
       },
       button: {
         label: "Shop Now",
@@ -34,7 +34,7 @@ const BannerSection = () => {
       Phasellus euismod, nunc id lobortis facilisis, nunc augue
       condimentum nunc, eu scelerisque nunc nibh id nunc.`,
       image: {
-        src: "/images/home/home-banner-1.png",
+        src: "/images/home/home-banner-3.png",
         alt: "home-slider-image-1",
       },
       button: {
@@ -84,6 +84,22 @@ const BannerSection = () => {
       image: {
         src: "/images/home/home-banner-4.png",
         alt: "home-slider-image-4",
+      },
+      button: {
+        label: "Shop Now",
+        path: "/shop",
+        icon: ArrowUpRight,
+      },
+    },
+    {
+      title: " Houseplant The Perfect Choice.",
+      subTitle: "Welcome to Z-Commerce",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus euismod, nunc id lobortis facilisis, nunc augue
+      condimentum nunc, eu scelerisque nunc nibh id nunc.`,
+      image: {
+        src: "/images/home/home-banner-5.png",
+        alt: "home-slider-image-5",
       },
       button: {
         label: "Shop Now",
