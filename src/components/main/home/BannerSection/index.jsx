@@ -6,7 +6,7 @@ import {
   CarouselPagination,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ArrowUpRight } from "lucide-react";
+import { MoveUpRight } from "lucide-react";
 import BannerSlide from "./BannerSlide";
 
 const BannerSection = () => {
@@ -24,7 +24,7 @@ const BannerSection = () => {
       button: {
         label: "Shop Now",
         path: "/shop",
-        icon: ArrowUpRight,
+        icon: MoveUpRight,
       },
     },
     {
@@ -40,7 +40,7 @@ const BannerSection = () => {
       button: {
         label: "Shop Now",
         path: "/shop",
-        icon: ArrowUpRight,
+        icon: MoveUpRight,
       },
     },
     {
@@ -56,7 +56,7 @@ const BannerSection = () => {
       button: {
         label: "Shop Now",
         path: "/shop",
-        icon: ArrowUpRight,
+        icon: MoveUpRight,
       },
     },
     {
@@ -72,7 +72,7 @@ const BannerSection = () => {
       button: {
         label: "Shop Now",
         path: "/shop",
-        icon: ArrowUpRight,
+        icon: MoveUpRight,
       },
     },
     {
@@ -88,7 +88,7 @@ const BannerSection = () => {
       button: {
         label: "Shop Now",
         path: "/shop",
-        icon: ArrowUpRight,
+        icon: MoveUpRight,
       },
     },
     {
@@ -104,17 +104,17 @@ const BannerSection = () => {
       button: {
         label: "Shop Now",
         path: "/shop",
-        icon: ArrowUpRight,
+        icon: MoveUpRight,
       },
     },
   ];
   return (
-    <section className="bg-card">
+    <section className="bg-muted">
       <Carousel className="w-full" opts={{ loop: true }} autoplay>
         <CarouselContent>
-          {data.map((payload, index) => (
+          {data.map((item, index) => (
             <CarouselItem key={index}>
-              <BannerSlide payload={payload} />
+              <BannerSlide item={item} />
             </CarouselItem>
           ))}
         </CarouselContent>

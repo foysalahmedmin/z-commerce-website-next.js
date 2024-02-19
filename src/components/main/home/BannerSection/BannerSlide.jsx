@@ -1,14 +1,8 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-const BannerSlide = ({ payload }) => {
-  const {
-    title,
-    subTitle,
-    description,
-    image: { src, alt },
-    button: { label, path, icon: Icon },
-  } = payload;
+const BannerSlide = ({ item }) => {
+  const { title, subTitle, description, image, button } = item;
   return (
     <div className="relative">
       <div className="container flex h-full min-h-[36rem] w-full  items-center md:min-h-[calc(100vh-6.5rem)]">
@@ -25,23 +19,31 @@ const BannerSlide = ({ payload }) => {
             {title && <hr className="my-4 max-w-40 border-2 border-color" />}
 
             {description && <p className="mb-6">{description}</p>}
-            {label &&
-              (path ? (
-                <Link href={path}>
+            {button?.label &&
+              (button?.path ? (
+                <Link href={button?.path}>
                   <Button>
-                    Shop Now {Icon && <Icon className="h-5 w-5" />}
+                    Shop Now{" "}
+                    {button?.icon && (
+                      <button.icon strokeWidth={3} className="size-4" />
+                    )}
                   </Button>
                 </Link>
               ) : (
-                <Button>Shop Now {Icon && <Icon className="h-6 w-6" />}</Button>
+                <Button>
+                  Shop Now{" "}
+                  {button?.icon && (
+                    <button.icon strokeWidth={3} className="size-4" />
+                  )}
+                </Button>
               ))}
           </div>
           <div className="hidden h-96 basis-1/2 md:block">
-            {src && (
+            {image?.src && (
               <img
                 className="mx-auto h-full w-full object-contain object-center"
-                src={src}
-                alt={alt}
+                src={image?.src}
+                alt={image?.alt}
               />
             )}
           </div>

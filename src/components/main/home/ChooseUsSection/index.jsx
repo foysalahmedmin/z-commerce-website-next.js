@@ -27,9 +27,9 @@ const ChooseUsSection = () => {
                 dolorem iste veritatis voluptatem eligendi placeat fugiat!
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-2">
               <div className="flex items-center gap-4">
-                <Snail className="size-24 text-primary" />
+                <Snail className="size-20 text-primary" strokeWidth={1} />
                 <div>
                   <h3>Good Quality</h3>
                   <p className="text-sm">
@@ -39,7 +39,7 @@ const ChooseUsSection = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <Leaf className="size-24 text-primary" />
+                <Leaf className="size-20 text-primary" strokeWidth={1} />
                 <div>
                   <h3>Environment Friendly</h3>
                   <p className="text-sm">
@@ -49,7 +49,10 @@ const ChooseUsSection = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <BaggageClaim className="size-24 text-primary" />
+                <BaggageClaim
+                  className="size-20 text-primary"
+                  strokeWidth={1}
+                />
                 <div>
                   <h3>Better Service</h3>
                   <p className="text-sm">
@@ -59,7 +62,7 @@ const ChooseUsSection = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <Truck className="size-24 text-primary" />
+                <Truck className="size-20 text-primary" strokeWidth={1} />
                 <div>
                   <h3>Fast Delivery</h3>
                   <p className="text-sm">
