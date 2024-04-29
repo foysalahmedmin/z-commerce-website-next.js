@@ -1,0 +1,27 @@
+.text-editor h2,
+.text-editor h3,
+.text-editor h4,
+.text-editor h5,
+.text-editor h6 {
+  @apply font-semibold text-title;
+}
+
+.text-editor h1 {
+  @apply font-bold;
+}
+
+.text-editor {
+  @apply font-comfortaa text-sm;
+}
+
+.text-editor ul {
+  @apply list-inside;
+}
+
+.text-editor ul:not([style*="list-style-type"]) > li {
+  @apply relative my-auto pl-6 text-sm before:absolute before:left-0 before:top-[-2px] before:block before:h-6 before:w-4 before:bg-[url(/images/svg/check.svg)] before:bg-contain before:bg-center before:bg-no-repeat;
+}
+
+.text-editor ul ul:not([style*="list-style-type"]) li {
+  @apply relative my-auto pl-6 text-sm before:absolute before:left-0 before:top-[-2px] before:block before:h-6 before:w-4 before:bg-[url(/images/svg/star-solid.svg)] before:bg-contain before:bg-center before:bg-no-repeat;
+}

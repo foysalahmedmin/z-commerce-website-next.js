@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import "../assets/styles/scss/base/variable.scss";
+  @import "../assets/styles/scss/base/elements.scss";
+}
+
+@layer components {
+  @import "../assets/styles/scss/components/text-editor.scss";
+}
+
+@layer utilities {
+  @import "../assets/styles/scss/utilities/index.scss";
+}

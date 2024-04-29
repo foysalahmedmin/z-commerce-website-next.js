@@ -1,0 +1,23 @@
+.pl-container {
+  @apply pl-[3.5vw] lg:pl-[2.5vw] xl:pl-[1.5vw] 2xl:pl-[1vw];
+}
+
+.pr-container {
+  @apply pr-[3.5vw] lg:pr-[2.5vw] xl:pr-[1.5vw] 2xl:pr-[1vw];
+}
+
+.px-container {
+  @apply mx-auto px-[3.5vw] lg:px-[2.5vw] xl:px-[1.5vw] 2xl:px-[1vw];
+}
+
+.bg-gradient {
+  @apply bg-gradient-to-t from-primary to-secondary;
+}
+
+.short-underline {
+  @apply relative after:absolute after:inset-0 after:w-12 after:border-b-4 after:border-primary after:content-[''];
+}
+
+.hide-rest {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-12 after:bg-gradient-to-t after:from-card after:content-[''];
+}

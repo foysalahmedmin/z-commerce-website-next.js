@@ -1,33 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // corePlugins: {
-  //   preflight: false,
-  // },
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   prefix: "",
   theme: {
     container: {
       center: true,
       padding: {
-        DEFAULT: '3.5%',
-        'sm': '3.5%',
-        'lg': '2.5%',
-        'xl': '1.5%',
-        '2xl': '1%',
-      },
-      screens: {
-        "2xl": "1400px",
+        DEFAULT: "3.5vw",
+        lg: "2.5vw",
+        xl: "1.5vw",
+        "2xl": "1vw",
       },
     },
     extend: {
       fontFamily: {
-        "roboto-serif" : ["var(--font-roboto-serif)"]
+        mulish: ["var(--font-mulish)"],
+        philosopher: ["var(--font-philosopher)"],
+        comfortaa: ["var(--font-comfortaa)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -35,10 +30,6 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        color:{
-          DEFAULT: "hsl(var(--color))",
-          foreground: "hsl(var(--color-foreground))",
-        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -67,6 +58,10 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        title: {
+          DEFAULT: "hsl(var(--title))",
+          foreground: "hsl(var(--title-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -74,39 +69,37 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "pop": {
-          '0%': {
-            transform: 'scale(.95)',
+        "loading-spin": {
+          "100%": {
+            transform: "rotate(360deg)",
           },
-          '40%': {
-            transform: 'scale(1.03)',
-          },
-          '100%': {
-            transform: 'scale(1)'
-          }
         },
-        "banner-circle": {
-          '0%': {
-            position: 'absolute',
-            top: '50%',
-            right: '50%',
-            borderRadius: "100%",
-            transform: 'translate(50%, -50%) scale(.5)',
+        pop: {
+          "0%": {
+            transform: "scale(.95)",
           },
-          '40%': {
-            position: 'absolute',
-            top: '2.5%',
-            right: '2.5%',
-            transform: 'translate(0%, 0%) scale(1.3)',
-            borderRadius: "60% 50% 50% 60%", 
+          "40%": {
+            transform: "scale(1.03)",
           },
-          '100%': {
-            position: 'absolute',
-            top: '2.5%',
-            right: '2.5%',
-            borderRadius: "60% 10% 30% 60%",
-            transform: 'translate(0%, 0%) scale(1)',
-          }
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
+        bounce: {
+          "0%": {
+            transform: "translate(0, -2rem)",
+          },
+          "100%": {
+            transform: "translate(0, 0)",
+          },
+        },
+        "info-graph": {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-1360px)",
+          },
         },
         "accordion-down": {
           from: { height: "0" },
@@ -118,12 +111,18 @@ module.exports = {
         },
       },
       animation: {
-        "pop": "pop .5s ease-in-out",
-        "banner-circle": "banner-circle 1.5s ease-in-out",
+        "loading-spin":
+          "loading-spin 3s cubic-bezier(0.56, -0.24, 0.41, 1.23) infinite",
+        pop: "pop .5s ease-in-out",
+        bounce: "bounce 1s ease-in-out",
+        "info-graph": "info-graph 30s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("./custom-plugin")],
-}
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@/assets/styles/plugins/index"),
+  ],
+};
