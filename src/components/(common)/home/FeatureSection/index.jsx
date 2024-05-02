@@ -30,7 +30,7 @@ const FeatureSection = () => {
           {data.map((item, index) => (
             <div
               key={index}
-              className="flex w-full items-center justify-start gap-2 rounded-md border bg-muted px-2 py-4 md:w-64"
+              className="flex w-full items-center justify-start gap-2 rounded-md border bg-card px-2 py-4 md:w-64"
             >
               <item.icon className="size-12" strokeWidth={1} />
               <div className="border-l-4 border-primary pl-2">

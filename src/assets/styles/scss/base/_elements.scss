@@ -13,7 +13,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+strong,
+th {
   @apply font-semibold text-title;
 }
 h1 {
@@ -33,6 +35,14 @@ h5 {
 }
 h6 {
   @apply text-base;
+}
+
+div,
+p,
+span,
+small,
+li {
+  @apply text-foreground;
 }
 
 ul {

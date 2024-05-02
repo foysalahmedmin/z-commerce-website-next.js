@@ -1,3 +1,4 @@
+import Provider from "@/components/provider";
 import { locales } from "@/constants/locales";
 import { Comfortaa, Mulish, Philosopher } from "next/font/google";
 import { notFound } from "next/navigation";
@@ -46,7 +47,7 @@ export default function RootLayout({ children, params: { locale } }) {
           philosopher.variable
         }
       >
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

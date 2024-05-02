@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
 const buttonVariants = cva(
-  "animate-pop relative gap-2 inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95 disabled:active:scale-100 disabled:animate-none fill-primary-foreground overflow-hidden",
+  "animate-pop relative gap-2 inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95 disabled:active:scale-100 disabled:animate-none disabled:cursor-no-drop fill-primary-foreground overflow-hidden",
   {
     variants: {
       variant: {

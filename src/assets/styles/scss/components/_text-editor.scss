@@ -2,7 +2,9 @@
 .text-editor h3,
 .text-editor h4,
 .text-editor h5,
-.text-editor h6 {
+.text-editor h6,
+.text-editor strong,
+.text-editor th {
   @apply font-semibold text-title;
 }
 

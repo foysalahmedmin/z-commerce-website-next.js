@@ -121,8 +121,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("@/assets/styles/plugins/index"),
-  ],
+  plugins: [require("tailwindcss-animate")],
 };

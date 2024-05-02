@@ -1,7 +1,3 @@
 export const Title = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div></div>;
 };
