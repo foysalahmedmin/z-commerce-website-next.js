@@ -15,7 +15,11 @@
 }
 
 .short-underline {
-  @apply relative after:absolute after:inset-0 after:w-12 after:border-b-4 after:border-primary after:content-[''];
+  @apply relative after:absolute after:inset-0 after:w-12 after:border-b after:border-primary after:content-[''];
+}
+
+.underline-animated {
+  @apply relative transition-all duration-300 hover:after:w-full after:transition-all after:duration-300 after:absolute after:inset-0 after:w-0 after:border-b after:border-primary after:content-[''];
 }
 
 .hide-rest {

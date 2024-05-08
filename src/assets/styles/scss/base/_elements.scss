@@ -6,7 +6,7 @@ html {
   @apply scroll-p-16 scroll-smooth;
 }
 body {
-  @apply scroll-smooth bg-background font-comfortaa text-sm text-foreground;
+  @apply scroll-smooth bg-background font-mulish text-sm text-foreground;
 }
 
 h2,
@@ -37,14 +37,10 @@ h6 {
   @apply text-base;
 }
 
-div,
-p,
-span,
-small,
-li {
-  @apply text-foreground;
-}
-
 ul {
   @apply list-inside;
+}
+
+input {
+  @apply cursor-pointer accent-accent disabled:cursor-not-allowed;
 }

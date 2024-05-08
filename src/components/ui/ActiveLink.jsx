@@ -25,4 +25,3 @@ const ActiveLink = forwardRef(
 ActiveLink.displayName = "ActiveLink";
 
 export { ActiveLink };
-

@@ -1,5 +1,5 @@
 import chooseUsImage from "@/../public/images/home/choose-us.png";
-import { Title } from "@/components/ui/title";
+import { Title } from "@/components/ui/Title";
 import { BaggageClaim, Leaf, Snail, Truck } from "lucide-react";
 import Image from "next/image";
 

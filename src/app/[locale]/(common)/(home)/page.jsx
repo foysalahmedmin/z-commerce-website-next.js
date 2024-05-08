@@ -1,6 +1,7 @@
-import BannerSection from "@/components/(common)/about/BannerSection";
+import BannerSection from "@/components/(common)/home/BannerSection";
 import ChooseUsSection from "@/components/(common)/home/ChooseUsSection";
 import FeatureSection from "@/components/(common)/home/FeatureSection";
+import { Checkbox } from "@/components/ui/Checkbox";
 import { titleGenerator } from "@/lib/utils";
 
 export const metadata = {
@@ -14,13 +15,10 @@ const HomePage = () => {
       <BannerSection />
       <FeatureSection />
       <ChooseUsSection />
-      <div className="container py-12">
-        <input
-          style={{ background: "red" }}
-          className="size-5 bg-transparent accent-red-600"
-          type="checkbox"
-          id="toggle"
-        />
+      <div className="flex h-screen items-center justify-center">
+        <div>
+          <Checkbox />
+        </div>
       </div>
     </main>
   );

@@ -51,8 +51,9 @@ const Toggler = forwardRef(
     return (
       <Button
         ref={ref}
-        className={cn("relative", className)}
+        className={cn("relative size-6", className)}
         variant="none"
+        size="none"
         {...props}
       >
         <TrueComp isTrue={isTrue} {...trueComp} />
