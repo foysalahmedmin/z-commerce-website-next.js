@@ -1,0 +1,7 @@
+.checkbox {
+  @apply shrink-0 size-4 appearance-none rounded-md border cursor-pointer hover:bg-muted/50 checked:border-accent checked:bg-checkbox checked:animate-checkbox hover:disabled:bg-transparent;
+}
+
+.radio {
+  @apply shrink-0 size-4 appearance-none rounded-full border cursor-pointer hover:bg-muted/50 checked:border-accent checked:bg-accent checked:shadow-radio hover:checked:bg-accent checked:animate-radio;
+}

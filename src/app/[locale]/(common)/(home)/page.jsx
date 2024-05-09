@@ -1,7 +1,6 @@
 import BannerSection from "@/components/(common)/home/BannerSection";
 import ChooseUsSection from "@/components/(common)/home/ChooseUsSection";
 import FeatureSection from "@/components/(common)/home/FeatureSection";
-import { Checkbox } from "@/components/ui/Checkbox";
 import { titleGenerator } from "@/lib/utils";
 
 export const metadata = {
@@ -17,7 +16,10 @@ const HomePage = () => {
       <ChooseUsSection />
       <div className="flex h-screen items-center justify-center">
         <div>
-          <Checkbox />
+          <input type="checkbox" className="switch" />
+          <input type="checkbox" className="checkbox" />
+          <input type="radio" className="radio" name="radio" />
+          <input type="radio" className="radio" name="radio" />
         </div>
       </div>
     </main>

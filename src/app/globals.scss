@@ -8,6 +8,8 @@
 }
 
 @layer components {
+  @import "../assets/styles/scss/components/index.scss";
+  @import "../assets/styles/scss/components/form.scss";
   @import "../assets/styles/scss/components/text-editor.scss";
 }
 

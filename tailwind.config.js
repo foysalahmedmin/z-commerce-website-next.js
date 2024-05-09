@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{js,jsx}",
@@ -23,6 +23,32 @@ module.exports = {
         mulish: ["var(--font-mulish)"],
         philosopher: ["var(--font-philosopher)"],
         comfortaa: ["var(--font-comfortaa)"],
+      },
+      backgroundImage: {
+        checkbox: `linear-gradient(
+          -45deg,
+          transparent 65%,
+          hsl(var(--accent)) 65.99%
+        ),
+        linear-gradient(45deg, transparent 75%, hsl(var(--accent)) 75.99%),
+        linear-gradient(-45deg, hsl(var(--accent)) 40%, transparent 40.99%),
+        linear-gradient(
+          45deg,
+          hsl(var(--accent)) 30%,
+          hsl(var(--accent-foreground)) 30.99%,
+          hsl(var(--accent-foreground)) 40%,
+          transparent 40.99%
+        ),
+        linear-gradient(
+          -45deg,
+          hsl(var(--accent-foreground)) 50%,
+          hsl(var(--accent)) 50.99%
+        )`,
+      },
+      boxShadow: {
+        radio: `0 0 0 .25em hsl(var(--accent-foreground)) inset`,
+        "switch-off": `calc(var(--switch-value) * -1) 0 0 0.1rem hsl(var(--accent-foreground)) inset, 0 0 0 0.1rem hsl(var(--accent-foreground)) inset`,
+        "switch-on": `var(--switch-value) 0 0 0.1rem hsl(var(--accent-foreground)) inset, 0 0 0 0.1rem hsl(var(--accent-foreground)) inset`,
       },
       colors: {
         border: "hsl(var(--border))",
@@ -64,8 +90,8 @@ module.exports = {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - .1em)",
+        sm: "calc(var(--radius) - .25em)",
       },
       keyframes: {
         "loading-spin": {
@@ -73,12 +99,45 @@ module.exports = {
             transform: "rotate(360deg)",
           },
         },
+        checkbox: {
+          "0%": {
+            backgroundPositionY: ".25em",
+          },
+          "50%": {
+            backgroundPositionY: "-0.1em",
+          },
+          "100%": {
+            backgroundPositionY: "-0",
+          },
+        },
+        radio: {
+          "0%": {
+            boxShadow: "0 0 0 .5em hsl(var(--accent-foreground)) inset",
+          },
+          "50%": {
+            boxShadow: "0 0 0 .1em hsl(var(--accent-foreground)) inset",
+          },
+          "100%": {
+            boxShadow: "0 0 0 .25em hsl(var(--accent-foreground)) inset",
+          },
+        },
         pop: {
           "0%": {
             transform: "scale(.95)",
           },
-          "40%": {
+          "50%": {
             transform: "scale(1.03)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
+        "pop-lg": {
+          "0%": {
+            transform: "scale(0)",
+          },
+          "50%": {
+            transform: "scale(1.5)",
           },
           "100%": {
             transform: "scale(1)",
@@ -90,14 +149,6 @@ module.exports = {
           },
           "100%": {
             transform: "translate(0, 0)",
-          },
-        },
-        "info-graph": {
-          "0%": {
-            transform: "translateX(0)",
-          },
-          "100%": {
-            transform: "translateX(-1360px)",
           },
         },
         "accordion-down": {
@@ -112,8 +163,11 @@ module.exports = {
       animation: {
         "loading-spin":
           "loading-spin 3s cubic-bezier(0.56, -0.24, 0.41, 1.23) infinite",
+        checkbox: "checkbox .5s ease-in-out",
+        radio: "radio .5s ease-in-out",
         pop: "pop .5s ease-in-out",
-        bounce: "bounce 1s ease-in-out",
+        "pop-lg": "pop-lg .5s ease-in-out",
+        bounce: "bounce .5s ease-in-out",
         "info-graph": "info-graph 30s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
@@ -122,3 +176,5 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+
+export default config;
