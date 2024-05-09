@@ -41,6 +41,7 @@ ul {
   @apply list-inside;
 }
 
-input {
-  @apply cursor-pointer accent-accent disabled:cursor-not-allowed disabled:animate-none disabled:checked:animate-none;
+input,
+textarea {
+  @apply cursor-pointer accent-accent disabled:animate-none disabled:cursor-not-allowed disabled:opacity-50 disabled:checked:animate-none;
 }

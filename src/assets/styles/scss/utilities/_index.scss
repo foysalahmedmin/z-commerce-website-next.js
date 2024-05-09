@@ -22,6 +22,10 @@
   @apply relative transition-all duration-300 hover:after:w-full after:transition-all after:duration-300 after:absolute after:inset-0 after:w-0 after:border-b after:border-primary after:content-[''];
 }
 
+.short-spin {
+  @apply content-[''] size-[1em] border-current animate-spin rounded-full border-4 border-dashed;
+}
+
 .hide-rest {
   @apply relative after:absolute after:bottom-0 after:left-0 after:right-0 after:block after:h-12 after:bg-gradient-to-t after:from-card after:content-[''];
 }

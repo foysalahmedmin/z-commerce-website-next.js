@@ -31,7 +31,6 @@
   --light: 210 40% 96%;
 
   --radius: 0.5rem;
-  --switch-value: 1rem;
 }
 
 .dark {
@@ -63,20 +62,4 @@
   --input: 215 25% 27%;
   --ring: 215 25% 27%;
   --title: 210 40% 96%;
-}
-
-.switch-sm {
-  --switch-value: 0.75rem;
-}
-
-.switch-base {
-  --switch-value: 1rem;
-}
-
-.switch-md {
-  --switch-value: 1.5rem;
-}
-
-.switch-lg {
-  --switch-value: 2rem;
 }

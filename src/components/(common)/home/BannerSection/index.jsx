@@ -53,7 +53,7 @@ const BannerSection = () => {
       >
         <CarouselContent>
           {data.map((item, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem key={index} className="group/slide">
               <BannerSlide item={item} />
             </CarouselItem>
           ))}

@@ -5,7 +5,14 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import emblaCarouselAutoplay from "embla-carousel-autoplay";
-import { createContext, forwardRef, useCallback, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  forwardRef,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 const CarouselContext = createContext(null);
 
@@ -112,9 +119,9 @@ const Carousel = forwardRef(
 
           if (slideNodes[selectedScrollSnap]) {
             slideNodes.forEach((node) => {
-              node.classList.remove("selected-slide-node");
+              node.classList.remove("active-slide-node");
             });
-            slideNodes[selectedScrollSnap].classList.add("selected-slide-node");
+            slideNodes[selectedScrollSnap].classList.add("active-slide-node");
             setSelectedNode(slideNodes[selectedScrollSnap]);
           }
         }
@@ -317,6 +324,5 @@ export {
   CarouselItem,
   CarouselNext,
   CarouselPagination,
-  CarouselPrevious
+  CarouselPrevious,
 };
-

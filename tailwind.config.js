@@ -47,8 +47,8 @@ const config = {
       },
       boxShadow: {
         radio: `0 0 0 .25em hsl(var(--accent-foreground)) inset`,
-        "switch-off": `calc(var(--switch-value) * -1) 0 0 0.1rem hsl(var(--accent-foreground)) inset, 0 0 0 0.1rem hsl(var(--accent-foreground)) inset`,
-        "switch-on": `var(--switch-value) 0 0 0.1rem hsl(var(--accent-foreground)) inset, 0 0 0 0.1rem hsl(var(--accent-foreground)) inset`,
+        "switch-off": `-1em 0 0 0.1em hsl(var(--accent-foreground)) inset, 0 0 0 0.1em hsl(var(--accent-foreground)) inset`,
+        "switch-on": `1em 0 0 0.1em hsl(var(--accent-foreground)) inset, 0 0 0 0.1em hsl(var(--accent-foreground)) inset`,
       },
       colors: {
         border: "hsl(var(--border))",
@@ -132,20 +132,31 @@ const config = {
             transform: "scale(1)",
           },
         },
-        "pop-lg": {
+        "pop-circle": {
           "0%": {
-            transform: "scale(0)",
+            transform: "scale(.0)",
+            borderRadius: "100%",
           },
-          "50%": {
+          "20%": {
+            transform: "scale(1.3)",
+            borderRadius: "100%",
+          },
+          "40%": {
+            transform: "scale(1.1)",
+            borderRadius: "35%",
+          },
+          "60%": {
             transform: "scale(1.5)",
+            borderRadius: "45%",
           },
           "100%": {
             transform: "scale(1)",
+            borderRadius: "100%",
           },
         },
         bounce: {
           "0%": {
-            transform: "translate(0, -2rem)",
+            transform: "translate(0, -2em)",
           },
           "100%": {
             transform: "translate(0, 0)",
@@ -166,9 +177,8 @@ const config = {
         checkbox: "checkbox .5s ease-in-out",
         radio: "radio .5s ease-in-out",
         pop: "pop .5s ease-in-out",
-        "pop-lg": "pop-lg .5s ease-in-out",
+        "pop-circle": "pop-circle 3s",
         bounce: "bounce .5s ease-in-out",
-        "info-graph": "info-graph 30s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },

@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
 const checkboxVariants = cva(
-  "animate-pop group relative size-4 inline-block rounded-md ring-offset-background cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-95 has-[input:disabled]:pointer-events-none has-[input:disabled]:opacity-50 has-[input:disabled]:active:scale-100 has-[input:disabled]:animate-none has-[input:disabled]:cursor-no-drop fill-primary-foreground overflow-hidden appearance-none border",
+  "group relative size-4 inline-block rounded-md ring-offset-background cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:scale-95 has-[input:disabled]:pointer-events-none has-[input:disabled]:opacity-50 has-[input:disabled]:active:scale-100 has-[input:disabled]:animate-none has-[input:disabled]:cursor-no-drop fill-primary-foreground overflow-hidden appearance-none border",
   {
     variants: {
       variant: {
@@ -34,7 +34,7 @@ const Icon = forwardRef(({ className, children, ...props }, ref) => {
         role="presentation"
         viewBox="0 0 17 18"
         className={cn(
-          "absolute inset-0 z-10 m-auto w-[65%] pl-[5%] opacity-0 transition-opacity group-has-[input:checked]:opacity-100 motion-reduce:transition-none",
+          "absolute inset-0 z-10 m-auto size-[65%] opacity-0 transition-opacity group-has-[input:checked]:opacity-100 motion-reduce:transition-none",
           className,
         )}
         ref={ref}
@@ -47,7 +47,7 @@ const Icon = forwardRef(({ className, children, ...props }, ref) => {
           strokeDasharray="22"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
+          strokeWidth="3"
           style={{ transition: "stroke-dashoffset 250ms linear 0.2s" }}
           className="[stroke-dashoffset:66] group-has-[input:checked]:[stroke-dashoffset:44]"
         />

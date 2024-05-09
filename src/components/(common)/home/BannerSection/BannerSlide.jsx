@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 import Link from "next/link";
 
 const BannerSlide = ({ item }) => {
@@ -42,13 +43,15 @@ const BannerSlide = ({ item }) => {
           </div>
           <div className="relative hidden h-96 basis-1/2 md:block">
             {image?.src && (
-              <img
+              <Image
                 className="mx-auto h-full w-full object-contain object-center"
+                height={384}
+                width={240}
                 src={image?.src}
                 alt={image?.alt}
               />
             )}
-            <div className="banner-circle absolute inset-0 -z-10 mx-auto my-auto aspect-square h-[90vw] origin-top-right rounded-full bg-primary/50 group-active:bg-red-300 md:h-[70vh] [&_p]:mt-0" />
+            <div className="banner-circle group-[.active-slide-node]/slide:animate-pop-circle absolute inset-0 -z-10 mx-auto my-auto aspect-square h-[90vw] max-h-80 origin-center rounded-[100%] bg-primary/50 delay-1000 md:h-[70vh] [&_p]:mt-0" />
           </div>
         </div>
       </div>
