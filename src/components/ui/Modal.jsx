@@ -7,7 +7,7 @@ import { X } from "lucide-react";
 import { forwardRef } from "react";
 
 const modalVariants = cva(
-  "transition-all duration-300 bg-card origin-center text-card-foreground border px-4 py-4 lg:px-6",
+  "transition-[opacity,transform] absolute m-auto duration-300 bg-card origin-center text-card-foreground border rounded-md",
   {
     variants: {
       variant: {
@@ -36,16 +36,19 @@ const Header = forwardRef(
   ({ isCloseButton, closeHandler, children, className, ...props }, ref) => {
     return (
       <div
-        className={cn("flex items-center justify-between", className)}
+        className={cn(
+          "flex items-center justify-between px-4 py-4 group-[.primary]:bg-primary group-[.secondary]:bg-secondary group-[.primary]:text-primary-foreground group-[.secondary]:text-secondary-foreground lg:px-6",
+          className,
+        )}
         ref={ref}
         {...props}
       >
         <div className="flex-1">{children && children}</div>
         {isCloseButton && closeHandler && (
           <Button
-            className="ml-auto h-6 w-6 hover:border-primary hover:text-primary"
+            className="ml-auto"
             variant="outline"
-            size="icon_sm"
+            size="icon-sm"
             onClick={() => closeHandler()}
           >
             <X size={16} />
@@ -76,10 +79,10 @@ const Modal = forwardRef(
     return (
       <div
         className={cn(
-          "px-container fixed inset-0 z-[1000] flex h-screen w-screen origin-center items-center justify-center overflow-y-auto bg-background/85 py-[1vh] backdrop-blur transition-all duration-200",
+          "px-container fixed inset-0 z-[1000] flex h-screen w-screen origin-center items-center justify-center overflow-y-auto bg-background/85 py-[1vh] backdrop-blur transition-[opacity,transform,visibility] duration-200",
           {
             "invisible scale-0 opacity-0 delay-300": !isOpen,
-            "scale-100 opacity-100": isOpen,
+            "visible scale-100 opacity-100": isOpen,
           },
         )}
         onClick={(e) => {
@@ -88,32 +91,30 @@ const Modal = forwardRef(
           }
         }}
       >
-        <div className="absolute">
-          <div
-            className={cn(
-              {
-                "scale-0 animate-pop opacity-0": !isOpen,
-                "scale-100 animate-pop opacity-100 delay-200": isOpen,
-              },
-              modalVariants({
-                variant,
-                size,
-                className,
-              }),
+        <div
+          className={cn(
+            {
+              "scale-0 animate-pop opacity-0": !isOpen,
+              "scale-100 animate-pop opacity-100 delay-200": isOpen,
+            },
+            modalVariants({
+              variant,
+              size,
+              className,
+            }),
+          )}
+          ref={ref}
+          {...props}
+        >
+          <div>
+            {(header || (isCloseButton && closeHandler)) && (
+              <Header
+                {...header}
+                isCloseButton={isCloseButton}
+                closeHandler={closeHandler}
+              />
             )}
-            ref={ref}
-            {...props}
-          >
-            <div>
-              {(header || (isCloseButton && closeHandler)) && (
-                <Header
-                  {...header}
-                  isCloseButton={isCloseButton}
-                  closeHandler={closeHandler}
-                />
-              )}
-              <div>{children}</div>
-            </div>
+            <div>{children}</div>
           </div>
         </div>
       </div>
