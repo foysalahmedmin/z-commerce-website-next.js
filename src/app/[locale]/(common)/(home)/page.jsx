@@ -2,7 +2,6 @@ import BannerSection from "@/components/(common)/home/BannerSection";
 import ChooseUsSection from "@/components/(common)/home/ChooseUsSection";
 import FeatureSection from "@/components/(common)/home/FeatureSection";
 import { titleGenerator } from "@/lib/utils";
-import HDrawer from "./HDrawer";
 
 export const metadata = {
   title: titleGenerator(["Home"]),
@@ -15,7 +14,6 @@ const HomePage = () => {
       <BannerSection />
       <FeatureSection />
       <ChooseUsSection />
-      <HDrawer />
     </main>
   );
 };

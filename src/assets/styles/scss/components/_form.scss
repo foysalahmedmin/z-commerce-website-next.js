@@ -1,15 +1,63 @@
+.radio {
+  @apply inline-block size-[1em] shrink-0 cursor-pointer appearance-none rounded-full border text-base  hover:bg-muted/15;
+  &:disabled {
+    @apply opacity-50 hover:bg-transparent animate-none;
+  }
+  &.active,
+  &:checked,
+  &[data-active="true"] {
+    @apply animate-radio border-accent bg-accent shadow-radio;
+  }
+  &.loading,
+  &[data-loading="true"] {
+    @apply cursor-wait opacity-50 hover:bg-transparent animate-none;
+  }
+}
+
 .checkbox {
-  @apply checked:bg-checkbox checked:animate-checkbox size-[1em] shrink-0 cursor-pointer appearance-none rounded border text-base checked:border-accent hover:bg-muted/50 disabled:opacity-50 hover:disabled:bg-transparent;
+  @apply inline-block size-[1em] shrink-0 cursor-pointer appearance-none rounded border text-base hover:bg-muted/15;
+  &:disabled {
+    @apply opacity-50 hover:bg-transparent animate-none;
+  }
+  &.active,
+  &:checked,
+  &[data-active="true"] {
+    @apply animate-checkbox border-accent bg-checkbox;
+  }
+  &.loading,
+  &[data-loading="true"] {
+    @apply cursor-wait opacity-50 hover:bg-transparent animate-none;
+  }
 }
 
 .switch {
-  @apply shadow-switch-off checked:shadow-switch-on h-[1em] w-[2em] shrink-0 cursor-pointer appearance-none rounded border bg-accent/75 text-base transition-shadow duration-500 checked:border-accent checked:bg-accent disabled:opacity-50;
-}
-
-.radio {
-  @apply checked:shadow-radio checked:animate-radio disabled:opacity-50 size-[1em] shrink-0 cursor-pointer appearance-none rounded-full border text-base checked:border-accent checked:bg-accent hover:bg-muted/50 hover:checked:bg-accent hover:disabled:bg-transparent;
+  @apply inline-block h-[1em] w-[2em] shrink-0 cursor-pointer appearance-none rounded-full border bg-accent/75 text-base shadow-switch-off transition-shadow duration-500;
+  &:disabled {
+    @apply opacity-50 animate-none;
+  }
+  &.active,
+  &:checked,
+  &[data-active="true"] {
+    @apply border-accent bg-accent shadow-switch-on;
+  }
+  &.loading,
+  &[data-loading="true"] {
+    @apply cursor-wait opacity-50 hover:bg-transparent animate-none;
+  }
 }
 
 .input {
-  @apply flex h-[2.5em] w-full resize-y items-center gap-[.5em] rounded-md border bg-transparent px-[1em] text-base placeholder:text-input focus-within:border-accent hover:bg-muted/50 disabled:opacity-50 focus-within:disabled:border-border;
+  @apply flex min-h-[2.5em] w-full outline-none resize-y items-center gap-[.5em] rounded-md border bg-transparent px-[1em] text-base placeholder:text-input hover:bg-muted/15;
+  &:disabled {
+    @apply opacity-50 hover:bg-transparent border-border animate-none;
+  }
+  &.active,
+  &:focus-within,
+  &[data-active="true"] {
+    @apply border-accent bg-muted/15;
+  }
+  &.loading,
+  &[data-loading="true"] {
+    @apply cursor-wait opacity-50 hover:bg-transparent animate-none;
+  }
 }
