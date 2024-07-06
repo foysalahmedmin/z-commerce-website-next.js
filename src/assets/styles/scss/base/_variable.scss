@@ -6,22 +6,27 @@
   --card-foreground: 215 25% 27%;
 
   --popover: 20 14.3% 4.1%;
-  --popover-foreground: 0 0% 100%;
+  --popover-foreground: 210 40% 96%;
 
-  --primary: 41 100% 43%;
-  --primary-foreground: 0 0% 100%;
+  --accent: 147 37% 52%;
+  --accent-secondary: 19 100% 64%;
+  --accent-ternary: 210 40% 96%;
+  --accent-foreground: 210 40% 96%;
 
-  --secondary: 46 100% 55%;
-  --secondary-foreground: 0 0% 100%;
+  --primary: 147 37% 52%;
+  --primary-foreground: 210 40% 96%;
+
+  --secondary: 19 100% 64%;
+  --secondary-foreground: 210 40% 96%;
+
+  --ternary: 237 100% 75%;
+  --ternary-foreground: 210 40% 96%;
 
   --muted: 213 27% 84%;
   --muted-foreground: 215 16% 47%;
 
-  --accent: 41 100% 43%;
-  --accent-foreground: 210 40% 96%;
-
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive-foreground: 210 40% 96%;
 
   --border: 213 27% 84%;
   --input: 213 27% 84%;
@@ -31,6 +36,8 @@
   --light: 210 40% 96%;
 
   --radius: 0.5rem;
+  --header-height: 4rem;
+  --container-space: 5vw;
 }
 
 .dark {
@@ -41,25 +48,54 @@
   --card-foreground: 213 27% 84%;
 
   --popover: 20 14.3% 4.1%;
-  --popover-foreground: 0 0% 100%;
+  --popover-foreground: 210 40% 96%;
 
-  --primary: 41 100% 43%;
-  --primary-foreground: 0 0% 100%;
+  --accent: 147 37% 52%;
+  --accent-secondary: 19 100% 64%;
+  --accent-ternary: 210 40% 96%;
+  --accent-foreground: 222 47% 11%;
 
-  --secondary: 46 100% 55%;
-  --secondary-foreground: 0 0% 100%;
+  --primary: 147 37% 52%;
+  --primary-foreground: 210 40% 96%;
+
+  --secondary: 19 100% 64%;
+  --secondary-foreground: 210 40% 96%;
+
+  --ternary: 237 100% 75%;
+  --ternary-foreground: 210 40% 96%;
 
   --muted: 215 25% 27%;
   --muted-foreground: 215 16% 47%;
 
-  --accent: 41 100% 43%;
-  --accent-foreground: 222 47% 11%;
-
   --destructive: 0 72.2% 50.6%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive-foreground: 210 40% 96%;
 
   --border: 215 25% 27%;
   --input: 215 25% 27%;
   --ring: 215 25% 27%;
   --title: 210 40% 96%;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-space: 3.5vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-space: 2.5vw;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-space: 1vw;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --container-space: 2.5rem;
+  }
 }

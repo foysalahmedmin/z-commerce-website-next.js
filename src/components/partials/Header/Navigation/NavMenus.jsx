@@ -1,6 +1,5 @@
-"use client";
-
 import { ActiveLink } from "@/components/ui/ActiveLink";
+import { pathProcessor } from "@/lib/utils";
 import {
   Binary,
   Boxes,
@@ -9,11 +8,10 @@ import {
   PackageSearch,
   Store,
 } from "lucide-react";
-import { useLocale } from "next-intl";
 
 const routes = [
   {
-    path: "",
+    path: "/",
     label: "Home",
     icon: <HomeIcon size={16} />,
   },
@@ -29,12 +27,12 @@ const routes = [
   },
   {
     path: "/all-brands",
-    label: "all-brands",
+    label: "All Brands",
     icon: <Binary size={16} />,
   },
   {
     path: "/all-sellers",
-    label: "all-sellers",
+    label: "All Sellers",
     icon: <PackageSearch size={16} />,
   },
   {
@@ -45,19 +43,18 @@ const routes = [
 ];
 
 const NavMenus = () => {
-  const localeActive = useLocale();
   return (
     <>
       {routes.map((route, i) => (
         <li key={i}>
           <ActiveLink
-            href={"/" + localeActive + route?.path}
+            href={"/" + pathProcessor(route?.path)}
             className={
-              "underline-animated cursor-pointer gap-1 py-1 font-comfortaa text-sm uppercase text-title after:mx-auto after:border-title"
+              "underline-animated font-comfortaa cursor-pointer gap-1 py-1 text-title after:mx-auto after:border-title"
             }
             activeClassName="after:border-primary after:w-full"
           >
-            <span>{route?.label}</span>
+            <span className="text-sm uppercase">{route?.label}</span>
           </ActiveLink>
         </li>
       ))}

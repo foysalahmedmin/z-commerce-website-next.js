@@ -1,3 +1,5 @@
+"use client";
+
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
@@ -22,9 +24,9 @@ const dropdownVariants = cva(
 );
 
 const Dropdown = forwardRef(
-  ({ closeHandler, isOpen, children, className, side, ...props }, ref) => {
+  ({ onClose, isOpen, children, className, side, ...props }, ref) => {
     const internalRef = useRef(null);
-    useClickOutside(internalRef, closeHandler);
+    useClickOutside(internalRef, onClose);
     return (
       <div
         className={cn(

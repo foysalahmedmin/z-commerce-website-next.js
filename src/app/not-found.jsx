@@ -1,5 +1,6 @@
 "use client";
 
+import errorImage from "@/assets/images/svg/error.svg";
 import Image from "next/image";
 
 const NotFound = () => {
@@ -9,14 +10,9 @@ const NotFound = () => {
         <div className="mx-auto max-w-[768px] px-6 text-center">
           <div className="mb-12">
             <div className="mx-auto mb-4 flex items-center justify-center">
-              <Image
-                src="/images/svg/error.svg"
-                width={150}
-                height={150}
-                alt="error"
-              />
+              <Image src={errorImage} width={150} height={150} alt="error" />
             </div>
-            <strong className="mb-4 inline-block font-comfortaa text-base uppercase tracking-[.2rem] text-primary">
+            <strong className="font-comfortaa mb-4 inline-block text-base uppercase tracking-[.2rem] text-primary">
               404
             </strong>
             <h1 className="mb-4 text-xl font-bold lg:text-3xl">Not Found</h1>

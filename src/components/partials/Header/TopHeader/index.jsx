@@ -20,10 +20,6 @@ const TopHeader = () => {
           >
             Sign-in To Seller
           </Link>
-          <div className="flex items-center gap-1 pl-2">
-            <span>Helpline</span>
-            <span>+01 112 352 566</span>
-          </div>
         </div>
       </div>
     </div>

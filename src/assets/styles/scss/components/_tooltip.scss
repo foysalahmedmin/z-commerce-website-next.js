@@ -1,0 +1,6 @@
+.tooltip[data-tooltip] {
+  @apply relative;
+  &:hover::after {
+    @apply absolute left-1/2 top-1 z-10 mx-auto -translate-x-1/2 -translate-y-full rounded-sm border bg-card px-2 py-1 text-sm text-foreground content-[attr(data-tooltip)];
+  }
+}

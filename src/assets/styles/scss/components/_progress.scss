@@ -1,0 +1,13 @@
+progress {
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 0.5rem;
+}
+progress::-webkit-progress-bar {
+  border-radius: 7px;
+  background-color: hsla(var(--muted) / 0.5);
+}
+progress::-webkit-progress-value {
+  border-radius: 7px;
+  background-color: hsl(var(--accent));
+}

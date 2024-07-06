@@ -305,7 +305,9 @@ const CarouselPagination = forwardRef(
             key={index}
             className={cn(
               `mx-1 h-2 w-8 rounded-full`,
-              index === selectedIndex ? "bg-primary" : "bg-muted",
+              index === selectedIndex
+                ? "bg-primary"
+                : "bg-muted hover:bg-muted",
               className,
             )}
             onClick={() => handlePaginationClick(index)}

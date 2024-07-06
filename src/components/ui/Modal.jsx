@@ -1,5 +1,6 @@
 "use client";
 
+import PortalRoot from "@/components/portals/PortalRoot";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
@@ -33,23 +34,23 @@ const modalVariants = cva(
 );
 
 const Header = forwardRef(
-  ({ isCloseButton, closeHandler, children, className, ...props }, ref) => {
+  ({ isCloseButton, onClose, children, className, ...props }, ref) => {
     return (
       <div
         className={cn(
-          "flex items-center justify-between px-4 py-4 group-[.primary]:bg-primary group-[.secondary]:bg-secondary group-[.primary]:text-primary-foreground group-[.secondary]:text-secondary-foreground lg:px-6",
+          "flex items-center justify-between px-4 py-4 group-[.primary]:bg-primary group-[.secondary]:bg-secondary group-[.primary]:text-primary-foreground group-[.secondary]:text-secondary-foreground md:px-6",
           className,
         )}
         ref={ref}
         {...props}
       >
         <div className="flex-1">{children && children}</div>
-        {isCloseButton && closeHandler && (
+        {isCloseButton && onClose && (
           <Button
             className="ml-auto"
             variant="outline"
             size="icon-sm"
-            onClick={() => closeHandler()}
+            onClick={() => onClose()}
           >
             <X size={16} />
           </Button>
@@ -69,7 +70,7 @@ const Modal = forwardRef(
       className,
       isCloseButton,
       isOpen,
-      closeHandler,
+      onClose,
       variant,
       size,
       ...props
@@ -77,47 +78,49 @@ const Modal = forwardRef(
     ref,
   ) => {
     return (
-      <div
-        className={cn(
-          "px-container fixed inset-0 z-[1000] flex h-screen w-screen origin-center items-center justify-center overflow-y-auto bg-background/85 py-[1vh] backdrop-blur transition-[opacity,transform,visibility] duration-200",
-          {
-            "invisible scale-0 opacity-0 delay-300": !isOpen,
-            "visible scale-100 opacity-100": isOpen,
-          },
-        )}
-        onClick={(e) => {
-          if (e.target === e.currentTarget && closeHandler) {
-            closeHandler();
-          }
-        }}
-      >
+      <PortalRoot>
         <div
           className={cn(
+            "px-container fixed inset-0 z-[100000] flex origin-center items-center justify-center overflow-y-auto bg-background/75 py-[1vh] backdrop-blur transition-[opacity,transform,visibility] duration-200",
             {
-              "scale-0 animate-pop opacity-0": !isOpen,
-              "scale-100 animate-pop opacity-100 delay-200": isOpen,
+              "invisible scale-0 opacity-0 delay-300": !isOpen,
+              "visible scale-100 opacity-100": isOpen,
             },
-            modalVariants({
-              variant,
-              size,
-              className,
-            }),
           )}
-          ref={ref}
-          {...props}
+          onClick={(e) => {
+            if (e.target === e.currentTarget && onClose) {
+              onClose();
+            }
+          }}
         >
-          <div>
-            {(header || (isCloseButton && closeHandler)) && (
-              <Header
-                {...header}
-                isCloseButton={isCloseButton}
-                closeHandler={closeHandler}
-              />
+          <div
+            className={cn(
+              {
+                "scale-0 animate-pop opacity-0": !isOpen,
+                "scale-100 animate-pop opacity-100 delay-200": isOpen,
+              },
+              modalVariants({
+                variant,
+                size,
+                className,
+              }),
             )}
-            <div>{children}</div>
+            ref={ref}
+            {...props}
+          >
+            <div>
+              {(header || (isCloseButton && onClose)) && (
+                <Header
+                  {...header}
+                  isCloseButton={isCloseButton}
+                  onClose={onClose}
+                />
+              )}
+              <div>{children}</div>
+            </div>
           </div>
         </div>
-      </div>
+      </PortalRoot>
     );
   },
 );

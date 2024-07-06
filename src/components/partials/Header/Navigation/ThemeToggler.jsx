@@ -10,12 +10,13 @@ const ThemeToggler = () => {
   return (
     <Toggler
       onClick={() => (theme === "dark" ? setTheme("light") : setTheme("dark"))}
-      isTrue={theme === "dark"}
-      trueComp={{
-        children: <Sun className="size-6 hover:text-primary" />,
+      isOn={theme === "dark"}
+      className="hover:text-primary"
+      on={{
+        children: <Sun className="size-6" />,
       }}
-      falseComp={{
-        children: <Moon className="size-6 hover:text-primary" />,
+      off={{
+        children: <Moon className="size-6" />,
       }}
     />
   );

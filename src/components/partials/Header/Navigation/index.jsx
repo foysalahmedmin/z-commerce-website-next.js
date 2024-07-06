@@ -3,9 +3,8 @@
 import { Toggler } from "@/components/ui/Toggler";
 import { cn } from "@/lib/utils";
 import { AlignRight, X } from "lucide-react";
-import { useLocale } from "next-intl";
-import Link from "next/link";
 import { useState } from "react";
+import Logo from "../../Logo";
 import Cart from "./Cart";
 import NavMenus from "./NavMenus";
 import SearchBar from "./SearchBar";
@@ -14,33 +13,38 @@ import UserAndAuthNav from "./UserAndAuthNav";
 
 const Navigation = ({ access, user }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const localeActive = useLocale();
   return (
-    <nav className="sticky top-0 z-30 h-16 w-full bg-card shadow">
+    <nav className="h-header sticky top-0 z-30 w-full bg-card shadow">
       <div className="container h-full">
         <div className="flex h-full items-center justify-between gap-2 lg:gap-4">
           <div>
-            <Link
-              href={"/" + localeActive}
-              className="flex items-center gap-1 font-comfortaa text-lg uppercase tracking-[.15rem] lg:gap-2 lg:text-xl lg:tracking-[.2rem]"
-            >
-              <span className="bg-gradient inline-block rounded-sm px-1 py-[2px] text-black">
-                <span className="border-r-2 border-current px-2 pb-0">Z</span>
-              </span>
-              <span className="pt-[1.5px]">Commerce</span>
-            </Link>
+            <Logo />
           </div>
-          <ul
+          <div
             className={cn(
-              "absolute inset-0 z-50 flex h-screen w-screen origin-top flex-col items-center justify-center gap-4 bg-card py-12 transition-all duration-300 lg:hidden",
+              "px-container-space fixed inset-0 z-50 h-screen w-screen origin-top bg-card py-4 transition-all duration-300 md:hidden",
               {
                 "visible scale-y-100 opacity-100": isOpen,
                 "invisible scale-y-0 opacity-0": !isOpen,
               },
             )}
           >
-            <NavMenus />
-          </ul>
+            <div className="flex items-center justify-end">
+              <Toggler
+                onClick={() => setIsOpen((value) => !value)}
+                isOn={isOpen}
+                on={{
+                  children: <X className="size-4" />,
+                }}
+                off={{
+                  children: <AlignRight className="size-4" />,
+                }}
+              />
+            </div>
+            <ul className="flex h-full w-full flex-col items-center justify-center gap-4">
+              <NavMenus />
+            </ul>
+          </div>
           <div className="flex items-center justify-end gap-4">
             <ul className="hidden items-center justify-center gap-4 lg:flex">
               <NavMenus />
@@ -51,14 +55,14 @@ const Navigation = ({ access, user }) => {
               <Cart access={access} user={user} />
               <UserAndAuthNav access={access} user={user} />
             </div>
-            <div className="lg:hidden">
+            <div className="md:hidden">
               <Toggler
                 onClick={() => setIsOpen((value) => !value)}
-                isTrue={isOpen}
-                trueComp={{
+                isOn={isOpen}
+                on={{
                   children: <X className="size-4" />,
                 }}
-                falseComp={{
+                off={{
                   children: <AlignRight className="size-4" />,
                 }}
               />

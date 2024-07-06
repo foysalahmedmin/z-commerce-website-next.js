@@ -41,17 +41,17 @@ const BannerSlide = ({ item }) => {
                 </Button>
               ))}
           </div>
-          <div className="relative hidden h-96 basis-1/2 md:block">
+          <div className="relative hidden h-96 basis-1/2 md:block md:h-[28rem] xl:h-[30rem]">
             {image?.src && (
               <Image
                 className="mx-auto h-full w-full object-contain object-center"
-                height={384}
-                width={240}
+                height={500}
+                width={500}
                 src={image?.src}
                 alt={image?.alt}
               />
             )}
-            <div className="banner-circle group-[.active-slide-node]/slide:animate-pop-circle absolute inset-0 -z-10 mx-auto my-auto aspect-square h-[90vw] max-h-80 origin-center rounded-[100%] bg-primary/50 delay-1000 md:h-[70vh] [&_p]:mt-0" />
+            <div className="absolute inset-0 -z-10 mx-auto my-auto aspect-square h-[50vw] max-h-80 origin-center rounded-[100%] bg-primary-100 delay-1000 group-[.active-slide-node]/slide:animate-pop-circle md:h-[50vh] [&_p]:mt-0" />
           </div>
         </div>
       </div>

@@ -1,5 +1,11 @@
+const colors = require("./src/assets/styles/config/colors");
+const backgroundImage = require("./src/assets/styles/config/backgroundImage");
+const boxShadow = require("./src/assets/styles/config/boxShadow");
+const keyframes = require("./src/assets/styles/config/keyframes");
+const animation = require("./src/assets/styles/config/animation");
+
 /** @type {import('tailwindcss').Config} */
-const config = {
+module.exports = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{js,jsx}",
@@ -12,179 +18,31 @@ const config = {
     container: {
       center: true,
       padding: {
-        DEFAULT: "3.5vw",
-        lg: "2.5vw",
-        xl: "1.5vw",
-        "2xl": "1vw",
+        DEFAULT: "var(--container-space)",
       },
     },
     extend: {
-      fontFamily: {
-        mulish: ["var(--font-mulish)"],
-        philosopher: ["var(--font-philosopher)"],
-        comfortaa: ["var(--font-comfortaa)"],
+      screens: {
+        "3xl": "1800px",
       },
-      backgroundImage: {
-        checkbox: `linear-gradient(
-          -45deg,
-          transparent 65%,
-          hsl(var(--accent)) 65.99%
-        ),
-        linear-gradient(45deg, transparent 75%, hsl(var(--accent)) 75.99%),
-        linear-gradient(-45deg, hsl(var(--accent)) 40%, transparent 40.99%),
-        linear-gradient(
-          45deg,
-          hsl(var(--accent)) 30%,
-          hsl(var(--accent-foreground)) 30.99%,
-          hsl(var(--accent-foreground)) 40%,
-          transparent 40.99%
-        ),
-        linear-gradient(
-          -45deg,
-          hsl(var(--accent-foreground)) 50%,
-          hsl(var(--accent)) 50.99%
-        )`,
+      spacing: {
+        header: "var(--header-height)",
+        "container-space": "var(--container-space)",
       },
-      boxShadow: {
-        radio: `0 0 0 .25em hsl(var(--accent-foreground)) inset`,
-        "switch-off": `-1em 0 0 0.1em hsl(var(--accent-foreground)) inset, 0 0 0 0.1em hsl(var(--accent-foreground)) inset`,
-        "switch-on": `1em 0 0 0.1em hsl(var(--accent-foreground)) inset, 0 0 0 0.1em hsl(var(--accent-foreground)) inset`,
-      },
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        title: "hsl(var(--title))",
-        dark: "hsl(var(--dark))",
-        light: "hsl(var(--light))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+      height: {
+        "screen-minus-header": "calc(100vh-var(--header-height))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - .1em)",
         sm: "calc(var(--radius) - .25em)",
       },
-      keyframes: {
-        "loading-spin": {
-          "100%": {
-            transform: "rotate(360deg)",
-          },
-        },
-        checkbox: {
-          "0%": {
-            backgroundPositionY: ".25em",
-          },
-          "50%": {
-            backgroundPositionY: "-0.1em",
-          },
-          "100%": {
-            backgroundPositionY: "-0",
-          },
-        },
-        radio: {
-          "0%": {
-            boxShadow: "0 0 0 .5em hsl(var(--accent-foreground)) inset",
-          },
-          "50%": {
-            boxShadow: "0 0 0 .1em hsl(var(--accent-foreground)) inset",
-          },
-          "100%": {
-            boxShadow: "0 0 0 .25em hsl(var(--accent-foreground)) inset",
-          },
-        },
-        pop: {
-          "0%": {
-            transform: "scale(.95)",
-          },
-          "50%": {
-            transform: "scale(1.03)",
-          },
-          "100%": {
-            transform: "scale(1)",
-          },
-        },
-        "pop-circle": {
-          "0%": {
-            transform: "scale(.0)",
-            borderRadius: "100%",
-          },
-          "20%": {
-            transform: "scale(1.3)",
-            borderRadius: "100%",
-          },
-          "40%": {
-            transform: "scale(1.1)",
-            borderRadius: "35%",
-          },
-          "60%": {
-            transform: "scale(1.5)",
-            borderRadius: "45%",
-          },
-          "100%": {
-            transform: "scale(1)",
-            borderRadius: "100%",
-          },
-        },
-        bounce: {
-          "0%": {
-            transform: "translate(0, -2em)",
-          },
-          "100%": {
-            transform: "translate(0, 0)",
-          },
-        },
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "loading-spin":
-          "loading-spin 3s cubic-bezier(0.56, -0.24, 0.41, 1.23) infinite",
-        checkbox: "checkbox .5s ease-in-out",
-        radio: "radio .5s ease-in-out",
-        pop: "pop .5s ease-in-out",
-        "pop-circle": "pop-circle 3s",
-        bounce: "bounce .5s ease-in-out",
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
+      backgroundImage: { ...backgroundImage },
+      boxShadow: { ...boxShadow },
+      colors: { ...colors },
+      keyframes: { ...keyframes },
+      animation: { ...animation },
     },
   },
   plugins: [require("tailwindcss-animate")],
 };
-
-export default config;
