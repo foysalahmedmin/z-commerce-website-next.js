@@ -1,4 +1,6 @@
+import { products } from "@/assets/data/products";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import TrendingProducts from "./TrendingProducts";
 
 const TrendingSection = () => {
   return (
@@ -9,6 +11,9 @@ const TrendingSection = () => {
             title={{ children: "Trending Products" }}
             subtitle={{ children: "New Products" }}
           />
+        </div>
+        <div>
+          <TrendingProducts products={products} />
         </div>
       </div>
     </section>

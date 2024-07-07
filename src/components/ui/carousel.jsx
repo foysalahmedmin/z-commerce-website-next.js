@@ -1,10 +1,10 @@
 "use client";
-import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import emblaCarouselAutoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
   createContext,
   forwardRef,
@@ -14,9 +14,132 @@ import {
   useState,
 } from "react";
 
+// carousel hooks //
+export const useCarouselNavigation = (api) => {
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const scrollPrev = useCallback(() => {
+    api?.scrollPrev();
+  }, [api]);
+
+  const scrollNext = useCallback(() => {
+    api?.scrollNext();
+  }, [api]);
+
+  const onSelect = useCallback((api) => {
+    if (!api) {
+      return;
+    }
+    setCanScrollPrev(api.canScrollPrev());
+    setCanScrollNext(api.canScrollNext());
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        scrollPrev();
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        scrollNext();
+      }
+    },
+    [scrollPrev, scrollNext],
+  );
+
+  useEffect(() => {
+    if (!api) return;
+
+    onSelect(api);
+    api.on("reInit", onSelect).on("select", onSelect);
+  }, [api, onSelect]);
+
+  return {
+    canScrollPrev,
+    canScrollNext,
+    scrollPrev,
+    scrollNext,
+    handleKeyDown,
+  };
+};
+
+export const useCarouselPagination = (api) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
+
+  const scrollToIndex = useCallback(
+    (index) => {
+      if (!api) return;
+      api.scrollTo(index);
+    },
+    [api],
+  );
+
+  const onInit = useCallback((api) => {
+    setScrollSnaps(api?.scrollSnapList());
+  }, []);
+
+  const onSelect = useCallback((api) => {
+    setSelectedIndex(api?.selectedScrollSnap());
+  }, []);
+
+  useEffect(() => {
+    if (!api) return;
+
+    onInit(api);
+    onSelect(api);
+    api.on("reInit", onInit).on("reInit", onSelect).on("select", onSelect);
+  }, [api, onInit, onSelect]);
+
+  return {
+    selectedIndex,
+    scrollSnaps,
+    scrollToIndex,
+  };
+};
+
+export const useCarouselActiveSlide = (api) => {
+  const [selectedNode, setSelectedNode] = useState(null);
+
+  const onSelect = useCallback((api) => {
+    if (!api) {
+      return;
+    }
+
+    const slideNodes = api.slideNodes();
+    const selectedScrollSnap = api.selectedScrollSnap();
+
+    if (
+      slideNodes &&
+      selectedScrollSnap !== null &&
+      slideNodes[selectedScrollSnap]
+    ) {
+      slideNodes.forEach((node) => {
+        node.classList.remove("active-slide-node");
+      });
+      slideNodes[selectedScrollSnap].classList.add("active-slide-node");
+      setSelectedNode(slideNodes[selectedScrollSnap]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!api) return;
+
+    onSelect(api);
+    api.on("reInit", onSelect).on("select", onSelect);
+  }, [api, onSelect]);
+
+  return {
+    selectedNode,
+  };
+};
+// ------- //
+
+// carousel context //
 const CarouselContext = createContext(null);
 
-function useCarousel() {
+const useCarousel = () => {
   const context = useContext(CarouselContext);
 
   if (!context) {
@@ -24,7 +147,7 @@ function useCarousel() {
   }
 
   return context;
-}
+};
 
 const Carousel = forwardRef(
   (
@@ -48,106 +171,32 @@ const Carousel = forwardRef(
       },
       [...autoplayPlugin, ...plugins],
     );
-    const [canScrollPrev, setCanScrollPrev] = useState(false);
-    const [canScrollNext, setCanScrollNext] = useState(false);
-    const [selectedNode, setSelectedNode] = useState(null);
-
-    const onSelect = useCallback((api) => {
-      if (!api) {
-        return;
-      }
-
-      setCanScrollPrev(api.canScrollPrev());
-      setCanScrollNext(api.canScrollNext());
-    }, []);
-
-    const scrollPrev = useCallback(() => {
-      api?.scrollPrev();
-    }, [api]);
-
-    const scrollNext = useCallback(() => {
-      api?.scrollNext();
-    }, [api]);
-
-    const scrollInto = useCallback(
-      (index) => {
-        api?.scrollTo(index);
-      },
-      [api],
-    );
-
-    const handleKeyDown = useCallback(
-      (event) => {
-        if (event.key === "ArrowLeft") {
-          event.preventDefault();
-          scrollPrev();
-        } else if (event.key === "ArrowRight") {
-          event.preventDefault();
-          scrollNext();
-        }
-      },
-      [scrollPrev, scrollNext],
-    );
-
-    useEffect(() => {
-      if (!api || !setApi) {
-        return;
-      }
-
-      setApi(api);
-    }, [api, setApi]);
-
-    useEffect(() => {
-      if (!api) {
-        return;
-      }
-
-      onSelect(api);
-      api.on("reInit", onSelect);
-      api.on("select", onSelect);
-
-      return () => {
-        api?.off("select", onSelect);
-      };
-    }, [api, onSelect]);
-
-    useEffect(() => {
-      const onSelect = () => {
-        if (api?.slideNodes && api?.selectedScrollSnap) {
-          const slideNodes = api.slideNodes();
-          const selectedScrollSnap = api.selectedScrollSnap();
-
-          if (slideNodes[selectedScrollSnap]) {
-            slideNodes.forEach((node) => {
-              node.classList.remove("active-slide-node");
-            });
-            slideNodes[selectedScrollSnap].classList.add("active-slide-node");
-            setSelectedNode(slideNodes[selectedScrollSnap]);
-          }
-        }
-      };
-
-      onSelect();
-      api?.on("select", onSelect);
-
-      return () => {
-        api?.off("select", onSelect);
-      };
-    }, [api]);
+    const {
+      canScrollPrev,
+      canScrollNext,
+      scrollPrev,
+      scrollNext,
+      handleKeyDown,
+    } = useCarouselNavigation(api);
+    const { selectedIndex, scrollSnaps, scrollToIndex } =
+      useCarouselPagination(api);
+    const { selectedNode } = useCarouselActiveSlide(api);
 
     return (
       <CarouselContext.Provider
         value={{
           carouselRef,
-          api: api,
+          api,
+          setApi,
           opts,
           orientation:
             orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
-          snapCount: api?.scrollSnapList()?.length || 0,
           selectedNode,
+          selectedIndex,
+          scrollSnaps,
           scrollPrev,
           scrollNext,
-          scrollInto,
+          scrollToIndex,
           canScrollPrev,
           canScrollNext,
         }}
@@ -167,7 +216,9 @@ const Carousel = forwardRef(
   },
 );
 Carousel.displayName = "Carousel";
+// ------- //
 
+// carousel components //
 const CarouselContent = forwardRef(({ className, ...props }, ref) => {
   const { carouselRef, orientation } = useCarousel();
 
@@ -261,57 +312,54 @@ const CarouselNext = forwardRef(
 );
 CarouselNext.displayName = "CarouselNext";
 
-const CarouselPagination = forwardRef(
+const CarouselPaginationButton = forwardRef(
   (
-    { className, rootClassName, variant = "none", size = "none", ...props },
+    {
+      className,
+      activeClassName,
+      index,
+      selectedIndex,
+      variant = "none",
+      size = "none",
+      ...props
+    },
     ref,
   ) => {
-    const { api, snapCount, scrollInto } = useCarousel();
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    return (
+      <Button
+        ref={ref}
+        className={cn(`h-2 w-6 rounded-full bg-muted`, className, {
+          [cn("bg-primary", activeClassName)]: index === selectedIndex,
+        })}
+        variant={variant}
+        size={size}
+        {...props}
+      />
+    );
+  },
+);
+CarouselPaginationButton.displayName = "CarouselPaginationButton";
 
-    const handlePaginationClick = (index) => {
-      scrollInto(index);
-      setSelectedIndex(index);
-    };
-
-    useEffect(() => {
-      const onSelect = () => {
-        setSelectedIndex(api?.selectedScrollSnap());
-      };
-
-      api?.on("select", onSelect);
-
-      return () => {
-        api?.off("select", onSelect);
-      };
-    }, [api]);
-
-    if (!api) return null;
-
-    const slides = Array.from(Array(snapCount).keys());
+const CarouselPagination = forwardRef(
+  ({ className, carouselButton, ...props }, ref) => {
+    const { selectedIndex, scrollSnaps, scrollToIndex } = useCarousel();
 
     return (
       <div
         ref={ref}
         className={cn(
-          "absolute bottom-4 mx-auto flex w-full items-center justify-center",
-          rootClassName,
+          "absolute bottom-4 mx-auto flex w-full items-center justify-center gap-x-1",
+          className,
         )}
+        {...props}
       >
-        {slides.map((index) => (
-          <Button
-            variant={variant}
-            size={size}
+        {scrollSnaps.map((_, index) => (
+          <CarouselPaginationButton
             key={index}
-            className={cn(
-              `mx-1 h-2 w-8 rounded-full`,
-              index === selectedIndex
-                ? "bg-primary"
-                : "bg-muted hover:bg-muted",
-              className,
-            )}
-            onClick={() => handlePaginationClick(index)}
-            {...props}
+            index={index}
+            selectedIndex={selectedIndex}
+            onClick={() => scrollToIndex(index)}
+            {...carouselButton}
           />
         ))}
       </div>
@@ -319,6 +367,7 @@ const CarouselPagination = forwardRef(
   },
 );
 CarouselPagination.displayName = "CarouselPagination";
+// ------- //
 
 export {
   Carousel,
