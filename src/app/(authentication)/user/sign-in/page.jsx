@@ -16,7 +16,7 @@ const SignInPage = async ({ params }) => {
   return (
     <main>
       <section className="container flex min-h-screen items-center justify-center px-6 py-24">
-        <div className="w-full rounded-2xl border-primary bg-card/85 px-6 py-12 backdrop-blur-xl md:w-[640px] md:px-12">
+        <div className="w-full rounded-2xl border-primary bg-card/85 px-6 py-16 backdrop-blur-xl md:w-[640px] md:px-12">
           <h3 className="font-philosopher mb-12 text-center text-5xl">
             Sign In
           </h3>

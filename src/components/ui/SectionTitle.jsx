@@ -1,6 +1,31 @@
 import { cn } from "@/lib/utils";
 import { forwardRef } from "react";
 
+const SectionTitle = forwardRef(({ className, ...props }, ref) => {
+  return (
+    <div
+      className={cn(
+        "short-underline mx-auto mb-10 max-w-[768px] px-4 pb-2 text-center after:mx-auto after:border-b-4",
+        className,
+      )}
+      ref={ref}
+      {...props}
+    />
+  );
+});
+SectionTitle.displayName = "SectionTitle";
+
+const Title = forwardRef(({ className, ...props }, ref) => {
+  return (
+    <h2
+      className={cn("text-3xl font-bold uppercase", className)}
+      {...props}
+      ref={ref}
+    />
+  );
+});
+Title.displayName = "Title";
+
 const Subtitle = forwardRef(({ className, ...props }, ref) => {
   return (
     <span
@@ -22,36 +47,4 @@ const Description = forwardRef(({ className, ...props }, ref) => {
 });
 Description.displayName = "Description";
 
-const Title = forwardRef(({ className, ...props }, ref) => {
-  return (
-    <h2
-      className={cn("text-3xl font-bold uppercase", className)}
-      {...props}
-      ref={ref}
-    />
-  );
-});
-Title.displayName = "Title";
-
-const SectionTitle = forwardRef(
-  ({ title, subtitle, description, className, ...props }, ref) => {
-    return (
-      <div
-        className={cn("mx-auto mb-6 max-w-[768px] px-4 text-center", className)}
-        ref={ref}
-        {...props}
-      >
-        {subtitle && Object.keys(subtitle)?.length && (
-          <Subtitle {...subtitle} />
-        )}
-        {title && Object.keys(title)?.length && <Title {...title} />}
-        {description && Object.keys(description)?.length && (
-          <Description {...description} />
-        )}
-      </div>
-    );
-  },
-);
-SectionTitle.displayName = "SectionTitle";
-
-export { SectionTitle };
+export { Description, SectionTitle, Subtitle, Title };

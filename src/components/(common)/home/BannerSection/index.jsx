@@ -2,9 +2,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
+  CarouselNextTrigger,
   CarouselPagination,
-  CarouselPrevious,
+  CarouselPreviousTrigger,
 } from "@/components/ui/Carousel";
 import { MoveUpRight } from "lucide-react";
 import BannerSlide from "./BannerSlide";
@@ -58,13 +58,13 @@ const BannerSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute left-0 right-0 top-1/2 hidden -translate-y-1/2 overflow-x-hidden overflow-y-visible px-container md:block">
+        <div className="px-container absolute left-0 right-0 top-1/2 hidden -translate-y-1/2 overflow-x-hidden overflow-y-visible md:block">
           <div className="relative h-12">
-            <CarouselPrevious
+            <CarouselPreviousTrigger
               className="invisible left-0 -translate-x-full opacity-0 transition-all duration-300 group-hover:visible group-hover:translate-x-0 group-hover:opacity-100"
               size="icon-lg"
             />
-            <CarouselNext
+            <CarouselNextTrigger
               className="invisible right-0 translate-x-full opacity-0 transition-all duration-300 group-hover:visible group-hover:right-0 group-hover:translate-x-0 group-hover:opacity-100"
               size="icon-lg"
             />

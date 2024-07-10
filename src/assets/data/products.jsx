@@ -1,624 +1,541 @@
 export const products = [
   {
     _id: 1,
-    parentCategory: "fashion",
-    category: "new-arrivals",
-    name: "Trendy Summer Dress",
+    category: "New Arrival",
+    name: "Slim Fit Jeans",
     price: 49.99,
-    description: "A stylish summer dress perfect for any occasion.",
-    images: [
+    previousPrice: 59.99,
+    available: 20,
+    isStock: true,
+    rating: 4.9,
+    totalReview: 800,
+    tags: ["sale", "new", "save 10%"],
+    description: "Comfortable and stylish slim fit jeans for everyday wear.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 2,
-    parentCategory: "fashion",
-    category: "new-arrivals",
-    name: "Men's Slim Fit Jeans",
-    price: 39.99,
-    description: "Comfortable and stylish slim fit jeans for men.",
-    images: [
+    category: "New Arrival",
+    name: "Casual T-Shirt",
+    price: 19.99,
+    previousPrice: 24.99,
+    available: 15,
+    isStock: true,
+    rating: 4.7,
+    totalReview: 600,
+    tags: ["new", "save 20%", "sale"],
+    description: "Soft and comfortable casual t-shirt for all-day wear.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 3,
-    parentCategory: "fashion",
-    category: "man",
-    name: "Casual T-Shirt",
-    price: 19.99,
-    description: "A comfortable and casual t-shirt for everyday wear.",
-    images: [
+    category: "New Arrival",
+    name: "Summer Dress",
+    price: 39.99,
+    previousPrice: 49.99,
+    available: 10,
+    isStock: true,
+    rating: 4.6,
+    totalReview: 400,
+    tags: ["new", "sale", "save 15%"],
+    description: "Light and breezy summer dress for a cool and stylish look.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 4,
-    parentCategory: "fashion",
-    category: "man",
-    name: "Formal Suit",
-    price: 199.99,
-    description: "A sleek and stylish formal suit for special occasions.",
-    images: [
+    category: "New Arrival",
+    name: "Leather Jacket",
+    price: 129.99,
+    previousPrice: 149.99,
+    available: 5,
+    isStock: true,
+    rating: 4.9,
+    totalReview: 900,
+    tags: ["sale", "new", "save 20%"],
+    description: "Stylish leather jacket for a chic and edgy look.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 5,
-    parentCategory: "fashion",
-    category: "woman",
-    name: "Elegant Evening Gown",
-    price: 299.99,
-    description: "An elegant gown for evening events and parties.",
-    images: [
+    category: "New Arrival",
+    name: "Formal Shirt",
+    price: 29.99,
+    previousPrice: 34.99,
+    available: 8,
+    isStock: true,
+    rating: 4.7,
+    totalReview: 600,
+    tags: ["new", "save 10%", "sale"],
+    description: "Elegant and comfortable formal shirt for office wear.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 6,
-    parentCategory: "fashion",
-    category: "woman",
-    name: "Casual Blouse",
-    price: 29.99,
-    description: "A comfortable blouse for everyday wear.",
-    images: [
+    category: "Kids",
+    name: "Kids Hoodie",
+    price: 24.99,
+    previousPrice: 29.99,
+    available: 12,
+    isStock: true,
+    rating: 4.8,
+    totalReview: 700,
+    tags: ["sale", "save 15%", "new"],
+    description: "Cozy and warm hoodie for kids, perfect for chilly days.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 7,
-    parentCategory: "fashion",
-    category: "kids",
-    name: "Kids' Playful T-Shirt",
-    price: 14.99,
-    description: "A fun and playful t-shirt for kids.",
-    images: [
+    category: "Woman",
+    name: "Evening Gown",
+    price: 79.99,
+    previousPrice: 99.99,
+    available: 10,
+    isStock: true,
+    rating: 4.7,
+    totalReview: 500,
+    tags: ["new", "sale", "save 20%"],
+    description: "Elegant evening gown for special occasions.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 8,
-    parentCategory: "fashion",
-    category: "kids",
-    name: "Kids' Denim Jacket",
-    price: 34.99,
-    description: "A stylish denim jacket for kids.",
-    images: [
+    category: "Man",
+    name: "Casual Shorts",
+    price: 19.99,
+    previousPrice: 24.99,
+    available: 25,
+    isStock: true,
+    rating: 4.8,
+    totalReview: 1200,
+    tags: ["save 15%", "new", "sale"],
+    description: "Comfortable and stylish casual shorts for everyday wear.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 9,
-    parentCategory: "bags-and-travel",
-    category: "new-arrivals",
-    name: "Leather Travel Bag",
-    price: 99.99,
-    description: "A durable leather bag perfect for travel.",
-    images: [
+    category: "Woman",
+    name: "Maxi Skirt",
+    price: 34.99,
+    previousPrice: 39.99,
+    available: 20,
+    isStock: true,
+    rating: 4.7,
+    totalReview: 800,
+    tags: ["sale", "save 10%", "new"],
+    description: "Flowy and comfortable maxi skirt for a boho-chic look.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 10,
-    parentCategory: "bags-and-travel",
-    category: "new-arrivals",
-    name: "Stylish Backpack",
-    price: 49.99,
-    description: "A stylish backpack for everyday use.",
-    images: [
+    category: "Kids",
+    name: "Graphic T-Shirt",
+    price: 14.99,
+    previousPrice: 19.99,
+    available: 18,
+    isStock: true,
+    rating: 4.9,
+    totalReview: 1000,
+    tags: ["new", "save 25%", "sale"],
+    description: "Fun and colorful graphic t-shirt for kids.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 11,
-    parentCategory: "bags-and-travel",
-    category: "man",
-    name: "Men's Leather Briefcase",
-    price: 149.99,
-    description: "A sleek and professional leather briefcase.",
-    images: [
+    category: "Woman",
+    name: "Denim Jacket",
+    price: 59.99,
+    previousPrice: 69.99,
+    available: 15,
+    isStock: true,
+    rating: 4.8,
+    totalReview: 750,
+    tags: ["sale", "save 15%", "new"],
+    description: "Classic denim jacket for a casual and stylish look.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 12,
-    parentCategory: "bags-and-travel",
-    category: "man",
-    name: "Men's Travel Backpack",
-    price: 79.99,
-    description: "A functional and stylish travel backpack for men.",
-    images: [
+    category: "Man",
+    name: "Polo Shirt",
+    price: 24.99,
+    previousPrice: 29.99,
+    available: 22,
+    isStock: true,
+    rating: 4.6,
+    totalReview: 650,
+    tags: ["new", "sale", "save 10%"],
+    description: "Comfortable and stylish polo shirt for a casual look.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 13,
-    parentCategory: "bags-and-travel",
-    category: "woman",
-    name: "Women's Tote Bag",
-    price: 59.99,
-    description: "A fashionable tote bag for women.",
-    images: [
+    category: "Kids",
+    name: "Cargo Pants",
+    price: 29.99,
+    previousPrice: 34.99,
+    available: 18,
+    isStock: true,
+    rating: 4.7,
+    totalReview: 550,
+    tags: ["sale", "new", "save 15%"],
+    description: "Durable and comfortable cargo pants for kids.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 14,
-    parentCategory: "bags-and-travel",
-    category: "woman",
-    name: "Women's Travel Bag",
-    price: 89.99,
-    description: "A stylish and spacious travel bag for women.",
-    images: [
+    category: "Woman",
+    name: "Boho Blouse",
+    price: 34.99,
+    previousPrice: 39.99,
+    available: 14,
+    isStock: true,
+    rating: 4.8,
+    totalReview: 600,
+    tags: ["new", "sale", "save 10%"],
+    description: "Flowy and stylish boho blouse for a relaxed look.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 15,
-    parentCategory: "bags-and-travel",
-    category: "kids",
-    name: "Kids' School Backpack",
-    price: 29.99,
-    description: "A fun and durable backpack for kids.",
-    images: [
+    category: "Man",
+    name: "Chino Pants",
+    price: 39.99,
+    previousPrice: 44.99,
+    available: 12,
+    isStock: true,
+    rating: 4.6,
+    totalReview: 700,
+    tags: ["new", "save 10%", "sale"],
+    description: "Stylish and comfortable chino pants for a versatile look.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 16,
-    parentCategory: "bags-and-travel",
-    category: "kids",
-    name: "Kids' Travel Bag",
-    price: 44.99,
-    description: "A cute and practical travel bag for kids.",
-    images: [
+    category: "Kids",
+    name: "Rain Jacket",
+    price: 49.99,
+    previousPrice: 59.99,
+    available: 10,
+    isStock: true,
+    rating: 4.8,
+    totalReview: 750,
+    tags: ["sale", "save 10%", "new"],
+    description: "Waterproof rain jacket for kids, perfect for rainy days.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 17,
-    parentCategory: "electronics",
-    category: "new-arrivals",
-    name: "Latest Smartphone",
-    price: 799.99,
-    description: "A high-end smartphone with the latest features.",
-    images: [
+    category: "Woman",
+    name: "Midi Dress",
+    price: 49.99,
+    previousPrice: 59.99,
+    available: 18,
+    isStock: true,
+    rating: 4.9,
+    totalReview: 800,
+    tags: ["new", "sale", "save 15%"],
+    description: "Elegant midi dress for a chic and stylish look.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 18,
-    parentCategory: "electronics",
-    category: "new-arrivals",
-    name: "Smartwatch",
-    price: 199.99,
-    description: "A sleek and modern smartwatch with various functionalities.",
-    images: [
+    category: "Man",
+    name: "Sweatshirt",
+    price: 34.99,
+    previousPrice: 39.99,
+    available: 20,
+    isStock: true,
+    rating: 4.7,
+    totalReview: 900,
+    tags: ["new", "sale", "save 10%"],
+    description: "Cozy and comfortable sweatshirt for casual wear.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 19,
-    parentCategory: "electronics",
-    category: "computer-and-accessories",
-    name: "Gaming Laptop",
-    price: 1299.99,
-    description: "A high-performance gaming laptop.",
-    images: [
+    category: "Kids",
+    name: "Overalls",
+    price: 29.99,
+    previousPrice: 34.99,
+    available: 12,
+    isStock: true,
+    rating: 4.7,
+    totalReview: 800,
+    tags: ["sale", "new", "save 15%"],
+    description: "Durable and comfortable overalls for kids.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
+      },
+      {
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },
   {
     _id: 20,
-    parentCategory: "electronics",
-    category: "computer-and-accessories",
-    name: "Wireless Mouse",
-    price: 49.99,
-    description: "A comfortable and responsive wireless mouse.",
-    images: [
+    category: "Woman",
+    name: "Wrap Dress",
+    price: 59.99,
+    previousPrice: 69.99,
+    available: 15,
+    isStock: true,
+    rating: 4.8,
+    totalReview: 850,
+    tags: ["new", "sale", "save 10%"],
+    description: "Stylish wrap dress for a flattering and comfortable fit.",
+    variants: [
       {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#015845",
+        image: "/images/products/01.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
-      },
-    ],
-  },
-  {
-    _id: 21,
-    parentCategory: "electronics",
-    category: "mobile-and-tablets",
-    name: "Tablet",
-    price: 399.99,
-    description: "A versatile tablet for work and play.",
-    images: [
-      {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
+        color: "#eab8b9",
+        image: "/images/products/02.png",
       },
       {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
-      },
-    ],
-  },
-  {
-    _id: 22,
-    parentCategory: "electronics",
-    category: "mobile-and-tablets",
-    name: "Wireless Earbuds",
-    price: 99.99,
-    description: "High-quality wireless earbuds with noise-cancellation.",
-    images: [
-      {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
-      },
-      {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
-      },
-    ],
-  },
-  {
-    _id: 23,
-    parentCategory: "electronics",
-    category: "home-appliances",
-    name: "Smart Refrigerator",
-    price: 1499.99,
-    description: "A smart refrigerator with touch screen and WiFi.",
-    images: [
-      {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
-      },
-      {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
-      },
-    ],
-  },
-  {
-    _id: 24,
-    parentCategory: "electronics",
-    category: "home-appliances",
-    name: "Robot Vacuum Cleaner",
-    price: 299.99,
-    description: "A robotic vacuum cleaner with advanced features.",
-    images: [
-      {
-        color: "#43191d",
-        image:
-          "https://media.e-valy.com/cms/products/images/ba1f5f03-4d3f-4a85-8b98-393a69e135ed",
-      },
-
-      {
-        color: "#162135",
-        image:
-          "https://media.e-valy.com/cms/products/images/bbf56ae0-cc8e-4ed1-a468-6c14b4af19c2",
-      },
-      {
-        color: "#2b463d",
-        image:
-          "https://media.e-valy.com/cms/products/images/8a9dac91-dcc5-4b38-9c9d-765cc79320ae",
+        color: "#aed3e6",
+        image: "/images/products/03.png",
       },
     ],
   },

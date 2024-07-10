@@ -1,70 +1,43 @@
-"use client";
-
-import Tabs from "@/components/ui/Tabs";
-import { useEffect, useState } from "react";
-import TrendingTabProducts from "./TrendingTabProducts";
-
-// const tabs = [
-//   {
-//     label: "Fashion",
-//     value: "fashion",
-//   },
-//   {
-//     label: "Bags and Travel",
-//     value: "bags-and-travel",
-//   },
-//   {
-//     label: "Electronics",
-//     value: "electronics",
-//   },
-// ];
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
+import TrendingProductsTabItem from "./TrendingProductsTabItem";
 
 const TrendingProducts = ({ products }) => {
-  const [groupedProducts, setGroupProducts] = useState({});
-  const [tabs, setTabs] = useState([]);
-  const [selectedTab, setSelectedTab] = useState({});
-
-  useEffect(() => {
-    if (products?.length) {
-      const groupedProducts = products.reduce((acc, product) => {
-        const { parentCategory } = product;
-        if (!acc[parentCategory]) {
-          acc[parentCategory] = [];
-        }
-        acc[parentCategory].push(product);
-        return acc;
-      }, {});
-
-      const tabs = Object.keys(groupedProducts).map((item) => {
-        return { label: item, value: item };
-      });
-
-      setGroupProducts(groupedProducts);
-      setTabs(tabs);
-      setSelectedTab(tabs[0]);
+  const groupedProducts = products.reduce((acc, product) => {
+    const { category } = product;
+    if (!acc[category]) {
+      acc[category] = [];
     }
-  }, [products]);
+    acc[category].push(product);
+    return acc;
+  }, {});
+
+  const tabs = Object.keys(groupedProducts) || [];
 
   return (
-    <>
-      <div>
-        <Tabs
-          selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
-          tabs={tabs}
-        />
-      </div>
-      <div>
-        {tabs.map((tab, i) => (
-          <TrendingTabProducts
-            key={i}
-            tab={tab}
-            selectedTab={selectedTab}
-            products={groupedProducts[tab.value]}
-          />
-        ))}
-      </div>
-    </>
+    <div>
+      {tabs.length > 0 && (
+        <Tabs defaultValue={tabs[0]}>
+          <TabsList className="container mb-6">
+            {tabs?.map((tab, i) => (
+              <TabsTrigger key={i} value={tab}>
+                <span className="inline-block px-2 text-lg font-semibold capitalize">
+                  {tab}
+                </span>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          <TabsContent>
+            {tabs?.map((tab, i) => (
+              <TrendingProductsTabItem
+                key={i}
+                value={tab}
+                products={groupedProducts[tab]}
+              />
+            ))}
+          </TabsContent>
+        </Tabs>
+      )}
+    </div>
   );
 };
 

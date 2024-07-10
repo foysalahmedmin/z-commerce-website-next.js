@@ -41,12 +41,12 @@ export function roleChecker(role, userRole) {
   return userRole && role.includes(userRole);
 }
 
-export function toFixedAndLocaleStringCurrency(
+export function toFixedAndLocaleStringCurrency({
   value = 0,
   fixed = 2,
   language = "en-US",
   currency,
-) {
+}) {
   if (currency) {
     return Number(Number(value).toFixed(fixed)).toLocaleString(language, {
       style: "currency",

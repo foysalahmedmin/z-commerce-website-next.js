@@ -137,9 +137,9 @@ export const useCarouselActiveSlide = (api) => {
 // ------- //
 
 // carousel context //
-const CarouselContext = createContext(null);
+export const CarouselContext = createContext(null);
 
-const useCarousel = () => {
+export const useCarousel = () => {
   const context = useContext(CarouselContext);
 
   if (!context) {
@@ -227,8 +227,10 @@ const CarouselContent = forwardRef(({ className, ...props }, ref) => {
       <div
         ref={ref}
         className={cn(
-          "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          "flex h-full",
+          {
+            "flex-col": orientation === "vertical",
+          },
           className,
         )}
         {...props}
@@ -239,15 +241,13 @@ const CarouselContent = forwardRef(({ className, ...props }, ref) => {
 CarouselContent.displayName = "CarouselContent";
 
 const CarouselItem = forwardRef(({ className, ...props }, ref) => {
-  const { orientation } = useCarousel();
   return (
     <div
       ref={ref}
       role="group"
       aria-roledescription="slide"
       className={cn(
-        "min-w-0 shrink-0 grow-0 basis-full",
-        orientation === "horizontal" ? "pl-4" : "pt-4",
+        "min-w-0 shrink-0 grow-0 basis-full self-stretch",
         className,
       )}
       {...props}
@@ -256,7 +256,7 @@ const CarouselItem = forwardRef(({ className, ...props }, ref) => {
 });
 CarouselItem.displayName = "CarouselItem";
 
-const CarouselPrevious = forwardRef(
+const CarouselPreviousTrigger = forwardRef(
   ({ className, variant = "outline", size = "icon", ...props }, ref) => {
     const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
@@ -268,8 +268,8 @@ const CarouselPrevious = forwardRef(
         className={cn(
           "absolute  h-8 w-8 rounded-full",
           orientation === "horizontal"
-            ? "-left-12 top-1/2 -translate-y-1/2"
-            : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+            ? "left-0 top-1/2 -translate-y-1/2"
+            : "left-1/2 top-0 -translate-x-1/2 rotate-90",
           className,
         )}
         disabled={!canScrollPrev}
@@ -282,9 +282,9 @@ const CarouselPrevious = forwardRef(
     );
   },
 );
-CarouselPrevious.displayName = "CarouselPrevious";
+CarouselPreviousTrigger.displayName = "CarouselPreviousTrigger";
 
-const CarouselNext = forwardRef(
+const CarouselNextTrigger = forwardRef(
   ({ className, variant = "outline", size = "icon", ...props }, ref) => {
     const { orientation, scrollNext, canScrollNext } = useCarousel();
 
@@ -296,8 +296,8 @@ const CarouselNext = forwardRef(
         className={cn(
           "absolute h-8 w-8 rounded-full",
           orientation === "horizontal"
-            ? "-right-12 top-1/2 -translate-y-1/2"
-            : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+            ? "right-0 top-1/2 -translate-y-1/2"
+            : "bottom-0 left-1/2 -translate-x-1/2 rotate-90",
           className,
         )}
         disabled={!canScrollNext}
@@ -310,9 +310,9 @@ const CarouselNext = forwardRef(
     );
   },
 );
-CarouselNext.displayName = "CarouselNext";
+CarouselNextTrigger.displayName = "CarouselNextTrigger";
 
-const CarouselPaginationButton = forwardRef(
+const CarouselPaginationTrigger = forwardRef(
   (
     {
       className,
@@ -338,7 +338,7 @@ const CarouselPaginationButton = forwardRef(
     );
   },
 );
-CarouselPaginationButton.displayName = "CarouselPaginationButton";
+CarouselPaginationTrigger.displayName = "CarouselPaginationTrigger";
 
 const CarouselPagination = forwardRef(
   ({ className, carouselButton, ...props }, ref) => {
@@ -348,13 +348,13 @@ const CarouselPagination = forwardRef(
       <div
         ref={ref}
         className={cn(
-          "absolute bottom-4 mx-auto flex w-full items-center justify-center gap-x-1",
+          "absolute bottom-4 left-0 right-0 mx-auto flex w-full items-center justify-center gap-x-1",
           className,
         )}
         {...props}
       >
         {scrollSnaps.map((_, index) => (
-          <CarouselPaginationButton
+          <CarouselPaginationTrigger
             key={index}
             index={index}
             selectedIndex={selectedIndex}
@@ -373,7 +373,7 @@ export {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
+  CarouselNextTrigger,
   CarouselPagination,
-  CarouselPrevious,
+  CarouselPreviousTrigger,
 };

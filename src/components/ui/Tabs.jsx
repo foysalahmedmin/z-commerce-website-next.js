@@ -1,60 +1,110 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import { Button } from "./Button";
+import { createContext, forwardRef, useContext, useState } from "react";
 
-const { forwardRef } = require("react");
+// tabs context //
+export const TabsContext = createContext(null);
 
-const TabButton = forwardRef(
-  ({ index, tab, selectedTab, setSelectedTab, className, ...props }, ref) => {
-    const { label, value } = tab;
-    return (
-      <Button
-        {...props}
-        onClick={() => setSelectedTab({ ...tab, index })}
-        className={cn(
-          "flex w-full items-center justify-center rounded-md p-3 text-sm font-medium transition-all duration-300",
-          {
-            "bg-primary text-white":
-              selectedTab?.value === value || selectedTab?.index === index,
-          },
-          className,
-        )}
-        ref={ref}
-      >
-        {label}
-      </Button>
-    );
-  },
-);
-TabButton.displayName = "Tab";
+export const useTabs = () => {
+  const context = useContext(TabsContext);
+
+  if (!context) {
+    throw new Error("useTabs must be used within a <Tabs />");
+  }
+
+  return context;
+};
 
 const Tabs = forwardRef(
-  (
-    { tabs = [], selectedTab, setSelectedTab, className, tabButton, ...props },
-    ref,
-  ) => {
+  ({ className, defaultValue, children, ...props }, ref) => {
+    const [value, setValue] = useState(defaultValue);
     return (
-      <div
-        className={cn(
-          "flex w-full items-center justify-center rounded-md p-3 text-sm font-medium transition-all duration-300",
-          className,
-        )}
-        {...props}
-        ref={ref}
+      <TabsContext.Provider
+        value={{
+          value,
+          setValue,
+        }}
       >
-        {tabs.map((tab, i) => (
-          <tabButton
-            key={i}
-            {...tabButton}
-            index={i}
-            tab={tab}
-            selectedTab={selectedTab}
-            setSelectedTab={setSelectedTab}
-          />
-        ))}
-      </div>
+        <div ref={ref} className={cn("relative", className)} {...props}>
+          {children}
+        </div>
+      </TabsContext.Provider>
     );
   },
 );
 Tabs.displayName = "Tabs";
+// ------- //
 
-export default Tabs;
+// tabs contents //
+const TabsList = forwardRef(({ className, ...props }, ref) => {
+  return (
+    <ul
+      ref={ref}
+      className={cn(
+        "mb-4 flex items-center justify-center gap-1 overflow-x-auto",
+        className,
+      )}
+      {...props}
+    />
+  );
+});
+TabsList.displayName = "TabsList";
+
+const TabsTrigger = forwardRef(
+  (
+    { className, activeClassName, value, disabled, isLoading, ...props },
+    ref,
+  ) => {
+    const { value: contextValue, setValue } = useTabs();
+    return (
+      <li
+        ref={ref}
+        onClick={() =>
+          !disabled &&
+          !isLoading &&
+          value !== (undefined || null) &&
+          setValue(value)
+        }
+        data-state={value === contextValue ? "active" : "inactive"}
+        className={cn(
+          "underline-animated cursor-pointer text-title after:mx-auto after:origin-center after:border-title disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+          className,
+          {
+            [cn(
+              "cursor-default text-primary after:w-full after:border-primary",
+              activeClassName,
+            )]: value === contextValue,
+          },
+        )}
+        disabled={disabled || isLoading}
+        {...props}
+      />
+    );
+  },
+);
+TabsTrigger.displayName = "TabsTrigger";
+
+const TabsContent = forwardRef(({ className, ...props }, ref) => {
+  return <div ref={ref} className={cn("", className)} {...props} />;
+});
+TabsContent.displayName = "TabsContent";
+
+const TabsItem = forwardRef(
+  ({ className, activeClassName, value, ...props }, ref) => {
+    const { value: contextValue } = useTabs();
+    return (
+      <div
+        ref={ref}
+        className={cn("hidden", className, {
+          [cn("block", activeClassName)]: value === contextValue,
+        })}
+        {...props}
+      />
+    );
+  },
+);
+TabsItem.displayName = "TabsItem";
+// ------- //
+
+export { Tabs, TabsContent, TabsItem, TabsList, TabsTrigger };

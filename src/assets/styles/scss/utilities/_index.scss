@@ -15,11 +15,11 @@
 }
 
 .short-underline {
-  @apply relative after:absolute after:inset-0 after:w-12 after:border-b after:border-primary after:content-[''];
+  @apply relative after:absolute after:inset-0 after:w-12 after:border-b after:border-accent after:content-[''];
 }
 
 .underline-animated {
-  @apply relative transition-all duration-300 after:absolute after:inset-0 after:w-0 after:border-b after:border-primary after:transition-all after:duration-300 after:content-[''] hover:after:w-full;
+  @apply relative transition-all duration-300 after:absolute after:inset-0 after:w-0 after:border-b after:border-accent after:transition-all after:duration-300 after:content-[''] hover:after:w-full;
 }
 
 .short-spin {
