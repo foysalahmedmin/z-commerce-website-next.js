@@ -1,5 +1,6 @@
 import BannerSection from "@/components/(common)/home/BannerSection";
 import FeatureSection from "@/components/(common)/home/FeatureSection";
+import TestimonialSection from "@/components/(common)/home/TestimonialSection";
 import TrendingSection from "@/components/(common)/home/TrendingSection";
 import { titleGenerator } from "@/lib/utils";
 
@@ -14,6 +15,7 @@ const HomePage = () => {
       <BannerSection />
       <FeatureSection />
       <TrendingSection />
+      <TestimonialSection />
     </main>
   );
 };

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-const useRippleEffect = (ref) => {
+const useRippleEffect = (ref, disabled) => {
   useEffect(() => {
-    if (!ref?.current) return;
+    if (!ref?.current || disabled) return;
 
     const element = ref.current;
 
@@ -19,7 +19,7 @@ const useRippleEffect = (ref) => {
       ripple.style.pointerEvents = "none";
       ripple.style.borderRadius = "50%";
       ripple.style.position = "absolute";
-      ripple.style.backgroundColor = "hsla(var(--accent) / 0.5)";
+      ripple.style.backgroundColor = "hsla(var(--title) / 0.5)";
       ripple.style.transform = "scale(0)";
       ripple.style.opacity = "1";
       ripple.style.transition = "transform 1s ease-out, opacity 1s ease-out";

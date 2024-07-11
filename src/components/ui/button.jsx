@@ -3,7 +3,7 @@
 import useRippleEffect from "@/hooks/useRippleEffect";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
-import { forwardRef, useRef } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 
 const buttonVariants = cva("button", {
   variants: {
@@ -55,11 +55,12 @@ const Button = forwardRef(
     },
     ref,
   ) => {
-    const Comp = asChild ? "span" : "button";
-
     const buttonRef = useRef(ref?.current || null);
-    useRippleEffect(buttonRef);
 
+    useRippleEffect(buttonRef);
+    useImperativeHandle(ref, () => buttonRef.current);
+
+    const Comp = asChild ? "span" : "button";
     return (
       <Comp
         data-loading={isLoading}
