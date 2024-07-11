@@ -9,12 +9,12 @@ const CartInfo = ({ className }) => {
   return (
     <div
       className={cn(
-        "from absolute bottom-0 left-0 right-0 flex w-full items-center justify-center gap-2 py-4 transition-all duration-150 group-hover:via-60% group-hover:to-100%",
+        "from absolute bottom-0 left-0 right-0 flex w-full items-center justify-center gap-2 py-4",
         className,
       )}
     >
-      <div className="translate-y-4 opacity-0 transition-all  duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-        <Button className="text-xl " title="Wish List" size="icon-sm">
+      <div className="translate-y-4 opacity-0 transition-all  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+        <Button className="size-6 text-lg" title="Wish List" size="icon-sm">
           {wishListed ? (
             <Heart className="text-primary-foreground" />
           ) : (
@@ -22,13 +22,13 @@ const CartInfo = ({ className }) => {
           )}
         </Button>
       </div>
-      <div className="translate-y-4 opacity-0 transition-all delay-100  duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-        <Button className="text-xl " title="Quick View" size="icon-sm">
+      <div className="translate-y-4 opacity-0 transition-all delay-100  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+        <Button className="size-6 text-lg" title="Quick View" size="icon-sm">
           <Magnify />
         </Button>
       </div>
-      <div className="translate-y-4 opacity-0 transition-all delay-200  duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-        <Button className="text-xl " title="Share" size="icon-sm">
+      <div className="translate-y-4 opacity-0 transition-all delay-200  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+        <Button className="size-6 text-lg" title="Share" size="icon-sm">
           <Share />
         </Button>
       </div>

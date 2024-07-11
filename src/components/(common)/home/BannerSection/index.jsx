@@ -47,7 +47,7 @@ const BannerSection = () => {
   return (
     <section className="bg-background">
       <Carousel
-        className="group relative w-full"
+        className="group/carousel relative w-full"
         opts={{ loop: true }}
         autoplay
       >
@@ -58,18 +58,14 @@ const BannerSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="px-container absolute left-0 right-0 top-1/2 hidden -translate-y-1/2 overflow-x-hidden overflow-y-visible md:block">
-          <div className="relative h-12">
-            <CarouselPreviousTrigger
-              className="invisible left-0 -translate-x-full opacity-0 transition-all duration-300 group-hover:visible group-hover:translate-x-0 group-hover:opacity-100"
-              size="icon-lg"
-            />
-            <CarouselNextTrigger
-              className="invisible right-0 translate-x-full opacity-0 transition-all duration-300 group-hover:visible group-hover:right-0 group-hover:translate-x-0 group-hover:opacity-100"
-              size="icon-lg"
-            />
-          </div>
-        </div>
+        <CarouselPreviousTrigger
+          className="invisible absolute left-8 hidden -translate-x-full opacity-0 transition-all duration-300 group-hover/carousel:visible group-hover/carousel:translate-x-0 group-hover/carousel:opacity-100 md:inline-flex"
+          size="icon-lg"
+        />
+        <CarouselNextTrigger
+          className="invisible absolute right-8 hidden translate-x-full opacity-0 transition-all duration-300 group-hover/carousel:visible group-hover/carousel:translate-x-0 group-hover/carousel:opacity-100 md:inline-flex"
+          size="icon-lg"
+        />
         <CarouselPagination />
       </Carousel>
     </section>

@@ -4,7 +4,7 @@ import { ShoppingCart } from "lucide-react";
 const CartButton = () => {
   return (
     <>
-      <Button className="w-full rounded-t-none uppercase" variant="outline">
+      <Button className="w-full rounded-t-none uppercase" variant="outline" size="sm" >
         Add to Cart <ShoppingCart />
       </Button>
     </>

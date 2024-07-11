@@ -15,7 +15,7 @@ const TrendingProductsTabItem = ({ value, products }) => {
     <TabsItem value={value} className={cn("w-full")}>
       <div className="pb-6 md:px-8">
         <Carousel
-          className="group w-full"
+          className="group/carousel w-full"
           opts={{ slidesToScroll: "auto", loop: true }}
           autoplay
         >
@@ -24,7 +24,7 @@ const TrendingProductsTabItem = ({ value, products }) => {
               {products.map((item, index) => (
                 <CarouselItem
                   key={index}
-                  className="p-2 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/5"
+                  className="p-2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                 >
                   <ProductCard item={item} />
                 </CarouselItem>
@@ -33,11 +33,11 @@ const TrendingProductsTabItem = ({ value, products }) => {
           </div>
           <div>
             <CarouselPreviousTrigger
-              className="invisible absolute hidden -translate-x-full opacity-0 transition-all duration-300 group-hover:visible group-hover:translate-x-0 group-hover:opacity-100 md:inline-flex"
+              className="invisible absolute hidden -translate-x-full opacity-0 transition-all duration-300 group-hover/carousel:visible group-hover/carousel:translate-x-0 group-hover/carousel:opacity-100 md:inline-flex"
               size="icon-lg"
             />
             <CarouselNextTrigger
-              className="invisible absolute hidden translate-x-full opacity-0 transition-all duration-300 group-hover:visible group-hover:right-0 group-hover:translate-x-0 group-hover:opacity-100 md:inline-flex"
+              className="invisible absolute hidden translate-x-full opacity-0 transition-all duration-300 group-hover/carousel:visible group-hover/carousel:translate-x-0 group-hover/carousel:opacity-100 md:inline-flex"
               size="icon-lg"
             />
           </div>

@@ -1,6 +1,9 @@
+"use client";
+
+import useRippleEffect from "@/hooks/useRippleEffect";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
-import { forwardRef } from "react";
+import { forwardRef, useRef } from "react";
 
 const buttonVariants = cva("button", {
   variants: {
@@ -53,6 +56,10 @@ const Button = forwardRef(
     ref,
   ) => {
     const Comp = asChild ? "span" : "button";
+
+    const buttonRef = useRef(ref?.current || null);
+    useRippleEffect(buttonRef);
+
     return (
       <Comp
         data-loading={isLoading}
@@ -65,12 +72,13 @@ const Button = forwardRef(
             className,
           }),
         )}
-        ref={ref}
+        ref={buttonRef}
         {...props}
       />
     );
   },
 );
+
 Button.displayName = "Button";
 
 export { Button, buttonVariants };

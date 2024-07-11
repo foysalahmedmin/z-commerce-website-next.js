@@ -19,24 +19,23 @@ const ProductCard = ({ item }) => {
     rating,
     totalReview,
     previousPrice,
-    available,
     price,
     variants,
     tags,
   } = item;
   return (
-    <div className="h-full overflow-hidden rounded-xl border bg-card shadow">
+    <div className="group/card h-full overflow-hidden rounded-xl border bg-card shadow">
       <Tabs defaultValue={0} className="flex h-full w-full flex-col">
         <TabsContent className="relative w-full">
           {variants.map((variant, i) => (
             <TabsItem
               key={i}
               value={i}
-              className={"h-80 w-full overflow-hidden"}
+              className={"h-60 w-full overflow-hidden"}
             >
               <Image
                 className={cn(
-                  "h-full w-full origin-center object-cover object-center transition-all duration-500 group-hover:scale-105 group-hover:brightness-95 group-hover:delay-200",
+                  "h-full w-full origin-center object-cover object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
                 )}
                 height={320}
                 width={260}
@@ -46,12 +45,12 @@ const ProductCard = ({ item }) => {
             </TabsItem>
           ))}
           {tags && tags.length > 0 && (
-            <div className="absolute bottom-0 left-0 top-0 space-y-2 py-4">
+            <div className="absolute left-0 top-4 inline-flex flex-col gap-y-1">
               {tags.map((tag, i) => (
-                <div
+                <span
                   key={i}
                   className={cn(
-                    "rounded-e-full bg-primary py-1 pl-4 pr-2 text-sm capitalize text-card",
+                    "inline-block rounded-e-full bg-primary py-1 pl-4 pr-2 text-[10px] capitalize leading-none text-primary-foreground",
                     {
                       "bg-primary": i % 3 === 0,
                     },
@@ -63,21 +62,21 @@ const ProductCard = ({ item }) => {
                     },
                   )}
                 >
-                  <span>{tag}</span>
-                </div>
+                  {tag}
+                </span>
               ))}
             </div>
           )}
           <CartInfo />
         </TabsContent>
-        <div className="flex grow flex-col space-y-4 p-4">
-          <div className="grid grow space-y-1">
-            <h3 className="text-lg text-title">{name}</h3>
+        <div className="flex grow flex-col space-y-2 px-4 py-2">
+          <div className="grid grow">
+            <h3 className="text-base text-title">{name}</h3>
             {description && (
-              <p className="text-sm text-title/75">{description}</p>
+              <p className="text-xs text-title/75">{description}</p>
             )}
             {rating && (
-              <div className="mt-auto flex items-center justify-between gap-1">
+              <div className="flex items-center justify-between gap-1">
                 <StarRatting rating={rating} className="text-lg" />
                 <div className="flex items-center gap-1 text-sm">
                   <span className="font-semibold text-secondary">{rating}</span>
@@ -104,21 +103,23 @@ const ProductCard = ({ item }) => {
                 </TabsTrigger>
               ))}
             </TabsList>
-            <div className="relative -right-4 inline-flex h-full min-w-[50%] items-center justify-end gap-1 rounded-s-full bg-primary px-4 py-1 text-end">
+            <div className="relative -right-4 inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[2px] rounded-s-full bg-primary py-1 pl-2 pr-4 text-end">
               {previousPrice && (
-                <del className="text-sm font-light leading-none text-card/75">
+                <del className="text-[10px] leading-none text-primary-foreground/85">
                   $
                   {toFixedAndLocaleStringCurrency({
                     value: previousPrice,
                   })}
                 </del>
               )}
-              <strong className="text-lg font-semibold leading-none text-card">
-                $
-                {toFixedAndLocaleStringCurrency({
-                  value: price,
-                })}
-              </strong>
+              {price && (
+                <strong className="text-sm font-semibold leading-none text-light">
+                  $
+                  {toFixedAndLocaleStringCurrency({
+                    value: price,
+                  })}
+                </strong>
+              )}
             </div>
           </div>
           <div>
