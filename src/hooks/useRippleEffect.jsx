@@ -7,14 +7,19 @@ const useRippleEffect = (ref, disabled) => {
     const element = ref.current;
 
     const createRipple = (e) => {
-      element.style.position = "relative";
-
+      const rippleContainer = document.createElement("span");
       const ripple = document.createElement("span");
+
       const diameter = Math.max(element.clientWidth, element.clientHeight);
       const radius = diameter / 2;
       const rect = element.getBoundingClientRect();
       const x = e.clientX - rect.left - radius;
       const y = e.clientY - rect.top - radius;
+
+      rippleContainer.style.pointerEvents = "none";
+      rippleContainer.style.overflow = "hidden";
+      rippleContainer.style.position = "absolute";
+      rippleContainer.style.inset = "0px";
 
       ripple.style.pointerEvents = "none";
       ripple.style.borderRadius = "50%";
@@ -28,7 +33,8 @@ const useRippleEffect = (ref, disabled) => {
       ripple.style.left = x + "px";
       ripple.style.top = y + "px";
 
-      element.appendChild(ripple);
+      rippleContainer.appendChild(ripple);
+      element.appendChild(rippleContainer);
 
       requestAnimationFrame(() => {
         ripple.style.transform = "scale(2)";
@@ -37,6 +43,7 @@ const useRippleEffect = (ref, disabled) => {
 
       setTimeout(() => {
         ripple.remove();
+        rippleContainer.remove();
       }, 1000);
     };
 
@@ -45,7 +52,7 @@ const useRippleEffect = (ref, disabled) => {
     return () => {
       element.removeEventListener("click", createRipple);
     };
-  }, [ref]);
+  }, [ref, disabled]);
 };
 
 export default useRippleEffect;
