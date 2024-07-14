@@ -24,7 +24,7 @@ const FeatureSection = () => {
     },
   ];
   return (
-    <section className="py-16">
+    <section className="py-12 md:py-16">
       <div className="container">
         <div className="flex flex-wrap items-center justify-center gap-4">
           {data.map((item, index) => (

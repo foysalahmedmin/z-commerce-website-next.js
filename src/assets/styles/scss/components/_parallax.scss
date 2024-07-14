@@ -1,0 +1,27 @@
+.parallax-container {
+  position: relative;
+  clip-path: inset(0);
+
+  .parallax {
+    animation: appear linear;
+    animation-timeline: view();
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    z-index: -1;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: calc(200% - calc(var(--header-height) * 3));
+  }
+}
+
+@keyframes appear {
+  from {
+    transform: translate3d(0, 0%, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}

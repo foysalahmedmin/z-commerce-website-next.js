@@ -75,4 +75,8 @@ module.exports = {
     from: { height: "var(--radix-accordion-content-height)" },
     to: { height: "0" },
   },
+  "parallax-appear": {
+    from: "translate3d(0, 0%, 0)",
+    to: "transform: translate3d(0, -50%, 0)",
+  },
 };

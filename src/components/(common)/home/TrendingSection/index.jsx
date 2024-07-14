@@ -4,7 +4,7 @@ import TrendingProducts from "./TrendingProducts";
 
 const TrendingSection = () => {
   return (
-    <section className="py-16">
+    <section className="py-12 md:py-16">
       <div>
         <div className="container">
           <SectionTitle>

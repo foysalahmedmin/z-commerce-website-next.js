@@ -5,7 +5,7 @@ const SectionTitle = forwardRef(({ className, ...props }, ref) => {
   return (
     <div
       className={cn(
-        "short-underline mx-auto mb-10 max-w-[768px] px-4 pb-2 text-center after:mx-auto after:border-b-4",
+        "short-underline mx-auto mb-6 max-w-[768px] px-4 pb-2 text-center after:mx-auto after:border-b-4 md:mb-8",
         className,
       )}
       ref={ref}
