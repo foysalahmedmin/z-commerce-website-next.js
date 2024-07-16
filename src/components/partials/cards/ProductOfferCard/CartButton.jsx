@@ -1,6 +1,6 @@
+import { CartOutline } from "@/assets/images/icons/Cart";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import { ShoppingCart } from "lucide-react";
 
 const CartButton = ({
   className,
@@ -11,12 +11,12 @@ const CartButton = ({
   return (
     <>
       <Button
-        className={cn("w-full rounded-t-none uppercase", className)}
+        className={cn("uppercase", className)}
         variant={variant}
         size={size}
         {...props}
       >
-        Add to Cart <ShoppingCart />
+        ADD <CartOutline className="shrink-0 text-lg" />
       </Button>
     </>
   );
