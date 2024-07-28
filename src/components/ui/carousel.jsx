@@ -117,8 +117,10 @@ export const useCarouselActiveSlide = (api) => {
     ) {
       slideNodes.forEach((node) => {
         node.classList.remove("active-slide-node");
+        node.setAttribute("aria-current", "false");
       });
       slideNodes[selectedScrollSnap].classList.add("active-slide-node");
+      slideNodes[selectedScrollSnap].setAttribute("aria-current", "true");
       setSelectedNode(slideNodes[selectedScrollSnap]);
     }
   }, []);
