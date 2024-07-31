@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { Gift, PhoneCall, Repeat2, Truck } from "lucide-react";
 
 const FeatureSection = () => {
@@ -24,21 +25,31 @@ const FeatureSection = () => {
     },
   ];
   return (
-    <section className="py-12 md:py-16">
+    <section className="bg-card py-8 md:py-10">
       <div className="container">
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          {data.map((item, index) => (
-            <div
-              key={index}
-              className="flex w-full items-center justify-start gap-2 rounded-md border bg-card px-2 py-4 md:w-64"
-            >
-              <item.icon className="size-12" strokeWidth={1} />
-              <div className="border-l-4 border-primary pl-2">
-                <h3 className="text-sm uppercase">{item.title}</h3>
-                <p className="text-xs">{item.description}</p>
+        <div className="flex items-center justify-center border-y py-4 md:py-6">
+          <div className="grid grid-cols-1 items-center justify-center divide-y md:inline-grid md:grid-cols-2 md:divide-y-0 xl:grid-cols-4">
+            {data.map((item, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "flex w-full items-center justify-start gap-2 bg-card px-4 py-4 xl:justify-center",
+                  {
+                    "md:border-l": i === 1 || i == 3,
+                  },
+                  {
+                    "xl:border-l": i === 2,
+                  },
+                )}
+              >
+                <item.icon className="size-12" strokeWidth={1} />
+                <div className="border-l-4 border-primary pl-2">
+                  <h3 className="text-sm uppercase">{item.title}</h3>
+                  <p className="text-xs">{item.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

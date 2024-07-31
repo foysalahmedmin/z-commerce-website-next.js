@@ -1,5 +1,6 @@
 import { Instagram } from "@/assets/images/icons/Instagram";
 import Image from "next/image";
+import Link from "next/link";
 
 const InstagramCard = ({ item }) => {
   const { image, name } = item;
@@ -12,9 +13,12 @@ const InstagramCard = ({ item }) => {
         src={image}
         alt={name}
       />
-      <div className="absolute inset-0 flex cursor-pointer items-center justify-center p-[15%] text-secondary transition-all duration-500 group-hover:bg-dark/25 group-hover:backdrop-blur-[2px]">
+      <Link
+        href="#"
+        className="absolute inset-0 flex cursor-pointer items-center justify-center p-[15%] text-secondary transition-all duration-500 group-hover:bg-dark/25 group-hover:backdrop-blur-[2px]"
+      >
         <Instagram className="size-full rotate-[360deg] scale-0 opacity-0 transition-all duration-500 group-hover:rotate-0 group-hover:scale-100 group-hover:opacity-100" />
-      </div>
+      </Link>
     </div>
   );
 };

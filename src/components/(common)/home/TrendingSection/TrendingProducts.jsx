@@ -17,10 +17,15 @@ const TrendingProducts = ({ products }) => {
     <div>
       {tabs.length > 0 && (
         <Tabs defaultValue={tabs[0]}>
-          <TabsList className="container mb-6">
+          <TabsList className="container relative mb-6 gap-0 overflow-visible border-b">
             {tabs?.map((tab, i) => (
-              <TabsTrigger key={i} value={tab}>
-                <span className="inline-block px-2 text-lg font-semibold capitalize">
+              <TabsTrigger
+                className="relative -mb-[1px] border border-transparent caret-transparent"
+                activeClassName="border-border border-b-background rounded-t-md bg-background after:hidden"
+                key={i}
+                value={tab}
+              >
+                <span className="inline-block px-4 text-base font-semibold capitalize md:text-lg">
                   {tab}
                 </span>
               </TabsTrigger>
