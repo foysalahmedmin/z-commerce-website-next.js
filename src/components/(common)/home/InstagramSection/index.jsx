@@ -9,10 +9,10 @@ import { SectionTitle, Title } from "@/components/ui/SectionTitle";
 
 const InstagramSection = () => {
   return (
-    <section className="py-12 md:py-16">
+    <section className="bg-card py-12 md:py-16">
       <div className="container">
         <SectionTitle>
-          <Title>#Testimonials</Title>
+          <Title>#Instagram</Title>
         </SectionTitle>
       </div>
       <div>
@@ -22,15 +22,13 @@ const InstagramSection = () => {
             opts={{ loop: true }}
             autoplay
           >
-            <div className="container">
-              <CarouselContent>
-                {instagram?.slice(0, 12).map((item, index) => (
-                  <CarouselItem key={index} className="md:basis-1/6">
-                    <InstagramCard item={item} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </div>
+            <CarouselContent>
+              {instagram?.map((item, index) => (
+                <CarouselItem key={index} className="basis-1/3 md:basis-1/6">
+                  <InstagramCard item={item} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
           </Carousel>
         </div>
       </div>

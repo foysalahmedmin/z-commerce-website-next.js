@@ -1,5 +1,22 @@
+import { Instagram } from "@/assets/images/icons/Instagram";
+import Image from "next/image";
+
 const InstagramCard = ({ item }) => {
-  return <div></div>;
+  const { image, name } = item;
+  return (
+    <div className="group relative aspect-square w-full">
+      <Image
+        className="h-full w-full"
+        width={300}
+        height={300}
+        src={image}
+        alt={name}
+      />
+      <div className="absolute inset-0 flex cursor-pointer items-center justify-center p-[15%] text-secondary transition-all duration-500 group-hover:bg-dark/25 group-hover:backdrop-blur-[2px]">
+        <Instagram className="size-full rotate-[360deg] scale-0 opacity-0 transition-all duration-500 group-hover:rotate-0 group-hover:scale-100 group-hover:opacity-100" />
+      </div>
+    </div>
+  );
 };
 
 export default InstagramCard;
