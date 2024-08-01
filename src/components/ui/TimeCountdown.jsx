@@ -37,19 +37,19 @@ const TimeCountdown = forwardRef(({ className, expiryDate, ...props }, ref) => {
       ref={ref}
       {...props}
     >
-      <span className="rounded-lg bg-card px-2 text-base">
+      <span className="rounded bg-card px-2 text-base">
         <Countdown className=" font-bold" value={day} />
       </span>
       <span className="text-xl font-bold leading-none text-card">:</span>
-      <span className="rounded-lg bg-card px-2 text-base">
+      <span className="rounded bg-card px-2 text-base">
         <Countdown className=" font-bold" value={hour} />
       </span>
       <span className="text-xl font-bold leading-none text-card">:</span>
-      <span className="rounded-lg bg-card px-2 text-base">
+      <span className="rounded bg-card px-2 text-base">
         <Countdown className=" font-bold" value={minute} />
       </span>
       <span className="text-xl font-bold leading-none text-card">:</span>
-      <span className="rounded-lg bg-card px-2 text-base">
+      <span className="rounded bg-card px-2 text-base">
         <Countdown className=" font-bold" value={second} />
       </span>
     </div>
