@@ -1,4 +1,5 @@
 import BannerSection from "@/components/(common)/home/BannerSection";
+import CategorySection from "@/components/(common)/home/CategorySection";
 import DealSection from "@/components/(common)/home/DealSection";
 import FeatureSection from "@/components/(common)/home/FeatureSection";
 import InstagramSection from "@/components/(common)/home/InstagramSection";
@@ -17,10 +18,11 @@ const HomePage = () => {
   return (
     <main>
       <BannerSection />
-      <FeatureSection />
+      <CategorySection />
       <TrendingSection />
       <ParallaxBannerSection />
       <DealSection />
+      <FeatureSection />
       <SubscriptionBanner />
       <TestimonialSection />
       <InstagramSection />

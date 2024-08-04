@@ -2,13 +2,13 @@ import Header from "@/components/partials/Header";
 
 const ShopLayout = ({ children }) => {
   return (
-    <main>
-      <aside></aside>
-      <div>
-        <Header navigationClassName="px-container" />
+    <>
+      <Header navigationClassName="px-container" />
+      <main>
+        <aside></aside>
         <div>{children}</div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 
