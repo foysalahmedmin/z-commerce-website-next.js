@@ -23,10 +23,12 @@ const CategoryTabItem = ({ value, categories }) => {
               {categories?.map((item, i) => (
                 <CarouselItem
                   key={i}
-                  className="basis-1/2 p-2 sm:basis-1/4 md:basis-1/6 xl:basis-1/12"
+                  className="basis-1/2 p-2 md:basis-1/4 xl:basis-1/6"
                 >
-                  <div className="rounded-lg bg-background text-center text-xs capitalize">
-                    <div className="flex h-20 items-center justify-center"></div>
+                  <div className="rounded-lg bg-background p-2 text-center capitalize">
+                    <div className="flex h-32 items-center justify-center">
+                      <span>{item?.icon}</span>
+                    </div>
                     <strong className="text-nowrap">{item?.label}</strong>
                   </div>
                 </CarouselItem>

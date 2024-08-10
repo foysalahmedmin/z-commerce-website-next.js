@@ -11,7 +11,7 @@ export const Category1 = forwardRef((props, ref) => {
       ref={ref}
       {...props}
     >
-      <g clip-path="url(#clip0_6511_669)">
+      <g clipPath="url(#clip0_6511_669)">
         <path
           d="M10.4375 31.8765L9.4375 26.3765V21.3765C9.60417 20.2098 10.0375 17.8765 10.4375 17.8765C10.8375 17.8765 13.4375 16.8765 15.4375 16.3765L19.4375 15.8765C20.4375 15.8765 20.9375 15.8765 25.9375 14.8765C26.3297 14.7981 28.9375 14.3765 29.9375 14.3765L28.4375 12.3765L30.4375 14.3765L32.4375 16.3765L32.9375 17.8765C32.2708 18.0432 30.7375 18.3765 29.9375 18.3765H25.9375L23.9375 19.3765V20.8765C23.9375 21.2765 23.6042 24.7098 23.4375 26.3765L22.9375 31.3765L20.9375 31.8765H11.4375H10.4375Z"
           fill="#FDC040"
@@ -66,12 +66,12 @@ export const Category2 = forwardRef((props, ref) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_6511_680)">
-        <g clip-path="url(#clip1_6511_680)">
-          <g clip-path="url(#clip2_6511_680)">
+      <g clipPath="url(#clip0_6511_680)">
+        <g clipPath="url(#clip1_6511_680)">
+          <g clipPath="url(#clip2_6511_680)">
             <mask
               id="mask0_6511_680"
-              style="mask-type:luminance"
+              style={{ maskType: "luminance" }}
               maskUnits="userSpaceOnUse"
               x="0"
               y="0"
@@ -151,10 +151,10 @@ export const Category3 = forwardRef((props, ref) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_6511_697)">
+      <g clipPath="url(#clip0_6511_697)">
         <mask
           id="mask0_6511_697"
-          style="mask-type:luminance"
+          style={{ maskType: "luminance" }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -210,7 +210,7 @@ export const Category4 = forwardRef((props, ref) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_6511_711)">
+      <g clipPath="url(#clip0_6511_711)">
         <path
           d="M29.4375 53.8765C39.9309 53.8765 48.4375 45.8176 48.4375 35.8765C48.4375 25.9353 39.9309 17.8765 29.4375 17.8765C18.9441 17.8765 10.4375 25.9353 10.4375 35.8765C10.4375 45.8176 18.9441 53.8765 29.4375 53.8765Z"
           fill="#FDC040"
@@ -269,7 +269,7 @@ export const Category5 = forwardRef((props, ref) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_6511_725)">
+      <g clipPath="url(#clip0_6511_725)">
         <path
           d="M59.4375 54.8765H41.4375C38.1238 54.8765 35.4375 57.5628 35.4375 60.8765V72.8765C35.4375 76.1902 38.1238 78.8765 41.4375 78.8765H59.4375C62.7512 78.8765 65.4375 76.1902 65.4375 72.8765V60.8765C65.4375 57.5628 62.7512 54.8765 59.4375 54.8765Z"
           fill="#FDC040"
@@ -324,10 +324,10 @@ export const Category6 = forwardRef((props, ref) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_6511_738)">
+      <g clipPath="url(#clip0_6511_738)">
         <mask
           id="mask0_6511_738"
-          style="mask-type:luminance"
+          style={{ maskType: "luminance" }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -387,11 +387,11 @@ export const Category7 = forwardRef((props, ref) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_6511_752)">
-        <g clip-path="url(#clip1_6511_752)">
+      <g clipPath="url(#clip0_6511_752)">
+        <g clipPath="url(#clip1_6511_752)">
           <mask
             id="mask0_6511_752"
-            style="mask-type:luminance"
+            style={{ maskType: "luminance" }}
             maskUnits="userSpaceOnUse"
             x="0"
             y="0"
@@ -452,7 +452,7 @@ export const Category8 = forwardRef((props, ref) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_6511_766)">
+      <g clipPath="url(#clip0_6511_766)">
         <path
           d="M70.4375 78.8765C75.4081 78.8765 79.4375 74.847 79.4375 69.8765C79.4375 64.9059 75.4081 60.8765 70.4375 60.8765C65.4669 60.8765 61.4375 64.9059 61.4375 69.8765C61.4375 74.847 65.4669 78.8765 70.4375 78.8765Z"
           fill="#FDC040"

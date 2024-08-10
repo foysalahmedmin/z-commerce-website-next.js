@@ -8,7 +8,7 @@ const CategorySection = () => {
       <div className="container">
         {categories.length > 0 && (
           <Tabs defaultValue={categories[0]?.value}>
-            <div className="container mb-6 flex items-center gap-4">
+            <div className="container mb-6 flex flex-wrap items-center gap-4">
               <h3 className="shrink-0 font-bold uppercase">
                 Featured Categories
               </h3>
