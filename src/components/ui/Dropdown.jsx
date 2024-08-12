@@ -6,7 +6,7 @@ import { cva } from "class-variance-authority";
 import { forwardRef, useRef } from "react";
 
 const dropdownVariants = cva(
-  "transition-[opacity,transform] z-30 absolute duration-300 bg-card origin-center text-card-foreground border rounded-md",
+  "transition-[opacity,transform] z-30 absolute duration-300 bg-card origin-center text-card-foreground border rounded",
   {
     variants: {
       side: {

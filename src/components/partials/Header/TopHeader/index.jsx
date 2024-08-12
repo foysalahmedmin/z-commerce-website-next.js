@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const TopHeader = () => {
   return (
-    <div className="h-10">
+    <div className="h-10 bg-dark text-light">
       <div className="container flex h-full items-center justify-between">
         <div>
           <p>Welcome to Z-Commerce</p>

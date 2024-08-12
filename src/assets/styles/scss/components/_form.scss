@@ -47,7 +47,7 @@
 }
 
 .input {
-  @apply flex min-h-[2.5em] w-full outline-none resize-y items-center gap-[.5em] rounded-md border bg-transparent px-[1em] text-base placeholder:text-input hover:bg-muted/15;
+  @apply flex min-h-[2.5em] w-full outline-none resize-y items-center gap-[.5em] rounded border bg-transparent px-[1em] text-base placeholder:text-input hover:bg-muted/15;
   &:disabled {
     @apply opacity-50 hover:bg-transparent border-border animate-none;
   }

@@ -1,13 +1,6 @@
 import { ActiveLink } from "@/components/ui/ActiveLink";
 import { pathProcessor } from "@/lib/utils";
-import {
-  Binary,
-  Boxes,
-  HomeIcon,
-  Info,
-  PackageSearch,
-  Store,
-} from "lucide-react";
+import { HomeIcon, Info, ReceiptText, Store } from "lucide-react";
 
 const routes = [
   {
@@ -21,28 +14,18 @@ const routes = [
     icon: <Store size={16} />,
   },
   {
-    path: "/all-categories",
-    label: "All Categories",
-    icon: <Boxes size={16} />,
-  },
-  {
-    path: "/all-brands",
-    label: "All Brands",
-    icon: <Binary size={16} />,
-  },
-  {
-    path: "/all-sellers",
-    label: "All Sellers",
-    icon: <PackageSearch size={16} />,
-  },
-  {
     path: "/about",
-    label: "About Us",
+    label: "About",
     icon: <Info size={16} />,
+  },
+  {
+    path: "/contact",
+    label: "Contact",
+    icon: <ReceiptText size={16} />,
   },
 ];
 
-const NavMenus = () => {
+const NavMenu = () => {
   return (
     <>
       {routes.map((route, i) => (
@@ -62,4 +45,4 @@ const NavMenus = () => {
   );
 };
 
-export default NavMenus;
+export default NavMenu;

@@ -1,5 +1,6 @@
 import { products } from "@/assets/data/products";
 import ProductOfferCard from "@/components/partials/cards/ProductOfferCard";
+import { Button } from "@/components/ui/Button";
 import {
   Carousel,
   CarouselContent,
@@ -19,7 +20,7 @@ const DealSection = () => {
           <Title>Deal of the day</Title>
         </SectionTitle>
       </div>
-      <div>
+      <div className="mb-6 md:mb-8">
         <div className="pb-6 md:px-8">
           <Carousel
             className="group/carousel w-full"
@@ -51,6 +52,9 @@ const DealSection = () => {
             <CarouselPagination className="-bottom-6" />
           </Carousel>
         </div>
+      </div>
+      <div className="container text-center">
+        <Button>View All Products</Button>
       </div>
     </section>
   );

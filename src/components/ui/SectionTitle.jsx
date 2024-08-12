@@ -1,12 +1,32 @@
 import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
-const SectionTitle = forwardRef(({ className, ...props }, ref) => {
+const sectionTitleVariants = cva(
+  "short-underline group mb-6 max-w-[768px] pb-2 after:border-b-2 after:border-title md:mb-8",
+  {
+    variants: {
+      variant: {
+        center: "center mx-auto px-4 text-center after:mx-auto",
+        left: "left text-left after:mr-auto",
+        right: "right text-right after:ml-auto",
+        none: "",
+      },
+    },
+    defaultVariants: {
+      variant: "left",
+    },
+  },
+);
+
+const SectionTitle = forwardRef(({ className, variant, ...props }, ref) => {
   return (
     <div
       className={cn(
-        "short-underline mx-auto mb-6 max-w-[768px] px-4 pb-2 text-center after:mx-auto after:border-b-4 md:mb-8",
-        className,
+        sectionTitleVariants({
+          variant,
+          className,
+        }),
       )}
       ref={ref}
       {...props}
@@ -30,7 +50,7 @@ const Subtitle = forwardRef(({ className, ...props }, ref) => {
   return (
     <span
       className={cn(
-        "font-comfortaa mb-2 text-base font-light uppercase tracking-[.2rem] text-primary",
+        "font-comfortaa mb-2 inline-block border-accent px-4 py-1 text-sm uppercase tracking-[.2rem] text-primary group-[.left]:border-l-8 group-[.right]:border-r-8",
         className,
       )}
       {...props}

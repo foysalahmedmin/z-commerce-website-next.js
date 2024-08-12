@@ -22,7 +22,7 @@ const SubscriptionBanner = () => {
                 </span>
               </div>
               <form className="max-w-md">
-                <div className="flex items-center overflow-hidden rounded-md border bg-card focus-within:border-foreground">
+                <div className="flex items-center overflow-hidden rounded border bg-card focus-within:border-foreground">
                   <label className="flex flex-1 items-center self-stretch pl-2">
                     <Mail />
                     <input

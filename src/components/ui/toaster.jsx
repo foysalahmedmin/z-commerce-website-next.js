@@ -8,7 +8,7 @@ import { ChevronRight, X } from "lucide-react";
 import { forwardRef, useState } from "react";
 
 const toasterVariants = cva(
-  "transition-[opacity,transform] fixed bottom-4 right-4 m-auto duration-300 bg-card origin-center text-card-foreground border rounded-md",
+  "transition-[opacity,transform] fixed bottom-4 right-4 m-auto duration-300 bg-card origin-center text-card-foreground border rounded",
   {
     variants: {
       variant: {

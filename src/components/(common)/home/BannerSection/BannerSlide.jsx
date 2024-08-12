@@ -7,7 +7,7 @@ const BannerSlide = ({ item }) => {
   return (
     <div className="relative z-30 md:mx-12">
       <div className="container flex h-full min-h-[36rem] w-full  items-center md:min-h-[calc(100vh-6.5rem)]">
-        <div className="flex w-full items-center justify-center gap-6 py-12 md:justify-between md:py-16">
+        <div className="flex w-full items-center justify-center gap-6 py-12 md:justify-between">
           <div className="max-w-md text-center md:max-w-xl md:basis-1/2 md:text-left">
             {subTitle && (
               <h3 className="my-0 mb-4 inline-block border-l-4 border-primary px-2 text-base uppercase md:text-lg">

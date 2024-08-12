@@ -8,7 +8,7 @@ import { X } from "lucide-react";
 import { forwardRef } from "react";
 
 const modalVariants = cva(
-  "transition-[opacity,transform] absolute m-auto duration-300 bg-card origin-center text-card-foreground border rounded-md",
+  "transition-[opacity,transform] absolute m-auto duration-300 bg-card origin-center text-card-foreground border rounded",
   {
     variants: {
       variant: {

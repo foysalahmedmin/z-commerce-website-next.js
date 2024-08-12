@@ -27,7 +27,7 @@ const ProductOfferCard = ({ item }) => {
     tags,
   } = item;
   return (
-    <div className="group/card h-full overflow-hidden rounded-xl">
+    <div className="group/card h-full rounded-xl">
       <Tabs defaultValue={0} className="flex h-full w-full flex-col">
         <TabsContent className="relative w-full overflow-hidden rounded-xl">
           {variants.map((variant, i) => (
@@ -73,8 +73,8 @@ const ProductOfferCard = ({ item }) => {
           <CartInfo />
           <TimeCount expiryDate={"2025-01-01"} />
         </TabsContent>
-        <div className="relative -mt-16 flex grow flex-col space-y-2 px-4 ">
-          <div className="flex grow flex-col space-y-2 rounded-xl border bg-card px-4 py-2 shadow">
+        <div className="relative -mt-16 flex grow flex-col space-y-2 px-4">
+          <div className="flex grow flex-col space-y-2 rounded-xl bg-background px-4 py-2 shadow">
             <div className="grid grow">
               <h3 className="text-base text-title">{name}</h3>
               {description && (

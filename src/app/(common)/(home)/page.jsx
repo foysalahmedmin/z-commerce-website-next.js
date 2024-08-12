@@ -18,10 +18,14 @@ const HomePage = () => {
   return (
     <main>
       <BannerSection />
-      <CategorySection />
-      <TrendingSection />
-      <ParallaxBannerSection />
       <DealSection />
+      <hr />
+      <CategorySection />
+      <hr />
+      <TrendingSection />
+      <hr />
+      <ParallaxBannerSection />
+      <hr />
       <FeatureSection />
       <SubscriptionBanner />
       <TestimonialSection />
