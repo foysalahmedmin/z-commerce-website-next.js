@@ -9,7 +9,7 @@ const CartInfo = ({ className }) => {
   return (
     <div
       className={cn(
-        "from absolute bottom-24 left-0 right-0 flex w-full items-center justify-center gap-2 py-4",
+        "from absolute bottom-20 left-0 right-0 flex w-full items-center justify-center gap-2 py-4",
         className,
       )}
     >

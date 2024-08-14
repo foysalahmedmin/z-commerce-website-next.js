@@ -3,16 +3,8 @@ module.exports = {
   input: "hsl(var(--input))",
   ring: "hsl(var(--ring))",
   title: "hsl(var(--title))",
-  dark: "hsl(var(--dark))",
-  light: "hsl(var(--light))",
-  background: "hsl(var(--background))",
   foreground: "hsl(var(--foreground))",
-  accent: {
-    DEFAULT: "hsl(var(--accent))",
-    secondary: "hsl(var(--accent-secondary))",
-    ternary: "hsl(var(--accent-ternary))",
-    foreground: "hsl(var(--accent-foreground))",
-  },
+  background: "hsl(var(--background))",
   primary: {
     DEFAULT: "hsl(var(--primary))",
     foreground: "hsl(var(--primary-foreground))",
@@ -61,6 +53,10 @@ module.exports = {
     900: "#404483",
     950: "#303162",
   },
+  accent: {
+    DEFAULT: "hsl(var(--accent))",
+    foreground: "hsl(var(--accent-foreground))",
+  },
   destructive: {
     DEFAULT: "hsl(var(--destructive))",
     foreground: "hsl(var(--destructive-foreground))",
@@ -76,5 +72,13 @@ module.exports = {
   card: {
     DEFAULT: "hsl(var(--card))",
     foreground: "hsl(var(--card-foreground))",
+  },
+  dark: {
+    DEFAULT: "hsl(var(--dark))",
+    foreground: "hsl(var(--dark-foreground))",
+  },
+  light: {
+    DEFAULT: "hsl(var(--light))",
+    foreground: "hsl(var(--dark-light))",
   },
 };

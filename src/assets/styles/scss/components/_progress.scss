@@ -4,10 +4,8 @@ progress {
   height: 0.5rem;
 }
 progress::-webkit-progress-bar {
-  border-radius: 7px;
-  background-color: hsla(var(--muted) / 0.5);
+  @apply shadow-inner bg-muted/25 rounded-full;
 }
 progress::-webkit-progress-value {
-  border-radius: 7px;
-  background-color: hsl(var(--accent));
+  @apply rounded-full bg-accent;
 }

@@ -11,7 +11,10 @@ const CartButton = ({
   return (
     <>
       <Button
-        className={cn("w-full rounded-t-none uppercase", className)}
+        className={cn(
+          "w-full rounded-md rounded-t-none uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground",
+          className,
+        )}
         variant={variant}
         size={size}
         {...props}

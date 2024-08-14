@@ -11,7 +11,10 @@ const CartButton = ({
   return (
     <>
       <Button
-        className={cn("uppercase", className)}
+        className={cn(
+          "uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground",
+          className,
+        )}
         variant={variant}
         size={size}
         {...props}

@@ -27,14 +27,14 @@ const ProductOfferCard = ({ item }) => {
     tags,
   } = item;
   return (
-    <div className="group/card h-full rounded-xl">
+    <div className="group/card h-full">
       <Tabs defaultValue={0} className="flex h-full w-full flex-col">
-        <TabsContent className="relative w-full overflow-hidden rounded-xl">
+        <TabsContent className="relative w-full overflow-hidden rounded-md">
           {variants.map((variant, i) => (
             <TabsItem
               key={i}
               value={i}
-              className={"h-80 w-full overflow-hidden"}
+              className={"h-72 w-full overflow-hidden bg-muted/25 shadow-inner"}
             >
               <Image
                 className={cn(
@@ -53,7 +53,7 @@ const ProductOfferCard = ({ item }) => {
                 <span
                   key={i}
                   className={cn(
-                    "inline-block rounded-e-full bg-primary py-1 pl-4 pr-2 text-[10px] capitalize leading-none text-primary-foreground",
+                    "inline-block rounded-e-full bg-primary py-1 pl-4 pr-2 text-[10px] capitalize leading-none text-primary-foreground shadow",
                     {
                       "bg-primary": i % 3 === 0,
                     },
@@ -73,8 +73,8 @@ const ProductOfferCard = ({ item }) => {
           <CartInfo />
           <TimeCount expiryDate={"2025-01-01"} />
         </TabsContent>
-        <div className="relative -mt-16 flex grow flex-col space-y-2 px-4">
-          <div className="flex grow flex-col space-y-2 rounded-xl bg-background px-4 py-2 shadow">
+        <div className="relative -mt-12 flex grow flex-col space-y-2 px-3">
+          <div className="flex grow flex-col space-y-2 rounded-md bg-card px-4 py-4 shadow">
             <div className="grid grow">
               <h3 className="text-base text-title">{name}</h3>
               {description && (
@@ -108,9 +108,9 @@ const ProductOfferCard = ({ item }) => {
                   </TabsTrigger>
                 ))}
               </TabsList>
-              <div className="relative -right-4 inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[2px] rounded-s-full bg-primary py-1 pl-2 pr-4 text-end">
+              <div className="relative -right-4 inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[2px] rounded-s-full bg-muted/25 py-1 pl-2 pr-4 text-end shadow-inner">
                 {previousPrice && (
-                  <del className="text-[10px] leading-none text-primary-foreground/85">
+                  <del className="text-[10px] leading-none text-muted-foreground">
                     $
                     {toFixedAndLocaleStringCurrency({
                       value: previousPrice,
@@ -118,7 +118,7 @@ const ProductOfferCard = ({ item }) => {
                   </del>
                 )}
                 {price && (
-                  <strong className="text-sm font-semibold leading-none text-light">
+                  <strong className="text-sm font-semibold leading-none text-title">
                     $
                     {toFixedAndLocaleStringCurrency({
                       value: price,
@@ -127,7 +127,7 @@ const ProductOfferCard = ({ item }) => {
                 )}
               </div>
             </div>
-            <div className="flex items-center justify-between gap-2">
+            <div className="mt-4 flex items-center justify-between gap-2">
               {rating && (
                 <div>
                   <StarRatting rating={rating} className="text leading-none" />

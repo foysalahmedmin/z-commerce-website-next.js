@@ -24,14 +24,14 @@ const ProductCard = ({ item }) => {
     tags,
   } = item;
   return (
-    <div className="group/card h-full overflow-hidden rounded-xl border bg-card shadow">
+    <div className="group/card h-full overflow-hidden rounded-md bg-card shadow">
       <Tabs defaultValue={0} className="flex h-full w-full flex-col">
         <TabsContent className="relative w-full">
           {variants.map((variant, i) => (
             <TabsItem
               key={i}
               value={i}
-              className={"h-60 w-full overflow-hidden"}
+              className={"h-60 w-full overflow-hidden bg-muted/25 shadow-inner"}
             >
               <Image
                 className={cn(
@@ -50,7 +50,7 @@ const ProductCard = ({ item }) => {
                 <span
                   key={i}
                   className={cn(
-                    "inline-block rounded-e-full bg-primary py-1 pl-4 pr-2 text-[10px] capitalize leading-none text-primary-foreground",
+                    "inline-block rounded-e-full bg-primary py-1 pl-4 pr-2 text-[10px] capitalize leading-none text-primary-foreground shadow",
                     {
                       "bg-primary": i % 3 === 0,
                     },
@@ -69,7 +69,7 @@ const ProductCard = ({ item }) => {
           )}
           <CartInfo />
         </TabsContent>
-        <div className="flex grow flex-col space-y-2 px-4 py-2">
+        <div className="flex grow flex-col space-y-2 px-4 py-4">
           <div className="grid grow">
             <h3 className="text-base text-title">{name}</h3>
             {description && (
@@ -103,9 +103,9 @@ const ProductCard = ({ item }) => {
                 </TabsTrigger>
               ))}
             </TabsList>
-            <div className="relative -right-4 inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[2px] rounded-s-full bg-primary py-1 pl-2 pr-4 text-end">
+            <div className="relative -right-4 inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[2px] rounded-s-full bg-muted/25 py-1 pl-2 pr-4 text-end shadow-inner">
               {previousPrice && (
-                <del className="text-[10px] leading-none text-primary-foreground/85">
+                <del className="text-[10px] leading-none text-muted-foreground">
                   $
                   {toFixedAndLocaleStringCurrency({
                     value: previousPrice,
@@ -113,7 +113,7 @@ const ProductCard = ({ item }) => {
                 </del>
               )}
               {price && (
-                <strong className="text-sm font-semibold leading-none text-light">
+                <strong className="text-base font-semibold leading-none text-title">
                   $
                   {toFixedAndLocaleStringCurrency({
                     value: price,
@@ -122,7 +122,7 @@ const ProductCard = ({ item }) => {
               )}
             </div>
           </div>
-          <div>
+          <div className="mt-4">
             <CartButton />
           </div>
         </div>
