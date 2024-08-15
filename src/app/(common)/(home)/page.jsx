@@ -3,11 +3,10 @@ import CategorySection from "@/components/(common)/home/CategorySection";
 import DealSection from "@/components/(common)/home/DealSection";
 import FeatureSection from "@/components/(common)/home/FeatureSection";
 import InstagramSection from "@/components/(common)/home/InstagramSection";
-import ParallaxBannerSection from "@/components/(common)/home/ParallaxBannerSection";
 import ServicesSection from "@/components/(common)/home/ServicesSection";
+import SpacialOfferBannerSection from "@/components/(common)/home/SpacialOfferBannerSection";
 import TestimonialSection from "@/components/(common)/home/TestimonialSection";
 import TrendingSection from "@/components/(common)/home/TrendingSection";
-import SubscriptionBanner from "@/components/partials/SubscriptionBanner";
 import { titleGenerator } from "@/lib/utils";
 
 export const metadata = {
@@ -19,20 +18,25 @@ const HomePage = () => {
   return (
     <main>
       <BannerSection />
-      <DealSection />
-      <hr />
-      <CategorySection />
-      <hr />
-      <TrendingSection />
-      <hr />
-      <ParallaxBannerSection />
-      <hr />
-      <FeatureSection />
-      <hr />
+      <div className="container">
+        <hr />
+      </div>
       <ServicesSection />
-      <hr />
-      <SubscriptionBanner />
+      <div className="container">
+        <hr />
+      </div>
+      <DealSection />
+      <div className="container">
+        <hr />
+      </div>
+      <CategorySection />
+      <div className="container">
+        <hr />
+      </div>
+      <TrendingSection />
+      <SpacialOfferBannerSection />
       <TestimonialSection />
+      <FeatureSection />
       <InstagramSection />
     </main>
   );

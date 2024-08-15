@@ -5,20 +5,22 @@ import { Mail } from "lucide-react";
 const SubscriptionBanner = () => {
   return (
     <section>
-      <div className="container">
-        <div className="overflow-hidden rounded-2xl bg-primary/25 pr-8 pt-4">
+      <div className="dark container">
+        <div className="overflow-hidden rounded-md bg-dark pr-8 text-dark-foreground">
           <div
             style={{
               backgroundImage: "url(/images/partials/subscription-banner.png)",
             }}
-            className="bg-contain bg-right-bottom bg-no-repeat py-12 md:px-8 md:py-16"
+            className="bg-contain bg-right-bottom bg-no-repeat py-16 md:px-8 md:py-24"
           >
             <div className="max-w-xl pb-4 pl-4">
               <div className="mb-6">
-                <h2>Stay home & get your daily needs from our shop </h2>
+                <h1 className="text-neutral-50">
+                  Stay home & get your daily needs from our shop
+                </h1>
                 <span className="mt-2 block">
-                  Start Your Daily Shopping with{" "}
-                  <span className="text-primary">{project?.name}</span>
+                  Start Your Daily Shopping with
+                  <span className="text-primary"> {project?.name}</span>
                 </span>
               </div>
               <form className="max-w-md">
@@ -26,12 +28,17 @@ const SubscriptionBanner = () => {
                   <label className="flex flex-1 items-center self-stretch pl-2">
                     <Mail />
                     <input
-                      className="flex-1 self-stretch px-2 outline-none"
+                      className="flex-1 self-stretch bg-transparent px-2 outline-none"
                       type="email"
                       placeholder="Enter your email"
                     />
                   </label>
-                  <Button type="submit">Subscribe</Button>
+                  <Button
+                    className="rounded-l-none px-4 text-xs uppercase"
+                    type="submit"
+                  >
+                    Subscribe
+                  </Button>
                 </div>
               </form>
             </div>

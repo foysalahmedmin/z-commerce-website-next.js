@@ -22,9 +22,9 @@ const FeatureSection = () => {
               width={500}
             />
             <div className="absolute bottom-0 left-0 right-0">
-              <div className="w-full max-w-60 p-4">
-                <div className="mb-1 md:mb-2">
-                  <h4 className="mb-1 text-base text-neutral-50 md:mb-2 md:text-lg">
+              <div className="w-full max-w-60 p-4 xl:p-6 2xl:p-8">
+                <div className=" md:mb-2">
+                  <h4 className=" text-base text-neutral-50 md:mb-2 md:text-xl">
                     PlayStation 5
                   </h4>
                   <p className="text-xs font-light text-neutral-300">
@@ -53,9 +53,9 @@ const FeatureSection = () => {
               width={500}
             />
             <div className="absolute bottom-0 left-0 right-0">
-              <div className="w-full max-w-60 p-4">
-                <div className="mb-1 md:mb-2">
-                  <h4 className="mb-1 text-base text-neutral-50 md:mb-2 md:text-lg">
+              <div className="w-full max-w-60 p-4 xl:p-6 2xl:p-8">
+                <div className=" md:mb-2">
+                  <h4 className=" text-base text-neutral-50 md:mb-2 md:text-xl">
                     Women’s Collections
                   </h4>
                   <p className="text-xs font-light text-neutral-300">
@@ -84,9 +84,9 @@ const FeatureSection = () => {
               width={300}
             />
             <div className="absolute bottom-0 left-0 right-0">
-              <div className="w-full max-w-60 p-4">
-                <div className="mb-1 md:mb-2">
-                  <h4 className="mb-1 text-base text-neutral-50 md:mb-2 md:text-lg">
+              <div className="w-full max-w-60 p-4 xl:p-6 2xl:p-8">
+                <div className=" md:mb-2">
+                  <h4 className=" text-base text-neutral-50 md:mb-2 md:text-xl">
                     Speakers
                   </h4>
                   <p className="text-xs font-light text-neutral-300">
@@ -115,9 +115,9 @@ const FeatureSection = () => {
               width={300}
             />
             <div className="absolute bottom-0 left-0 right-0">
-              <div className="w-full max-w-60 p-4">
-                <div className="mb-1 md:mb-2">
-                  <h4 className="mb-1 text-base text-neutral-50 md:mb-2 md:text-lg">
+              <div className="w-full max-w-60 p-4 xl:p-6 2xl:p-8">
+                <div className=" md:mb-2">
+                  <h4 className=" text-base text-neutral-50 md:mb-2 md:text-xl">
                     Perfume
                   </h4>
                   <p className="text-xs font-light text-neutral-300">
