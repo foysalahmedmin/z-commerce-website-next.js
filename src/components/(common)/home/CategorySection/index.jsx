@@ -5,7 +5,7 @@ import CategoryTabItem from "./CategoryTabItem";
 
 const CategorySection = () => {
   return (
-    <section className="bg-card py-12 md:py-16">
+    <section className="py-12 md:py-16">
       <div className="container">
         {categories.length > 0 && (
           <Tabs defaultValue={categories[0]?.value}>

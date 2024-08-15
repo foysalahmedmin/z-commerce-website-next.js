@@ -24,7 +24,7 @@ const ParallaxBannerSection = () => {
     <Parallax backgroundImageURL={image.src}>
       <section>
         <div className="container flex min-h-[calc(100vh-var(--header-height))] items-center justify-end py-12 md:py-16">
-          <div className="max-w-md text-center md:max-w-xl md:basis-1/2 md:text-right">
+          <div className="light max-w-md text-center md:max-w-xl md:basis-1/2 md:text-right">
             {subTitle && (
               <h3 className="my-0 mb-4 inline-block border-r-4 border-primary px-2 text-base uppercase md:text-lg">
                 {subTitle}

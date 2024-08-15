@@ -23,7 +23,7 @@ const TrendingProductsTabItem = ({ value, products }) => {
             {products.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="p-2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 3xl:basis-1/6"
+                className="p-2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
               >
                 <ProductCard item={item} />
               </CarouselItem>

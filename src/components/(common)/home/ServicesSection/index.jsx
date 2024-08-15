@@ -25,7 +25,7 @@ const ServicesSection = () => {
     },
   ];
   return (
-    <section className="bg-card py-8 md:py-10">
+    <section className="py-8 md:py-10">
       <div className="container">
         <div className="flex items-center justify-center border-y py-4 md:py-6">
           <div className="grid grid-cols-1 items-center justify-center divide-y md:inline-grid md:grid-cols-2 md:divide-y-0 xl:grid-cols-4">

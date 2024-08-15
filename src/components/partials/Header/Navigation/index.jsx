@@ -14,7 +14,7 @@ import UserAndAuthNav from "./UserAndAuthNav";
 const Navigation = ({ access, user, className }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="sticky top-0 z-[1000] h-header w-full border-b bg-background">
+    <nav className="sticky top-0 z-[1000] h-header w-full border-b bg-card">
       <div className={cn("h-full", className)}>
         <div className="flex h-full items-center justify-between gap-2 lg:gap-4">
           <div>

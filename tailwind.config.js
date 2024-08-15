@@ -22,15 +22,15 @@ module.exports = {
       },
     },
     extend: {
-      screens: {
-        "3xl": "1800px",
-      },
+      // screens: {
+      //   "3xl": "1800px",
+      // },
       spacing: {
         header: "var(--header-height)",
         "container-space": "var(--container-space)",
       },
       height: {
-        "screen-minus-header": "calc(100vh-var(--header-height))",
+        "screen-minus-header": "calc(100vh - var(--header-height))",
       },
       borderRadius: {
         lg: "var(--radius)",
