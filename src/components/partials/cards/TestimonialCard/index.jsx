@@ -7,15 +7,15 @@ const TestimonialCard = ({ className, item }) => {
   return (
     <div
       className={cn(
-        "card relative -z-20 h-full scale-100 py-4 opacity-50 transition-all duration-500 group-[.active-slide-node]/slide:z-10 group-[.active-slide-node]/slide:scale-150 group-[.active-slide-node]/slide:opacity-100",
+        "card relative -z-20 h-full scale-100 py-6 opacity-50 transition-all duration-500 group-[.active-slide-node]/slide:z-10 group-[.active-slide-node]/slide:scale-150 group-[.active-slide-node]/slide:opacity-100",
         className,
       )}
     >
       <div className="w-full rounded-lg bg-card group-[.active-slide-node]/slide:shadow-lg">
-        <div className="relative -mt-4 inline-flex items-center gap-2 overflow-hidden rounded-full rounded-bl-none border-4 border-l-0 border-t-0 border-background bg-card px-4">
-          <div className="relative -ml-4 mb-0 inline-flex rounded-r-full bg-primary p-[2px] pl-4">
+        <div className="relative -mt-6 inline-flex items-center gap-2 overflow-hidden rounded-full rounded-bl-none border-2 border-l-0 border-t-0 border-background bg-card px-4 shadow-inner">
+          <div className="relative -ml-4 mb-0 inline-flex rounded-r-full bg-muted/25 p-[2px] pl-4 shadow-inner">
             <Image
-              className="size-6 rounded-full bg-card"
+              className="size-6 rounded-full bg-card shadow"
               src={image}
               alt="home-slider-image-4"
               width={40}
@@ -36,7 +36,7 @@ const TestimonialCard = ({ className, item }) => {
           <small className="mt-1 block text-[8px] italic">- John Doe</small>
         </div>
         <div className="flex items-center justify-end">
-          <div className="relative -mb-3 rounded-full rounded-tr-lg border-4 border-b-0 border-r-0 border-background bg-card px-4 py-1">
+          <div className="relative -mb-3 rounded-full rounded-tr-lg border-2 border-b-0 border-r-0 border-background bg-card px-4 py-1 shadow-inner">
             <StarRatting rating={3.5} />
           </div>
         </div>

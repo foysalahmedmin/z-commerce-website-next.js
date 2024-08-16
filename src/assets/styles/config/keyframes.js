@@ -79,4 +79,18 @@ module.exports = {
     from: "translate3d(0, 0%, 0)",
     to: "transform: translate3d(0, -50%, 0)",
   },
+  "countdown-flip": {
+    "0%": {
+      transform: "rotateX(0deg)",
+      opacity: 1,
+    },
+    "50%": {
+      transform: "rotateX(90deg)",
+      opacity: 0.5,
+    },
+    "100%": {
+      transform: "rotateX(0deg)",
+      opacity: 1,
+    },
+  },
 };
