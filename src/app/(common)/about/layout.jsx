@@ -1,7 +1,7 @@
 import Footer from "@/components/partials/Footer";
 import Header from "@/components/partials/Header";
 
-const HomeLayout = ({ children }) => {
+const AboutLayout = ({ children }) => {
   return (
     <>
       <Header />
@@ -11,4 +11,4 @@ const HomeLayout = ({ children }) => {
   );
 };
 
-export default HomeLayout;
+export default AboutLayout;

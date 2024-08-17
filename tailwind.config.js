@@ -22,9 +22,9 @@ module.exports = {
       },
     },
     extend: {
-      // screens: {
-      //   "3xl": "1800px",
-      // },
+      screens: {
+        "3xl": "1800px",
+      },
       spacing: {
         header: "var(--header-height)",
         "container-space": "var(--container-space)",

@@ -45,9 +45,9 @@ const BannerSection = () => {
     },
   ];
   return (
-    <section className="bg-background">
+    <section className="dark h-full w-full rounded-md border bg-dark text-dark-foreground">
       <Carousel
-        className="group/carousel relative w-full"
+        className="group/carousel relative h-full w-full"
         opts={{ loop: true }}
         autoplay
       >

@@ -9,7 +9,7 @@ import { SectionTitle, Title } from "@/components/ui/SectionTitle";
 
 const InstagramSection = () => {
   return (
-    <section className="bg-card pt-12 md:pt-16">
+    <section className="pt-12 md:pt-16">
       <div className="container">
         <SectionTitle variant="center">
           <Title>#Instagram</Title>

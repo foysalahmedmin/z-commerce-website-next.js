@@ -7,6 +7,7 @@ import ServicesSection from "@/components/(common)/home/ServicesSection";
 import SpacialOfferBannerSection from "@/components/(common)/home/SpacialOfferBannerSection";
 import TestimonialSection from "@/components/(common)/home/TestimonialSection";
 import TrendingSection from "@/components/(common)/home/TrendingSection";
+import CategoriesBar from "@/components/partials/CategoriesBar";
 import { titleGenerator } from "@/lib/utils";
 
 export const metadata = {
@@ -17,7 +18,16 @@ export const metadata = {
 const HomePage = () => {
   return (
     <main>
-      <BannerSection />
+      <div className="container">
+        <div className="flex">
+          <aside className="w-80 border-r py-6 md:py-12">
+            <CategoriesBar />
+          </aside>
+          <div className="grid h-full flex-1 p-6 md:p-12">
+            <BannerSection />
+          </div>
+        </div>
+      </div>
       <div className="container">
         <hr />
       </div>
