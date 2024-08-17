@@ -8,22 +8,22 @@ import Support from "./Support";
 const Footer = () => {
   return (
     <>
-      <footer className="dark border-t bg-dark py-12 text-dark-foreground md:py-16">
-        <div className="container">
-          <div className="grid gap-4 xl:grid-cols-5">
-            <div>
+      <footer className="dark border-t bg-dark text-dark-foreground">
+        <div className="container py-12 md:py-16">
+          <div className="grid justify-between gap-y-8 md:grid-cols-12">
+            <div className="px-4 md:col-span-4 xl:col-span-3">
               <Subscription />
             </div>
-            <div>
+            <div className="px-4 md:col-span-4 md:border-l xl:col-span-2">
               <Support />
             </div>
-            <div>
+            <div className="px-4 md:col-span-4 md:border-l xl:col-span-2">
               <Account />
             </div>
-            <div>
+            <div className="px-4 md:order-5 md:col-span-4 md:border-l xl:order-4 xl:col-span-2">
               <QuickLink />
             </div>
-            <div>
+            <div className="px-4 md:order-4 md:col-span-4 xl:order-5 xl:col-span-3 xl:border-l">
               <DownloadApp />
             </div>
           </div>

@@ -19,7 +19,7 @@ const Logo = ({ className, asChild, href = "/", ...props }) => {
         height={32}
         alt="logo"
       />
-      <span className="text-base">Commerce</span>
+      <span className="text-base text-title">Commerce</span>
     </Comp>
   );
 };
