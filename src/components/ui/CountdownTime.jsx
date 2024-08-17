@@ -109,12 +109,8 @@ const CountdownTimeUnit = forwardRef(({ className, unit, ...props }, ref) => {
   };
 
   return (
-    <span
-      className={cn("rounded bg-card px-2 text-base shadow", className)}
-      ref={ref}
-      {...props}
-    >
-      <Countdown className="font-bold" value={getValue()} />
+    <span className={cn("inline-block", className)} ref={ref} {...props}>
+      <Countdown value={getValue()} />
     </span>
   );
 });

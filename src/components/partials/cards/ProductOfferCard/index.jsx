@@ -11,7 +11,7 @@ import { cn, toFixedAndLocaleStringCurrency } from "@/lib/utils";
 import Image from "next/image";
 import CartButton from "./CartButton";
 import CartInfo from "./CartInfo";
-import TimeCount from "./TimeCount";
+import TimeCounter from "./TimeCounter";
 
 const ProductOfferCard = ({ item }) => {
   const {
@@ -71,7 +71,7 @@ const ProductOfferCard = ({ item }) => {
             </div>
           )}
           <CartInfo />
-          <TimeCount expiryDate={"2025-01-01"} />
+          <TimeCounter endDate={"2025-01-01"} />
         </TabsContent>
         <div className="relative -mt-12 flex grow flex-col space-y-2 px-3">
           <div className="flex grow flex-col space-y-2 rounded-md bg-card px-4 py-4 shadow">

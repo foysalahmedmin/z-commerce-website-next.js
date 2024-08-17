@@ -14,7 +14,7 @@ const TestimonialSection = () => {
   return (
     <section className="py-12 md:py-16">
       <div className="container">
-        <SectionTitle>
+        <SectionTitle variant="center">
           <Subtitle> Testimonial </Subtitle>
           <Title>Testimonials</Title>
         </SectionTitle>

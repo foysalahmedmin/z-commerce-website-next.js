@@ -13,7 +13,7 @@ const FeatureSection = () => {
           </SectionTitle>
         </div>
         <div className="grid h-[32rem] grid-cols-2 grid-rows-4 gap-4 md:h-[16rem] md:grid-cols-4 md:grid-rows-2 lg:h-[20rem] xl:h-[24rem] 2xl:h-[28rem]">
-          <div className="relative col-span-2 row-span-2 rounded-md bg-dark px-[4%] pt-[8%]">
+          <div className="relative col-span-2 row-span-2 rounded-md border bg-dark px-[4%] pt-[8%]">
             <Image
               className="h-full w-full object-contain object-bottom"
               src="/images/home/feature-1.png"
@@ -44,7 +44,7 @@ const FeatureSection = () => {
               </div>
             </div>
           </div>
-          <div className="relative col-span-2 rounded-md bg-dark">
+          <div className="relative col-span-2 rounded-md border bg-dark">
             <Image
               className="h-full w-full object-contain object-right-bottom"
               src="/images/home/feature-2.png"
@@ -75,7 +75,7 @@ const FeatureSection = () => {
               </div>
             </div>
           </div>
-          <div className="relative rounded-md bg-dark p-[8%]">
+          <div className="relative rounded-md border bg-dark p-[8%]">
             <Image
               className="h-full w-full object-contain object-center"
               src="/images/home/feature-3.png"
@@ -106,7 +106,7 @@ const FeatureSection = () => {
               </div>
             </div>
           </div>
-          <div className="relative rounded-md bg-dark p-[8%]">
+          <div className="relative rounded-md border bg-dark p-[8%]">
             <Image
               className="h-full w-full object-contain object-center"
               src="/images/home/feature-4.png"
