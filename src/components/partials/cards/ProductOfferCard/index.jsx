@@ -34,11 +34,13 @@ const ProductOfferCard = ({ item }) => {
             <TabsItem
               key={i}
               value={i}
-              className={"h-72 w-full overflow-hidden bg-muted/25 shadow-inner"}
+              className={
+                "h-72 w-full overflow-hidden rounded-md border bg-muted/25 pb-12 shadow-inner dark:bg-background"
+              }
             >
               <Image
                 className={cn(
-                  "h-full w-full origin-center object-cover object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                  "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
                 )}
                 height={320}
                 width={260}
@@ -73,8 +75,8 @@ const ProductOfferCard = ({ item }) => {
           <CartInfo />
           <TimeCounter endDate={"2025-01-01"} />
         </TabsContent>
-        <div className="relative -mt-12 flex grow flex-col space-y-2 px-3">
-          <div className="flex grow flex-col space-y-2 rounded-md bg-card px-4 py-4 shadow">
+        <div className="relative -mt-12 flex grow flex-col px-2">
+          <div className="flex grow flex-col space-y-2 rounded-md border bg-card px-4 py-4 shadow">
             <div className="grid grow">
               <h3 className="text-base text-title">{name}</h3>
               {description && (
@@ -91,10 +93,11 @@ const ProductOfferCard = ({ item }) => {
               </div>
             </div>
             <div className="flex items-center justify-between gap-2">
-              <TabsList className="mb-0 flex-wrap justify-start gap-1 overflow-x-hidden overflow-y-hidden">
+              <TabsList className="mb-0 flex-wrap justify-start gap-2 overflow-visible overflow-x-visible overflow-y-visible">
                 {variants.map((variant, i) => (
                   <TabsTrigger
-                    className="flex rounded-full after:hidden"
+                    className="flex size-4 overflow-hidden rounded-full after:hidden"
+                    activeClassName="ring-1 ring-offset-2"
                     key={i}
                     value={i}
                   >

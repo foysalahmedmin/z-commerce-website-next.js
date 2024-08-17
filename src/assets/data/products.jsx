@@ -13,15 +13,15 @@ export const products = [
     description: "Comfortable and stylish slim fit jeans for everyday wear.",
     variants: [
       {
-        color: "#015845",
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
       },
       {
-        color: "#aed3e6",
+        color: "#7193ae",
         image: "/images/products/03.png",
       },
     ],
@@ -40,12 +40,12 @@ export const products = [
     description: "Soft and comfortable casual t-shirt for all-day wear.",
     variants: [
       {
-        color: "#015845",
-        image: "/images/products/01.png",
+        color: "#c0b0a2",
+        image: "/images/products/02.png",
       },
       {
-        color: "#eab8b9",
-        image: "/images/products/02.png",
+        color: "#aa5f26",
+        image: "/images/products/01.png",
       },
       {
         color: "#aed3e6",
@@ -67,16 +67,16 @@ export const products = [
     description: "Light and breezy summer dress for a cool and stylish look.",
     variants: [
       {
-        color: "#015845",
+        color: "#aed3e6",
+        image: "/images/products/03.png",
+      },
+      {
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
-      },
-      {
-        color: "#aed3e6",
-        image: "/images/products/03.png",
       },
     ],
   },
@@ -94,12 +94,12 @@ export const products = [
     description: "Stylish leather jacket for a chic and edgy look.",
     variants: [
       {
-        color: "#015845",
-        image: "/images/products/01.png",
+        color: "#c0b0a2",
+        image: "/images/products/02.png",
       },
       {
-        color: "#eab8b9",
-        image: "/images/products/02.png",
+        color: "#aa5f26",
+        image: "/images/products/01.png",
       },
       {
         color: "#aed3e6",
@@ -121,11 +121,11 @@ export const products = [
     description: "Elegant and comfortable formal shirt for office wear.",
     variants: [
       {
-        color: "#015845",
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
       },
       {
@@ -148,16 +148,16 @@ export const products = [
     description: "Cozy and warm hoodie for kids, perfect for chilly days.",
     variants: [
       {
-        color: "#015845",
+        color: "#aed3e6",
+        image: "/images/products/03.png",
+      },
+      {
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
-      },
-      {
-        color: "#aed3e6",
-        image: "/images/products/03.png",
       },
     ],
   },
@@ -175,12 +175,12 @@ export const products = [
     description: "Elegant evening gown for special occasions.",
     variants: [
       {
-        color: "#015845",
-        image: "/images/products/01.png",
+        color: "#c0b0a2",
+        image: "/images/products/02.png",
       },
       {
-        color: "#eab8b9",
-        image: "/images/products/02.png",
+        color: "#aa5f26",
+        image: "/images/products/01.png",
       },
       {
         color: "#aed3e6",
@@ -202,16 +202,16 @@ export const products = [
     description: "Comfortable and stylish casual shorts for everyday wear.",
     variants: [
       {
-        color: "#015845",
+        color: "#aed3e6",
+        image: "/images/products/03.png",
+      },
+      {
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
-      },
-      {
-        color: "#aed3e6",
-        image: "/images/products/03.png",
       },
     ],
   },
@@ -229,11 +229,11 @@ export const products = [
     description: "Flowy and comfortable maxi skirt for a boho-chic look.",
     variants: [
       {
-        color: "#015845",
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
       },
       {
@@ -256,12 +256,12 @@ export const products = [
     description: "Fun and colorful graphic t-shirt for kids.",
     variants: [
       {
-        color: "#015845",
-        image: "/images/products/01.png",
+        color: "#c0b0a2",
+        image: "/images/products/02.png",
       },
       {
-        color: "#eab8b9",
-        image: "/images/products/02.png",
+        color: "#aa5f26",
+        image: "/images/products/01.png",
       },
       {
         color: "#aed3e6",
@@ -283,11 +283,11 @@ export const products = [
     description: "Classic denim jacket for a casual and stylish look.",
     variants: [
       {
-        color: "#015845",
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
       },
       {
@@ -310,12 +310,12 @@ export const products = [
     description: "Comfortable and stylish polo shirt for a casual look.",
     variants: [
       {
-        color: "#015845",
-        image: "/images/products/01.png",
+        color: "#c0b0a2",
+        image: "/images/products/02.png",
       },
       {
-        color: "#eab8b9",
-        image: "/images/products/02.png",
+        color: "#aa5f26",
+        image: "/images/products/01.png",
       },
       {
         color: "#aed3e6",
@@ -337,16 +337,16 @@ export const products = [
     description: "Durable and comfortable cargo pants for kids.",
     variants: [
       {
-        color: "#015845",
+        color: "#aed3e6",
+        image: "/images/products/03.png",
+      },
+      {
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
-      },
-      {
-        color: "#aed3e6",
-        image: "/images/products/03.png",
       },
     ],
   },
@@ -364,11 +364,11 @@ export const products = [
     description: "Flowy and stylish boho blouse for a relaxed look.",
     variants: [
       {
-        color: "#015845",
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
       },
       {
@@ -391,12 +391,12 @@ export const products = [
     description: "Stylish and comfortable chino pants for a versatile look.",
     variants: [
       {
-        color: "#015845",
-        image: "/images/products/01.png",
+        color: "#c0b0a2",
+        image: "/images/products/02.png",
       },
       {
-        color: "#eab8b9",
-        image: "/images/products/02.png",
+        color: "#aa5f26",
+        image: "/images/products/01.png",
       },
       {
         color: "#aed3e6",
@@ -418,11 +418,11 @@ export const products = [
     description: "Waterproof rain jacket for kids, perfect for rainy days.",
     variants: [
       {
-        color: "#015845",
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
       },
       {
@@ -445,16 +445,16 @@ export const products = [
     description: "Elegant midi dress for a chic and stylish look.",
     variants: [
       {
-        color: "#015845",
+        color: "#aed3e6",
+        image: "/images/products/03.png",
+      },
+      {
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
-      },
-      {
-        color: "#aed3e6",
-        image: "/images/products/03.png",
       },
     ],
   },
@@ -472,11 +472,11 @@ export const products = [
     description: "Cozy and comfortable sweatshirt for casual wear.",
     variants: [
       {
-        color: "#015845",
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
       },
       {
@@ -499,12 +499,12 @@ export const products = [
     description: "Durable and comfortable overalls for kids.",
     variants: [
       {
-        color: "#015845",
-        image: "/images/products/01.png",
+        color: "#c0b0a2",
+        image: "/images/products/02.png",
       },
       {
-        color: "#eab8b9",
-        image: "/images/products/02.png",
+        color: "#aa5f26",
+        image: "/images/products/01.png",
       },
       {
         color: "#aed3e6",
@@ -526,11 +526,11 @@ export const products = [
     description: "Stylish wrap dress for a flattering and comfortable fit.",
     variants: [
       {
-        color: "#015845",
+        color: "#aa5f26",
         image: "/images/products/01.png",
       },
       {
-        color: "#eab8b9",
+        color: "#c0b0a2",
         image: "/images/products/02.png",
       },
       {

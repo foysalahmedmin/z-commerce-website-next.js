@@ -18,15 +18,13 @@ const TestimonialSection = () => {
           <Subtitle> Testimonial </Subtitle>
           <Title>Testimonials</Title>
         </SectionTitle>
-      </div>
-      <div>
-        <div className="pb-6 md:px-10">
-          <Carousel
-            className="group/carousel w-full"
-            opts={{ loop: true }}
-            autoplay
-          >
-            <div className="container">
+        <div>
+          <div className="pb-6">
+            <Carousel
+              className="group/carousel w-full"
+              opts={{ loop: true }}
+              autoplay
+            >
               <CarouselContent>
                 {instagram?.slice(0, 12).map((item, index) => (
                   <CarouselItem
@@ -37,19 +35,19 @@ const TestimonialSection = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-            </div>
-            <div>
-              <CarouselPreviousTrigger
-                className="invisible absolute hidden -translate-x-full opacity-0 transition-all duration-300 group-hover/carousel:visible group-hover/carousel:translate-x-0 group-hover/carousel:opacity-100 md:inline-flex"
-                size="icon-lg"
-              />
-              <CarouselNextTrigger
-                className="invisible absolute hidden translate-x-full opacity-0 transition-all duration-300 group-hover/carousel:visible group-hover/carousel:translate-x-0 group-hover/carousel:opacity-100 md:inline-flex"
-                size="icon-lg"
-              />
-            </div>
-            <CarouselPagination className="-bottom-6" />
-          </Carousel>
+              <div className="absolute -top-6 right-0 inline-flex -translate-y-full items-center gap-2 md:-top-8">
+                <CarouselPreviousTrigger
+                  className="static bottom-0 top-0 inline-flex -translate-y-0 transition-all duration-300"
+                  size="icon-lg"
+                />
+                <CarouselNextTrigger
+                  className="static bottom-0 top-0 inline-flex -translate-y-0 transition-all duration-300"
+                  size="icon-lg"
+                />
+              </div>
+              <CarouselPagination className="-bottom-6" />
+            </Carousel>
+          </div>
         </div>
       </div>
     </section>

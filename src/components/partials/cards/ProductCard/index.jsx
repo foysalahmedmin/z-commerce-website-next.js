@@ -24,18 +24,20 @@ const ProductCard = ({ item }) => {
     tags,
   } = item;
   return (
-    <div className="group/card h-full overflow-hidden rounded-md bg-card shadow">
+    <div className="group/card h-full overflow-hidden rounded-md border bg-card shadow">
       <Tabs defaultValue={0} className="flex h-full w-full flex-col">
         <TabsContent className="relative w-full">
           {variants.map((variant, i) => (
             <TabsItem
               key={i}
               value={i}
-              className={"h-60 w-full overflow-hidden bg-muted/25 shadow-inner"}
+              className={
+                "h-60 w-full overflow-hidden border-b bg-muted/25 shadow-inner dark:bg-background"
+              }
             >
               <Image
                 className={cn(
-                  "h-full w-full origin-center object-cover object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                  "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
                 )}
                 height={320}
                 width={260}
@@ -86,16 +88,17 @@ const ProductCard = ({ item }) => {
             )}
           </div>
           <div className="flex items-center justify-between gap-2">
-            <TabsList className="mb-0 flex-wrap justify-start gap-1 overflow-x-hidden overflow-y-hidden">
+            <TabsList className="mb-0 flex-wrap justify-start gap-2 overflow-visible overflow-x-visible overflow-y-visible">
               {variants.map((variant, i) => (
                 <TabsTrigger
-                  className="flex rounded-full after:hidden"
+                  className="flex size-4 overflow-hidden rounded-full after:hidden"
+                  activeClassName="ring-1 ring-offset-2"
                   key={i}
                   value={i}
                 >
                   <Button
                     style={{ background: variant?.color }}
-                    className="size-4 rounded-full"
+                    className="size-full rounded-full"
                     variant="none"
                     size="icon-sm"
                     asChild={true}

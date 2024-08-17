@@ -20,10 +20,10 @@ const HomePage = () => {
     <main>
       <div className="container">
         <div className="flex">
-          <aside className="w-80 border-r py-6 md:py-12">
+          <aside className="w-80 border-r py-6 md:py-8">
             <CategoriesBar />
           </aside>
-          <div className="grid h-full flex-1 p-6 md:p-12">
+          <div className="grid h-full flex-1 p-6 md:p-8">
             <BannerSection />
           </div>
         </div>

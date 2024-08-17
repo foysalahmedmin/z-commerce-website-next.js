@@ -13,8 +13,12 @@ const CartInfo = ({ className }) => {
         className,
       )}
     >
-      <div className="translate-y-4 opacity-0 transition-all  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
-        <Button className="size-6 text-lg" title="Wish List" size="icon-sm">
+      <div className="translate-y-4 opacity-0 transition-all duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+        <Button
+          className="bg-card text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
+          title="Wish List"
+          size="icon-sm"
+        >
           {wishListed ? (
             <Heart className="text-primary-foreground" />
           ) : (
@@ -22,13 +26,21 @@ const CartInfo = ({ className }) => {
           )}
         </Button>
       </div>
-      <div className="translate-y-4 opacity-0 transition-all delay-100  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
-        <Button className="size-6 text-lg" title="Quick View" size="icon-sm">
+      <div className="translate-y-4 opacity-0 transition-all delay-100 duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+        <Button
+          className="bg-card text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
+          title="Quick View"
+          size="icon-sm"
+        >
           <Magnify />
         </Button>
       </div>
       <div className="translate-y-4 opacity-0 transition-all delay-200  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
-        <Button className="size-6 text-lg" title="Share" size="icon-sm">
+        <Button
+          className="bg-card text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
+          title="Share"
+          size="icon-sm"
+        >
           <Share />
         </Button>
       </div>
