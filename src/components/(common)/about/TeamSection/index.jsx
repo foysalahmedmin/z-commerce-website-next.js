@@ -1,5 +1,5 @@
 import { teamMembers } from "@/assets/data/team-members";
-import TeamMemberCard from "@/components/partials/cards/TeamMemberCard";
+import TeamMemberCard from "@/components/partials/Cards/TeamMemberCard";
 import { Button } from "@/components/ui/Button";
 import {
   Carousel,

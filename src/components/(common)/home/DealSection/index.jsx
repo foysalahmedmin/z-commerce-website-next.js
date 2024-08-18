@@ -1,5 +1,5 @@
 import { products } from "@/assets/data/products";
-import ProductOfferCard from "@/components/partials/cards/ProductOfferCard";
+import ProductOfferCard from "@/components/partials/Cards/ProductOfferCard";
 import { Button } from "@/components/ui/Button";
 import {
   Carousel,

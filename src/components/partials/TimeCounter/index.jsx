@@ -4,8 +4,34 @@ import {
 } from "@/components/ui/CountdownTime";
 import { cn } from "@/lib/utils";
 
-const TimeCounter = ({ className, endDate, ...props }) => {
-  return (
+const TimeCounter = ({ className, endDate, variant, ...props }) => {
+  return variant === "card" ? (
+    <CountdownTime
+      className={cn("gap-1", className)}
+      endDate={endDate}
+      {...props}
+    >
+      <CountdownTimeUnit
+        className="rounded bg-card px-2 text-base font-bold shadow"
+        unit="day"
+      />
+      <span className="text-xl font-bold leading-none text-card shadow">:</span>
+      <CountdownTimeUnit
+        className="rounded bg-card px-2 text-base font-bold shadow"
+        unit="hour"
+      />
+      <span className="text-xl font-bold leading-none text-card shadow">:</span>
+      <CountdownTimeUnit
+        className="rounded bg-card px-2 text-base font-bold shadow"
+        unit="minute"
+      />
+      <span className="text-xl font-bold leading-none text-card shadow">:</span>
+      <CountdownTimeUnit
+        className="rounded bg-card px-2 text-base font-bold shadow"
+        unit="second"
+      />
+    </CountdownTime>
+  ) : (
     <CountdownTime
       className={cn("gap-4", className)}
       endDate={endDate}

@@ -7,7 +7,7 @@ import {
   CarouselPreviousTrigger,
 } from "@/components/ui/Carousel";
 import { MoveUpRight } from "lucide-react";
-import BannerSlide from "./BannerSlide";
+import BannerSlide from "./BannerSlide/index.jsx";
 
 const BannerSection = () => {
   const data = [

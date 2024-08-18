@@ -3,11 +3,11 @@ import CategorySection from "@/components/(common)/home/CategorySection";
 import DealSection from "@/components/(common)/home/DealSection";
 import FeatureSection from "@/components/(common)/home/FeatureSection";
 import InstagramSection from "@/components/(common)/home/InstagramSection";
-import ServicesSection from "@/components/(common)/home/ServicesSection";
 import SpacialOfferBannerSection from "@/components/(common)/home/SpacialOfferBannerSection";
-import TestimonialSection from "@/components/(common)/home/TestimonialSection";
 import TrendingSection from "@/components/(common)/home/TrendingSection";
 import CategoriesBar from "@/components/partials/CategoriesBar";
+import ServicesSection from "@/components/partials/ServicesSection";
+import TestimonialSection from "@/components/partials/TestimonialSection";
 import { titleGenerator } from "@/lib/utils";
 
 export const metadata = {

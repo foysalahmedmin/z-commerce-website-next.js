@@ -1,5 +1,11 @@
+import ContactSection from "@/components/(common)/contact/ContactSection";
+
 const ContactPage = () => {
-  return <mani></mani>;
+  return (
+    <main>
+      <ContactSection />
+    </main>
+  );
 };
 
 export default ContactPage;

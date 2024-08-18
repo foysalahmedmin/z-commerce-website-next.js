@@ -8,9 +8,10 @@ import {
   TabsTrigger,
 } from "@/components/ui/Tabs";
 import { cn, toFixedAndLocaleStringCurrency } from "@/lib/utils";
+import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import CartButton from "./CartButton";
-import CartInfo from "./CartInfo";
+import AddToCardButton from "../../Buttons/AddToCardButton";
+import CartInfo from "../../CartInfo";
 
 const ProductCard = ({ item }) => {
   const {
@@ -69,7 +70,9 @@ const ProductCard = ({ item }) => {
               ))}
             </div>
           )}
-          <CartInfo />
+          <div className="absolute bottom-0 left-0 right-0 w-full py-4">
+            <CartInfo />
+          </div>
         </TabsContent>
         <div className="flex grow flex-col space-y-2 px-4 py-4">
           <div className="grid grow">
@@ -126,7 +129,13 @@ const ProductCard = ({ item }) => {
             </div>
           </div>
           <div className="mt-4">
-            <CartButton />
+            <AddToCardButton
+              className="w-full rounded-md rounded-t-none uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
+              variant="outline"
+              size="sm"
+            >
+              <span>Add to Cart</span> <ShoppingCart />
+            </AddToCardButton>
           </div>
         </div>
       </Tabs>

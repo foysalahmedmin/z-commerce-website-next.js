@@ -8,10 +8,7 @@ const CartInfo = ({ className }) => {
   const wishListed = false;
   return (
     <div
-      className={cn(
-        "from absolute bottom-0 left-0 right-0 flex w-full items-center justify-center gap-2 py-4",
-        className,
-      )}
+      className={cn("flex w-full items-center justify-center gap-2", className)}
     >
       <div className="translate-y-4 opacity-0 transition-all duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
         <Button
@@ -26,7 +23,7 @@ const CartInfo = ({ className }) => {
           )}
         </Button>
       </div>
-      <div className="translate-y-4 opacity-0 transition-all delay-100 duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+      <div className="translate-y-4 opacity-0 transition-all delay-100  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
         <Button
           className="bg-card text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
           title="Quick View"

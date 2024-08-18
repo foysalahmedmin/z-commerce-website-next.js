@@ -1,3 +1,4 @@
+import { CartOutline } from "@/assets/images/icons/Cart";
 import { Button } from "@/components/ui/Button";
 import { StarRatting } from "@/components/ui/StarRating";
 import {
@@ -9,9 +10,9 @@ import {
 } from "@/components/ui/Tabs";
 import { cn, toFixedAndLocaleStringCurrency } from "@/lib/utils";
 import Image from "next/image";
-import CartButton from "./CartButton";
-import CartInfo from "./CartInfo";
-import TimeCounter from "./TimeCounter";
+import AddToCardButton from "../../Buttons/AddToCardButton";
+import CartInfo from "../../CartInfo";
+import TimeCounter from "../../TimeCounter";
 
 const ProductOfferCard = ({ item }) => {
   const {
@@ -72,8 +73,12 @@ const ProductOfferCard = ({ item }) => {
               ))}
             </div>
           )}
-          <CartInfo />
-          <TimeCounter endDate={"2025-01-01"} />
+          <div className="absolute bottom-20 left-0 right-0 w-full py-4">
+            <CartInfo />
+          </div>
+          <div className="absolute bottom-12 left-4 right-4 px-4 py-2 text-center">
+            <TimeCounter endDate={"2025-01-01"} variant="card" />
+          </div>
         </TabsContent>
         <div className="relative -mt-12 flex grow flex-col px-2">
           <div className="flex grow flex-col space-y-2 rounded-md border bg-card px-4 py-4 shadow">
@@ -142,7 +147,13 @@ const ProductOfferCard = ({ item }) => {
                   </div>
                 </div>
               )}
-              <CartButton />
+              <AddToCardButton
+                className="uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
+                variant="outline"
+                size="sm"
+              >
+                ADD <CartOutline className="shrink-0 text-lg" />
+              </AddToCardButton>
             </div>
           </div>
         </div>

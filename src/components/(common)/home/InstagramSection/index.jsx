@@ -1,5 +1,5 @@
 import { instagram } from "@/assets/data/instagram";
-import InstagramCard from "@/components/partials/cards/InstagramCard";
+import InstagramCard from "@/components/partials/Cards/InstagramCard";
 import {
   Carousel,
   CarouselContent,
