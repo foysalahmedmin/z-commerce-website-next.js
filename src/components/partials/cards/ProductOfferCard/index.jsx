@@ -35,7 +35,7 @@ const ProductOfferCard = ({ item }) => {
               key={i}
               value={i}
               className={
-                "h-72 w-full overflow-hidden rounded-md border bg-muted/25 pb-12 shadow-inner dark:bg-background"
+                "h-72 w-full overflow-hidden rounded-md border bg-muted/25 p-2 pb-12 shadow-inner dark:bg-background"
               }
             >
               <Image

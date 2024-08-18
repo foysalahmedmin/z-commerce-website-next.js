@@ -32,7 +32,7 @@ const ProductCard = ({ item }) => {
               key={i}
               value={i}
               className={
-                "h-60 w-full overflow-hidden border-b bg-muted/25 shadow-inner dark:bg-background"
+                "h-60 w-full overflow-hidden border-b bg-muted/25 p-4 shadow-inner dark:bg-background"
               }
             >
               <Image
