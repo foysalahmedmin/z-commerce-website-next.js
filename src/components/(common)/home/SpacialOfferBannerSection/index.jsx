@@ -7,7 +7,7 @@ const SpacialOfferBannerSection = () => {
   return (
     <section>
       <div className="container">
-        <div className="dark rounded-md border bg-dark px-16 py-16 text-dark-foreground md:py-24">
+        <div className="dark rounded-md border bg-dark px-8 py-16 text-dark-foreground md:px-16 md:py-24">
           <div className="grid gap-y-6 md:grid-cols-2">
             <div className="max-w-lg space-y-6 text-center md:space-y-8 md:text-left ">
               <div>

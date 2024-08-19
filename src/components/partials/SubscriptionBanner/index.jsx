@@ -6,14 +6,14 @@ const SubscriptionBanner = () => {
   return (
     <section>
       <div className="dark container">
-        <div className="overflow-hidden rounded-md bg-dark pr-8 text-dark-foreground">
+        <div className="overflow-hidden rounded-md bg-dark text-dark-foreground">
           <div
             style={{
               backgroundImage: "url(/images/partials/subscription-banner.png)",
             }}
-            className="bg-contain bg-right-bottom bg-no-repeat py-16 md:px-8 md:py-24"
+            className="bg-contain bg-right-bottom bg-no-repeat px-8 py-16 md:px-16 md:py-24"
           >
-            <div className="max-w-xl pb-4 pl-4">
+            <div className="max-w-xl">
               <div className="mb-6">
                 <h1 className="text-neutral-50">
                   Stay home & get your daily needs from our shop
