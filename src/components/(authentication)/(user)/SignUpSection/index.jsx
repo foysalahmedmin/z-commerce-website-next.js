@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import { Toggler } from "@/components/ui/Toggler";
 import { signUpUser } from "@/network/auth/api";
-import { Eye, EyeOff } from "lucide-react";
+import { AtSign, Eye, EyeOff, LockIcon, User } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -46,80 +46,98 @@ const SignUpSection = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="w-full" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 gap-y-4">
-        {/*<div className="flex cursor-pointer justify-center text-center">*/}
-        {/*  <label className="relative size-24 rounded-full border border-primary bg-primary/5 p-1">*/}
-        {/*    <input*/}
-        {/*      className="hidden"*/}
-        {/*      type="file"*/}
-        {/*      onChange={(e) => setPhoto(e.target.files[0])}*/}
-        {/*      name="image"*/}
-        {/*      placeholder="image"*/}
-        {/*    />*/}
-        {/*    <Image*/}
-        {/*      className="h-full w-full rounded-full"*/}
-        {/*      alt="profile-image"*/}
-        {/*      src="/images/svg/user.svg"*/}
-        {/*      width={96}*/}
-        {/*      height={96}*/}
-        {/*    />*/}
-        {/*    <span className="absolute bottom-0 right-0 transform rounded-full bg-primary text-white">*/}
-        {/*      <Plus />*/}
-        {/*    </span>*/}
-        {/*  </label>*/}
-        {/*</div>*/}
         <label className="block">
-          <span className="font-comfortaa mb-2 block px-2 capitalize">
-            Name
-          </span>
-          <div className="h-10 overflow-hidden rounded-full border border-primary focus-within:bg-primary/5">
+          <span className="font-comfortaa mb-2 block px-2 capitalize"></span>
+          <div className="input h-8 w-full flex-row-reverse bg-background px-0">
             <input
-              className="h-full w-full flex-1 rounded-full bg-transparent px-6 outline-none"
+              className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               name="name"
               placeholder="Name"
             />
+            <span
+              className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+              variant="outline"
+              size="icon"
+              type="button"
+              asChild
+            >
+              <User className="size-6" strokeWidth={1} />
+            </span>
           </div>
         </label>
         <label className="block">
           <span className="font-comfortaa mb-2 block px-2 capitalize">
             Email
           </span>
-          <div className="h-10 overflow-hidden rounded-full border border-primary focus-within:bg-primary/5">
+          <div className="input h-8 w-full flex-row-reverse bg-background px-0">
             <input
-              className="h-full w-full flex-1 rounded-full bg-transparent px-6 outline-none"
+              className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
               type="email"
-              value={email}
+              value={name}
               onChange={(e) => setEmail(e.target.value)}
               name="email"
-              placeholder="Email"
+              placeholder="email"
             />
+            <span
+              className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+              variant="outline"
+              size="icon"
+              type="button"
+              asChild
+            >
+              <AtSign className="size-6" strokeWidth={1} />
+            </span>
           </div>
         </label>
         <label className="block">
           <span className="font-comfortaa mb-2 block px-2 capitalize">
             Password
           </span>
-          <div className="flex h-10 items-center overflow-hidden rounded-full border border-primary focus-within:bg-primary/5">
+          <div className="input h-8 w-full flex-row-reverse bg-background px-0">
+            <Toggler
+              onClick={() => setPasswordVisible((value) => !value)}
+              type="button"
+              className="mr-2 rounded-full bg-transparent"
+              isOn={isPasswordVisible}
+              on={{
+                children: (
+                  <Eye
+                    className="size-5 text-foreground/75 hover:text-primary"
+                    strokeWidth={1}
+                  />
+                ),
+              }}
+              off={{
+                children: (
+                  <EyeOff
+                    className="size-5 text-foreground/75 hover:text-primary"
+                    strokeWidth={1}
+                  />
+                ),
+              }}
+            />
             <input
-              className="h-full w-full flex-1 rounded-full bg-transparent px-6 outline-none"
+              className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
               type={isPasswordVisible ? "text" : "password"}
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
-            <Toggler
-              onClick={() => setPasswordVisible((value) => !value)}
+            <span
+              className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+              variant="outline"
+              size="icon"
               type="button"
-              className="mr-4"
-              isOn={isPasswordVisible}
-              on={{ children: <Eye className="text-primary" /> }}
-              off={{ children: <EyeOff className="text-primary" /> }}
-            />
+              asChild
+            >
+              <LockIcon className="size-6" strokeWidth={1} />
+            </span>
           </div>
         </label>
       </div>
@@ -131,7 +149,9 @@ const SignUpSection = () => {
         </label>
       )}
       <div className="my-6 text-center">
-        <Button type="submit">Sign Up</Button>
+        <Button className="text-light" type="submit">
+          Sign Up
+        </Button>
       </div>
       <span className="block text-center">
         Already have an account?{" "}

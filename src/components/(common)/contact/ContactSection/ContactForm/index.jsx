@@ -13,7 +13,7 @@ const ContactFormSection = () => {
             required
           />
           <span
-            className="hover inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 peer-focus-within:border-foreground peer-focus-within:text-foreground"
+            className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
             variant="outline"
             size="icon"
             type="button"
@@ -30,7 +30,7 @@ const ContactFormSection = () => {
             required
           />
           <span
-            className="hover inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 peer-focus-within:border-foreground peer-focus-within:text-foreground"
+            className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
             variant="outline"
             size="icon"
             type="button"
@@ -47,7 +47,7 @@ const ContactFormSection = () => {
             required
           />
           <span
-            className="hover inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 peer-focus-within:border-foreground peer-focus-within:text-foreground"
+            className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
             variant="outline"
             size="icon"
             type="button"
@@ -65,7 +65,7 @@ const ContactFormSection = () => {
             required
           />
           <span
-            className="hover inline-grid aspect-square h-8 place-items-center rounded-br rounded-tl border-b border-r bg-transparent text-foreground/75 peer-focus-within:border-foreground peer-focus-within:text-foreground"
+            className="inline-grid aspect-square h-8 place-items-center rounded-br rounded-tl border-b border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
             variant="outline"
             size="icon"
             type="button"
