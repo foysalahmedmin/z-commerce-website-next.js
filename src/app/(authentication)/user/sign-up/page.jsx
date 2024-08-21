@@ -10,13 +10,13 @@ export const metadata = {
   description: "Investment management made simple",
 };
 
-const SignUpPage = async ({ params }) => {
-  const session = cookies().get("gate_access");
+const SignUpPage = async () => {
+  const session = cookies().get("z-commerce");
   if (session?.value) {
-    redirect(`/${params?.locale}`);
+    redirect(`/user/profile`);
   }
   return (
-    <main className="bg-muted">
+    <>
       <section className="grid min-h-screen place-items-center py-8 xl:py-12">
         <div className="relative grid h-full w-full grid-cols-1 grid-rows-1 place-items-center px-container-space py-6 xl:py-8">
           <div className="z-10 flex w-full overflow-hidden rounded-md border border-foreground/50 bg-card/50 shadow-xl md:w-[40rem]">
@@ -24,7 +24,7 @@ const SignUpPage = async ({ params }) => {
               <SectionTitle variant="center">
                 <Title>Sign Up</Title>
               </SectionTitle>
-              <SignUpSection params={params} />
+              <SignUpSection />
             </div>
           </div>
           <div className="absolute bottom-0 left-0 right-1/2 top-0 hidden grid-cols-1 grid-rows-1 rounded-e-md bg-background/50 pr-8 pt-8 shadow-inner md:grid">
@@ -38,7 +38,7 @@ const SignUpPage = async ({ params }) => {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 };
 

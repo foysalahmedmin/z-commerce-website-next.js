@@ -1,5 +1,5 @@
 const layout = ({ children }) => {
-  return <>{children}</>;
+  return <main className="bg-muted">{children}</main>;
 };
 
 export default layout;

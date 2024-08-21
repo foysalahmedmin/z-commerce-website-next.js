@@ -24,7 +24,6 @@ const SignUpSection = () => {
       formData.append("name", name);
       formData.append("email", email);
       formData.append("password", password);
-      formData.append("role", "student");
       formData.append("photo", photo);
       const status = await signUpUser(formData);
       if (status?.error?.status >= 400) {
@@ -49,8 +48,10 @@ const SignUpSection = () => {
     <form className="w-full" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 gap-y-4">
         <label className="block">
-          <span className="font-comfortaa mb-2 block px-2 capitalize"></span>
-          <div className="input h-8 w-full flex-row-reverse bg-background px-0">
+          <span className="font-comfortaa mb-2 block px-2 capitalize">
+            Name
+          </span>
+          <div className="input h-8 w-full flex-row-reverse border-foreground/50 bg-background px-0">
             <input
               className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
               type="text"
@@ -60,7 +61,7 @@ const SignUpSection = () => {
               placeholder="Name"
             />
             <span
-              className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+              className="inline-grid aspect-square h-full place-items-center rounded-l border-r border-foreground/50 bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
               variant="outline"
               size="icon"
               type="button"
@@ -74,17 +75,17 @@ const SignUpSection = () => {
           <span className="font-comfortaa mb-2 block px-2 capitalize">
             Email
           </span>
-          <div className="input h-8 w-full flex-row-reverse bg-background px-0">
+          <div className="input h-8 w-full flex-row-reverse border-foreground/50 bg-background px-0">
             <input
               className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
               type="email"
-              value={name}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               name="email"
               placeholder="email"
             />
             <span
-              className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+              className="inline-grid aspect-square h-full place-items-center rounded-l border-r border-foreground/50 bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
               variant="outline"
               size="icon"
               type="button"
@@ -98,7 +99,7 @@ const SignUpSection = () => {
           <span className="font-comfortaa mb-2 block px-2 capitalize">
             Password
           </span>
-          <div className="input h-8 w-full flex-row-reverse bg-background px-0">
+          <div className="input h-8 w-full flex-row-reverse border-foreground/50 bg-background px-0">
             <Toggler
               onClick={() => setPasswordVisible((value) => !value)}
               type="button"
@@ -130,7 +131,7 @@ const SignUpSection = () => {
               placeholder="Password"
             />
             <span
-              className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+              className="inline-grid aspect-square h-full place-items-center rounded-l border-r border-foreground/50 bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
               variant="outline"
               size="icon"
               type="button"
