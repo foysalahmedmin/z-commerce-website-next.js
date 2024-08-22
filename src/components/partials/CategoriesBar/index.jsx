@@ -1,16 +1,17 @@
 import { categories } from "@/assets/data/categories";
-import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import CategoryItem from "./CategoryItem";
 
-const CategoriesBar = () => {
+const CategoriesBar = ({ className }) => {
   return (
-    <div className="h-full">
-      <ul>
+    <div className={cn("h-full rounded-md border py-6", className)}>
+      <div className="mb-4 px-4">
+        <h5 className="short-underline pb-1 uppercase">Categories</h5>
+      </div>
+      <ul className="divide-y">
         {categories?.map((item, i) => (
           <li key={i}>
-            <div className="flex cursor-pointer items-center justify-between gap-2 border-y px-4 py-1 hover:bg-muted/25 hover:shadow-inner">
-              <span>{item?.label}</span>
-              <ChevronRight size={16} />
-            </div>
+            <CategoryItem item={item} />
           </li>
         ))}
       </ul>

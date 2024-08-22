@@ -5,9 +5,9 @@ import Link from "next/link";
 const BannerSlide = ({ item }) => {
   const { title, subTitle, description, image, button } = item;
   return (
-    <div className="relative z-30 xl:mx-12">
+    <div className="relative z-30 h-full w-full xl:mx-12">
       <div className="flex h-full w-full items-center px-12">
-        <div className="flex h-full w-full items-center justify-center gap-6 py-12 xl:justify-between">
+        <div className="flex w-full items-center justify-center gap-6 py-12 xl:justify-between">
           <div className="max-w-md text-center xl:max-w-xl xl:basis-1/2 xl:text-left">
             {subTitle && (
               <h3 className="my-0 mb-4 inline-block border-l-4 border-primary px-2 text-base uppercase xl:text-lg">

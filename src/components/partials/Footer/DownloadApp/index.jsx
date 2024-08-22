@@ -24,7 +24,7 @@ const DownloadApp = ({ className, ...props }) => {
                 className="size-full object-contain object-center"
                 src="/images/partials/play-store-logo.png"
                 alt="play store logo"
-                height={150}
+                height={100}
                 width={250}
               />
             </div>
@@ -33,7 +33,7 @@ const DownloadApp = ({ className, ...props }) => {
                 className="size-full object-contain object-center"
                 src="/images/partials/play-store-logo.png"
                 alt="play store logo"
-                height={150}
+                height={100}
                 width={250}
               />
             </div>

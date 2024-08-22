@@ -2,11 +2,11 @@ import { Button } from "@/components/ui/Button";
 import { project } from "@/constants/project";
 import { Mail } from "lucide-react";
 
-const SubscriptionBanner = () => {
+const SubscriptionBanner = ({ className }) => {
   return (
-    <section>
-      <div className="dark container">
-        <div className="overflow-hidden rounded-md bg-dark text-dark-foreground">
+    <section className={className}>
+      <div className="dark">
+        <div className="overflow-hidden rounded-md border bg-dark text-dark-foreground">
           <div
             style={{
               backgroundImage: "url(/images/partials/subscription-banner.png)",

@@ -1,5 +1,14 @@
-const MainLayout = ({ children }) => {
-  return <>{children}</>;
+import Footer from "@/components/partials/Footer";
+import Header from "@/components/partials/Header";
+
+const CommonLayout = ({ children }) => {
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
 };
 
-export default MainLayout;
+export default CommonLayout;

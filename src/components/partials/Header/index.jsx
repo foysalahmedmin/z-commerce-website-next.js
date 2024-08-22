@@ -3,16 +3,13 @@ import { cookies } from "next/headers";
 import Navigation from "./Navigation";
 import TopHeader from "./TopHeader";
 
-const Header = async ({
-  navigationClassName = "container",
-  topHeaderClassName,
-}) => {
+const Header = async () => {
   const access = cookies().get("z-access-token");
   const user = access?.value && (await getUserByToken(access?.value));
   return (
     <>
-      <TopHeader access={access} user={user} className={topHeaderClassName} />
-      <Navigation access={access} user={user} className={navigationClassName} />
+      <TopHeader access={access} user={user} />
+      <Navigation access={access} user={user} />
     </>
   );
 };

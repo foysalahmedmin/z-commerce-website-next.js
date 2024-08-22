@@ -11,11 +11,11 @@ import SearchBar from "./SearchBar";
 import ThemeToggler from "./ThemeToggler";
 import UserAndAuthNav from "./UserAndAuthNav";
 
-const Navigation = ({ access, user, className }) => {
+const Navigation = ({ access, user }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="sticky top-0 z-[1000] h-header w-full border-y bg-card">
-      <div className={cn("h-full", className)}>
+    <nav className="sticky top-0 z-[100000] h-header w-full border-y bg-card">
+      <div className="container h-full">
         <div className="flex h-full items-center justify-between gap-2 lg:gap-4">
           <div>
             <Logo />
