@@ -2,9 +2,11 @@ import { categories } from "@/assets/data/categories";
 import { cn } from "@/lib/utils";
 import CategoryItem from "./CategoryItem";
 
-const CategoriesBar = ({ className }) => {
+const Categories = ({ className }) => {
   return (
-    <div className={cn("h-full rounded-md border py-6", className)}>
+    <div
+      className={cn("h-full overflow-y-auto rounded-md border py-6", className)}
+    >
       <div className="mb-4 px-4">
         <h5 className="short-underline pb-1 uppercase">Categories</h5>
       </div>
@@ -19,4 +21,4 @@ const CategoriesBar = ({ className }) => {
   );
 };
 
-export default CategoriesBar;
+export default Categories;
