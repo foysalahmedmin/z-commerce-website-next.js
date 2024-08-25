@@ -1,10 +1,10 @@
 import BannerSection from "@/components/(common)/home/BannerSection";
 import CategorySection from "@/components/(common)/home/CategorySection";
-import DealSection from "@/components/(common)/home/DealSection";
 import FeatureSection from "@/components/(common)/home/FeatureSection";
+import FlashSalesProductSection from "@/components/(common)/home/FlashSalesProductSection";
 import InstagramSection from "@/components/(common)/home/InstagramSection";
-import SpacialOfferBannerSection from "@/components/(common)/home/SpacialOfferBannerSection";
-import TrendingSection from "@/components/(common)/home/TrendingSection";
+import SpacialOfferSection from "@/components/(common)/home/SpacialOfferSection";
+import TrendingProductSection from "@/components/(common)/home/TrendingProductSection";
 import ServicesSection from "@/components/partials/ServicesSection";
 import Categories from "@/components/partials/Sidebar/Categories";
 import TestimonialSection from "@/components/partials/TestimonialSection";
@@ -20,7 +20,7 @@ const HomePage = () => {
     <main>
       <div className="container relative flex md:gap-x-6 xl:gap-x-8">
         <aside className="self-stretch py-4 md:w-60 md:py-6 xl:w-80 xl:py-8">
-          <Categories />
+          <Categories className="h-full" />
         </aside>
         <div className="flex-1 self-stretch py-4 md:py-6 xl:py-8">
           <BannerSection />
@@ -33,7 +33,7 @@ const HomePage = () => {
       <div className="container">
         <hr />
       </div>
-      <DealSection />
+      <FlashSalesProductSection />
       <div className="container">
         <hr />
       </div>
@@ -41,8 +41,8 @@ const HomePage = () => {
       <div className="container">
         <hr />
       </div>
-      <TrendingSection />
-      <SpacialOfferBannerSection />
+      <TrendingProductSection />
+      <SpacialOfferSection />
       <TestimonialSection />
       <FeatureSection />
       <InstagramSection />

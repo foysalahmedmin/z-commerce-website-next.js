@@ -2,9 +2,9 @@ import { products } from "@/assets/data/products";
 import { Button } from "@/components/ui/Button";
 import { SectionTitle, Subtitle, Title } from "@/components/ui/SectionTitle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
-import TrendingProductsTabItem from "./TrendingProductsTabItem";
+import TrendingProductTabItem from "./TrendingProductTabItem";
 
-const TrendingSection = () => {
+const TrendingProductSection = () => {
   const groupedProducts = products.reduce((acc, product) => {
     const { category } = product;
     if (!acc[category]) {
@@ -42,7 +42,7 @@ const TrendingSection = () => {
               </div>
               <TabsContent>
                 {tabs?.map((item, i) => (
-                  <TrendingProductsTabItem
+                  <TrendingProductTabItem
                     key={i}
                     value={item}
                     products={groupedProducts[item]}
@@ -60,4 +60,4 @@ const TrendingSection = () => {
   );
 };
 
-export default TrendingSection;
+export default TrendingProductSection;

@@ -1,6 +1,5 @@
 import { products } from "@/assets/data/products";
-import ProductOfferCard from "@/components/partials/Cards/ProductOfferCard";
-import { Button } from "@/components/ui/Button";
+import ProductCard from "@/components/partials/Cards/ProductCard";
 import {
   Carousel,
   CarouselContent,
@@ -11,14 +10,14 @@ import {
 } from "@/components/ui/Carousel";
 import { SectionTitle, Subtitle, Title } from "@/components/ui/SectionTitle";
 
-const DealSection = () => {
+const PopularProductSection = () => {
   return (
     <section className="py-12 md:py-16">
-      <div className="container">
+      <div className="w-full">
         <div className="flex flex-wrap items-end gap-4">
           <SectionTitle>
             <Subtitle>Best Deal</Subtitle>
-            <Title>Flash Sales</Title>
+            <Title>Popular Products</Title>
           </SectionTitle>
         </div>
         <div className="mb-6 md:mb-8">
@@ -32,9 +31,9 @@ const DealSection = () => {
                 {products.slice(0, 12).map((item, index) => (
                   <CarouselItem
                     key={index}
-                    className="p-2 md:basis-1/2 lg:basis-1/4 xl:basis-1/5"
+                    className="p-2 md:basis-1/2 xl:basis-1/4 2xl:basis-1/5"
                   >
-                    <ProductOfferCard item={item} />
+                    <ProductCard item={item} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
@@ -52,12 +51,9 @@ const DealSection = () => {
             </Carousel>
           </div>
         </div>
-        <div className="text-center">
-          <Button>View All Products</Button>
-        </div>
       </div>
     </section>
   );
 };
 
-export default DealSection;
+export default PopularProductSection;

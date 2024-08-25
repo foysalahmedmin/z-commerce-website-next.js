@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { project } from "@/constants/project";
 import Image from "next/image";
 
-const SpacialOfferBannerSection = () => {
+const SpacialOfferSection = () => {
   return (
     <section>
       <div className="container">
@@ -54,4 +54,4 @@ const SpacialOfferBannerSection = () => {
   );
 };
 
-export default SpacialOfferBannerSection;
+export default SpacialOfferSection;
