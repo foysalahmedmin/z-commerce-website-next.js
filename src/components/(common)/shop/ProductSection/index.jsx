@@ -19,7 +19,8 @@ const ProductSection = () => {
               <ProductCard key={index} item={item} />
             ))}
           </div>
-          <div className="mt-6 flex items-center justify-center">
+          <div className="mt-6 flex items-center justify-between md:mt-8">
+            <div></div>
             <Pagination pages={5} currentPage={2} />
           </div>
         </div>

@@ -12,11 +12,13 @@ const ShopePage = () => {
           <Categories />
           <PriceAndVariants />
         </aside>
-        <div className="w-full flex-1 self-stretch py-4 md:max-w-[calc(100%-16.5rem)] md:py-6 xl:max-w-[calc(100%-22rem)] xl:py-8">
-          <div className="pb-4 md:pb-6 xl:pb-8">
+        <div className="w-full flex-1 space-y-4 self-stretch py-4 md:max-w-[calc(100%-16.5rem)] md:space-y-6 md:py-6 xl:max-w-[calc(100%-22rem)] xl:space-y-8 xl:py-8">
+          <div>
             <SubscriptionBanner />
           </div>
-          <ProductSection />
+          <div className="py-6 md:py-8">
+            <ProductSection />
+          </div>
         </div>
       </div>
       <div className="container">

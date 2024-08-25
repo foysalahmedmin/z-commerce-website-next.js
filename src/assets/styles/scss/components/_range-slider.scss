@@ -30,7 +30,8 @@
 
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 0.75em rgba(0, 0, 0, 0.05);
+    border: 1px;
     border-radius: 50%;
     background: hsl(var(--accent));
     width: 1em;
@@ -40,12 +41,12 @@
 
   input[type="range"]::-moz-range-thumb {
     -moz-appearance: none;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-    border: none;
+    box-shadow: 0 0 0.75em rgba(0, 0, 0, 0.05);
+    border: 1px;
     border-radius: 50%;
     background: hsl(var(--accent));
-    width: 1em;
-    height: 1em;
+    width: 1.5em;
+    height: 1.5em;
     pointer-events: auto;
   }
 }
