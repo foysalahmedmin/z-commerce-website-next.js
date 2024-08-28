@@ -1,13 +1,13 @@
 import BannerSection from "@/components/(common)/home/BannerSection";
 import CategorySection from "@/components/(common)/home/CategorySection";
 import FeatureSection from "@/components/(common)/home/FeatureSection";
-import FlashSalesProductSection from "@/components/(common)/home/FlashSalesProductSection";
 import InstagramSection from "@/components/(common)/home/InstagramSection";
 import SpacialOfferSection from "@/components/(common)/home/SpacialOfferSection";
 import TrendingProductSection from "@/components/(common)/home/TrendingProductSection";
-import ServicesSection from "@/components/partials/ServicesSection";
+import FlashSalesProductSection from "@/components/partials/Sections/FlashSalesProductSection";
+import ServicesSection from "@/components/partials/Sections/ServicesSection";
+import TestimonialSection from "@/components/partials/Sections/TestimonialSection";
 import Categories from "@/components/partials/Sidebar/Categories";
-import TestimonialSection from "@/components/partials/TestimonialSection";
 import { titleGenerator } from "@/lib/utils";
 
 export const metadata = {

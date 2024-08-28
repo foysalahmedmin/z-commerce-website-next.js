@@ -14,7 +14,7 @@ import AddToCardButton from "../../Buttons/AddToCardButton";
 import CartInfo from "../../CartInfo";
 import TimeCounter from "../../TimeCounter";
 
-const ProductOfferCard = ({ item }) => {
+const ProductOfferCard = ({ item, className }) => {
   const {
     name,
     description,
@@ -28,7 +28,7 @@ const ProductOfferCard = ({ item }) => {
     tags,
   } = item;
   return (
-    <div className="group/card h-full">
+    <div className={cn("group/card h-full text-[1rem]", className)}>
       <Tabs defaultValue={0} className="flex h-full w-full flex-col">
         <TabsContent className="relative w-full overflow-hidden rounded-md">
           {variants.map((variant, i) => (
@@ -36,7 +36,7 @@ const ProductOfferCard = ({ item }) => {
               key={i}
               value={i}
               className={
-                "h-72 w-full overflow-hidden rounded-md border bg-muted/25 p-2 pb-12 shadow-inner dark:bg-background"
+                "h-[18em] w-full overflow-hidden rounded-md border bg-muted/25 p-[0.5em] pb-[3em] shadow-inner dark:bg-background"
               }
             >
               <Image
@@ -51,12 +51,12 @@ const ProductOfferCard = ({ item }) => {
             </TabsItem>
           ))}
           {tags && tags.length > 0 && (
-            <div className="absolute left-0 top-4 inline-flex flex-col gap-y-1">
+            <div className="absolute left-0 top-[1em] inline-flex flex-col gap-y-[0.25em]">
               {tags.map((tag, i) => (
                 <span
                   key={i}
                   className={cn(
-                    "inline-block rounded-e-full bg-primary py-1 pl-4 pr-2 text-[10px] capitalize leading-none text-primary-foreground shadow",
+                    "inline-block rounded-e-full bg-primary py-[0.25em] pl-[1em] pr-[0.5em] text-[0.75em] capitalize leading-none text-primary-foreground shadow",
                     {
                       "bg-primary": i % 3 === 0,
                     },
@@ -73,52 +73,56 @@ const ProductOfferCard = ({ item }) => {
               ))}
             </div>
           )}
-          <div className="absolute bottom-20 left-0 right-0 w-full py-4">
+          <div className="absolute bottom-[5em] left-0 right-0 w-full py-[1em]">
             <CartInfo />
           </div>
-          <div className="absolute bottom-12 left-4 right-4 px-4 py-2 text-center">
+          <div className="absolute bottom-[3em] left-[1em] right-[1em] px-[1em] py-[0.5em] text-center">
             <TimeCounter endDate={"2025-01-01"} variant="card" />
           </div>
         </TabsContent>
-        <div className="relative -mt-12 flex grow flex-col px-2">
-          <div className="flex grow flex-col space-y-2 rounded-md border bg-card px-4 py-4 shadow">
-            <div className="grid grow">
-              <h3 className="text-base text-title">{name}</h3>
+        <div className="relative -mt-[3em] flex grow flex-col px-[0.5em]">
+          <div className="flex grow flex-col space-y-[0.5em] rounded-md border bg-card px-[1em] py-[1em] shadow">
+            <div className="grid grow gap-[0.5em]">
+              <h3 className="text-[1em] leading-none text-title">{name}</h3>
               {description && (
-                <p className="text-xs text-title/75">{description}</p>
+                <p className="text-[0.75em] leading-none text-foreground/75 ">
+                  {description}
+                </p>
               )}
             </div>
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center justify-between gap-[0.5em]">
               <progress value={available} max={stock} />
-              <div className="ml-[2px] flex items-center gap-1 text-xs leading-none">
+              <div className="ml-[2px] flex items-center gap-[0.25em] text-[0.75em] leading-none">
                 <span className="font-semibold text-secondary">
                   {available}
                 </span>
                 /<span className="text-primary">{stock}</span>
               </div>
             </div>
-            <div className="flex items-center justify-between gap-2">
-              <TabsList className="mb-0 flex-wrap justify-start gap-2 overflow-visible overflow-x-visible overflow-y-visible">
-                {variants.map((variant, i) => (
-                  <TabsTrigger
-                    className="flex size-4 overflow-hidden rounded-full after:hidden"
-                    activeClassName="ring-1 ring-offset-2"
-                    key={i}
-                    value={i}
-                  >
-                    <Button
-                      style={{ background: variant?.color }}
-                      className="size-4 rounded-full"
-                      variant="none"
-                      size="icon-sm"
-                      asChild={true}
-                    />
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-              <div className="relative -right-4 inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[2px] rounded-s-full bg-muted/25 py-1 pl-2 pr-4 text-end shadow-inner">
+            <div className="flex items-center justify-between gap-[0.5em]">
+              {variants?.length > 1 && (
+                <TabsList className="mb-0 flex-wrap justify-start gap-[0.5em] overflow-visible overflow-x-visible overflow-y-visible px-[0.25em]">
+                  {variants.map((variant, i) => (
+                    <TabsTrigger
+                      className="flex size-[1em] overflow-hidden rounded-full after:hidden"
+                      activeClassName="ring-[0.15em] ring-muted-foreground/50 ring-offset-[0.15em]"
+                      key={i}
+                      value={i}
+                    >
+                      <Button
+                        style={{ background: variant?.color }}
+                        className="size-full rounded-full"
+                        variant="none"
+                        size="icon-sm"
+                        asChild={true}
+                      />
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              )}
+              <div className="relative -right-[1em] inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[0.25em] rounded-s-full bg-muted/25 py-[0.25em] pl-[0.5em] pr-[1em] text-end shadow-inner">
                 {previousPrice && (
-                  <del className="text-[10px] leading-none text-muted-foreground">
+                  <del className="text-[0.75em] leading-none text-muted-foreground">
                     $
                     {toFixedAndLocaleStringCurrency({
                       value: previousPrice,
@@ -135,11 +139,14 @@ const ProductOfferCard = ({ item }) => {
                 )}
               </div>
             </div>
-            <div className="mt-4 flex items-center justify-between gap-2">
+            <div className="flex items-center justify-between gap-[0.5em]">
               {rating && (
                 <div>
-                  <StarRatting rating={rating} className="text leading-none" />
-                  <div className="ml-[2px] flex items-center gap-1 text-xs leading-none">
+                  <StarRatting
+                    rating={rating}
+                    className="text-[1em] leading-none"
+                  />
+                  <div className="ml-[0.15em] flex items-center gap-[0.25em] text-[0.75em] leading-none">
                     <span className="font-semibold text-secondary">
                       {rating}
                     </span>
@@ -148,11 +155,10 @@ const ProductOfferCard = ({ item }) => {
                 </div>
               )}
               <AddToCardButton
-                className="uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
+                className="text-[0.875em] uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
                 variant="outline"
-                size="sm"
               >
-                ADD <CartOutline className="shrink-0 text-lg" />
+                ADD <CartOutline className="shrink-0 text-[1.25em]" />
               </AddToCardButton>
             </div>
           </div>

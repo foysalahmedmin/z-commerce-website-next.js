@@ -12,28 +12,34 @@ const TimeCounter = ({ className, endDate, variant, ...props }) => {
       {...props}
     >
       <CountdownTimeUnit
-        className="rounded bg-card px-2 text-base font-bold shadow"
+        className="rounded bg-card px-[0.5em] text-base font-bold shadow"
         unit="day"
       />
-      <span className="text-xl font-bold leading-none text-card shadow">:</span>
+      <span className="text-[1.25em] font-bold leading-none text-card shadow">
+        :
+      </span>
       <CountdownTimeUnit
-        className="rounded bg-card px-2 text-base font-bold shadow"
+        className="rounded bg-card px-[0.5em] text-base font-bold shadow"
         unit="hour"
       />
-      <span className="text-xl font-bold leading-none text-card shadow">:</span>
+      <span className="text-[1.25em] font-bold leading-none text-card shadow">
+        :
+      </span>
       <CountdownTimeUnit
-        className="rounded bg-card px-2 text-base font-bold shadow"
+        className="rounded bg-card px-[0.5em] text-base font-bold shadow"
         unit="minute"
       />
-      <span className="text-xl font-bold leading-none text-card shadow">:</span>
+      <span className="text-[1.25em] font-bold leading-none text-card shadow">
+        :
+      </span>
       <CountdownTimeUnit
-        className="rounded bg-card px-2 text-base font-bold shadow"
+        className="rounded bg-card px-[0.5em] text-base font-bold shadow"
         unit="second"
       />
     </CountdownTime>
   ) : (
     <CountdownTime
-      className={cn("gap-4", className)}
+      className={cn("gap-[1em]", className)}
       endDate={endDate}
       {...props}
     >

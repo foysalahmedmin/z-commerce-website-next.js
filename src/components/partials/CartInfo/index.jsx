@@ -8,37 +8,40 @@ const CartInfo = ({ className }) => {
   const wishListed = false;
   return (
     <div
-      className={cn("flex w-full items-center justify-center gap-2", className)}
+      className={cn(
+        "flex w-full items-center justify-center gap-2 text-[1em]",
+        className,
+      )}
     >
-      <div className="translate-y-4 opacity-0 transition-all duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+      <div className="translate-y-[1em] opacity-0 transition-all duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
         <Button
-          className="bg-card text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
+          className="bg-card text-[0.75em] text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
           title="Wish List"
-          size="icon-sm"
+          size="icon"
         >
           {wishListed ? (
-            <Heart className="text-primary-foreground" />
+            <Heart className="size-[1.5em] text-primary-foreground" />
           ) : (
-            <HeartOutline />
+            <HeartOutline className="size-[1.5em]" />
           )}
         </Button>
       </div>
-      <div className="translate-y-4 opacity-0 transition-all delay-100  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+      <div className="translate-y-[1em] opacity-0 transition-all delay-100  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
         <Button
-          className="bg-card text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
+          className="bg-card text-[0.75em] text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
           title="Quick View"
-          size="icon-sm"
+          size="icon"
         >
-          <Magnify />
+          <Magnify className="size-[1.5em]" />
         </Button>
       </div>
-      <div className="translate-y-4 opacity-0 transition-all delay-200  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+      <div className="translate-y-[1em] opacity-0 transition-all delay-200  duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
         <Button
-          className="bg-card text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
+          className="bg-card text-[0.75em] text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
           title="Share"
-          size="icon-sm"
+          size="icon"
         >
-          <Share />
+          <Share className="size-[1.5em]" />
         </Button>
       </div>
     </div>

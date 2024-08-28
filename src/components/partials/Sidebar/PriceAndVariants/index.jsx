@@ -1,4 +1,5 @@
 import { colors } from "@/assets/data/colors";
+import { sizes } from "@/assets/data/sizes";
 import { RangeSlider } from "@/components/ui/RangeSlider";
 import { cn } from "@/lib/utils";
 import { convertColorFormat } from "@/utils/convertColorFormat";
@@ -21,22 +22,23 @@ const PriceAndVariants = ({ className }) => {
           <ul className="grid w-full gap-2 md:grid-cols-2">
             {colors?.map((item, i) => (
               <li key={i}>
-                <label className="flex items-center gap-2">
+                <label
+                  style={{
+                    "--accent":
+                      `${convertColorFormat(item?.hex, "hsl")}`.replace(
+                        /hsl\((\d+),\s*(\d+%)\s*,\s*(\d+%)\)/,
+                        "$1 $2 $3",
+                      ),
+                  }}
+                  className="inline-flex cursor-pointer items-center gap-2"
+                >
                   <input
                     type="checkbox"
-                    style={{
-                      "--accent":
-                        `${convertColorFormat(item?.hex, "hsl")}`.replace(
-                          /hsl\((\d+),\s*(\d+%)\s*,\s*(\d+%)\)/,
-                          "$1 $2 $3",
-                        ),
-                    }}
-                    className={`checkbox rounded-full border-accent bg-accent/50 text-2xl`}
-                    id="color-1"
+                    className="checkbox rounded-full border-2 border-accent bg-accent/25 text-2xl hover:bg-accent/75"
                     name={item?.value}
                     value={item?.value}
                   />
-                  <span>{item?.label}</span>
+                  <span className="capitalize">{item?.label}</span>
                 </label>
               </li>
             ))}
@@ -47,25 +49,17 @@ const PriceAndVariants = ({ className }) => {
           <strong className="mb-4 block uppercase text-foreground">
             Sizes:
           </strong>
-          <ul className="grid w-full gap-2 md:grid-cols-2">
-            {colors?.map((item, i) => (
+          <ul className="grid w-full grid-cols-2 gap-2 md:grid-cols-4">
+            {sizes?.map((item, i) => (
               <li key={i}>
-                <label className="flex items-center gap-2">
+                <label className="inline-flex cursor-pointer items-center gap-2">
                   <input
                     type="checkbox"
-                    style={{
-                      "--accent":
-                        `${convertColorFormat(item?.hex, "hsl")}`.replace(
-                          /hsl\((\d+),\s*(\d+%)\s*,\s*(\d+%)\)/,
-                          "$1 $2 $3",
-                        ),
-                    }}
-                    className={`checkbox rounded-full border-accent bg-accent/50 text-2xl`}
-                    id="color-1"
+                    className={`checkbox border-accent text-base`}
                     name={item?.value}
                     value={item?.value}
                   />
-                  <span>{item?.label}</span>
+                  <span className="uppercase">{item?.label}</span>
                 </label>
               </li>
             ))}

@@ -268,7 +268,7 @@ const CarouselPreviousTrigger = forwardRef(
         variant={variant}
         size={size}
         className={cn(
-          "absolute  h-8 w-8 rounded-full",
+          "absolute  rounded-full text-[1em]",
           orientation === "horizontal"
             ? "left-0 top-1/2 -translate-y-1/2"
             : "left-1/2 top-0 -translate-x-1/2 rotate-90",
@@ -296,7 +296,7 @@ const CarouselNextTrigger = forwardRef(
         variant={variant}
         size={size}
         className={cn(
-          "absolute h-8 w-8 rounded-full",
+          "absolute rounded-full text-[1em]",
           orientation === "horizontal"
             ? "right-0 top-1/2 -translate-y-1/2"
             : "bottom-0 left-1/2 -translate-x-1/2 rotate-90",
@@ -330,9 +330,13 @@ const CarouselPaginationTrigger = forwardRef(
     return (
       <Button
         ref={ref}
-        className={cn(`h-2 w-6 rounded-full bg-muted`, className, {
-          [cn("bg-primary", activeClassName)]: index === selectedIndex,
-        })}
+        className={cn(
+          `h-1.5 w-4 rounded-full bg-muted md:h-2 md:w-6`,
+          className,
+          {
+            [cn("bg-primary", activeClassName)]: index === selectedIndex,
+          },
+        )}
         variant={variant}
         size={size}
         {...props}

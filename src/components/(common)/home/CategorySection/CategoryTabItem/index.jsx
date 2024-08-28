@@ -36,11 +36,11 @@ const CategoryTabItem = ({ value, categories }) => {
           <div className="absolute -top-6 right-0 inline-flex -translate-y-full items-center gap-2 md:-top-8">
             <CarouselPreviousTrigger
               className="static bottom-0 top-0 inline-flex -translate-y-0 transition-all duration-300"
-              size="icon-lg"
+              size="icon"
             />
             <CarouselNextTrigger
               className="static bottom-0 top-0 inline-flex -translate-y-0 transition-all duration-300"
-              size="icon-lg"
+              size="icon"
             />
           </div>
           <CarouselPagination className="-bottom-6 md:hidden" />
