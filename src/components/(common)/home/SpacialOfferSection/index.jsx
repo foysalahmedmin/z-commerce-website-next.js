@@ -40,7 +40,7 @@ const SpacialOfferSection = () => {
                     background:
                       "radial-gradient(circle, rgb(255 255 255 / 50%) 0%, rgb(255 255 255 / 0%) 60%)",
                   }}
-                  className="absolute inset-0 h-full w-full rounded-full bg-contain"
+                  className="absolute inset-0 size-full rounded-full bg-contain"
                 />
               </div>
             </div>

@@ -7,7 +7,7 @@ const ContactFormSection = () => {
       <div className="grid grid-cols-1 gap-x-2 gap-y-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
         <label className="input h-8 w-full flex-row-reverse gap-2 bg-background px-0">
           <input
-            className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
+            className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
             type="text"
             placeholder="Your Name *"
             required
@@ -24,7 +24,7 @@ const ContactFormSection = () => {
         </label>
         <label className="input h-8 w-full flex-row-reverse gap-2 bg-background px-0">
           <input
-            className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
+            className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
             type="email"
             placeholder="Your Email *"
             required
@@ -41,7 +41,7 @@ const ContactFormSection = () => {
         </label>
         <label className="input h-8 w-full flex-row-reverse gap-2 bg-background px-0">
           <input
-            className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
+            className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
             type="tel"
             placeholder="Your Email *"
             required

@@ -11,11 +11,11 @@ const ProductPsSection = ({ product }) => {
     image,
     variants,
     price,
-    previousPrice,
-    isStock,
-    available,
+    originalPrice,
+    inStock,
+    stockQuantity,
     rating,
-    totalReview,
+    totalReviews,
     tags,
     category,
   } = productDetails;
@@ -28,28 +28,44 @@ const ProductPsSection = ({ product }) => {
       <div className="container">
         <Comp defaultValue={0}>
           <div className="grid grid-cols-2">
-            <div className="h-80 w-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background">
-              {isVariant ? (
-                <TabsContent>
-                  {variants.map((variant, i) => (
-                    <TabsItem className="size-full" key={i} value={i}>
-                      <Image
-                        className={cn(
-                          "h-80 w-full object-contain object-center transition-all duration-500",
-                        )}
-                        height={400}
-                        width={500}
-                        src={variant?.image}
-                        alt={name}
-                      />
-                    </TabsItem>
-                  ))}
-                </TabsContent>
-              ) : (
-                <div></div>
-              )}
+            <div>
+              <div className="h-[25em] w-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background">
+                {isVariant ? (
+                  <TabsContent className="size-full">
+                    {variants.map((variant, i) => (
+                      <TabsItem className="size-full" key={i} value={i}>
+                        <Image
+                          className={cn(
+                            "size-full object-contain object-center transition-all duration-500",
+                          )}
+                          height={400}
+                          width={500}
+                          src={variant?.image}
+                          alt={name}
+                        />
+                      </TabsItem>
+                    ))}
+                  </TabsContent>
+                ) : (
+                  <div>
+                    <Image
+                      className={cn(
+                        "size-full object-contain object-center transition-all duration-500",
+                      )}
+                      height={400}
+                      width={500}
+                      src={image}
+                      alt={name}
+                    />
+                  </div>
+                )}
+              </div>
             </div>
-            <div></div>
+            <div>
+              <div>
+                <h3>{name}</h3>
+              </div>
+            </div>
           </div>
         </Comp>
       </div>

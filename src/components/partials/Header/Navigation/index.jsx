@@ -47,7 +47,7 @@ const Navigation = ({ access, user }) => {
                 }}
               />
             </div>
-            <ul className="flex h-full w-full flex-col items-center justify-center gap-4">
+            <ul className="flex size-full flex-col items-center justify-center gap-4">
               <NavMenu />
             </ul>
           </div>

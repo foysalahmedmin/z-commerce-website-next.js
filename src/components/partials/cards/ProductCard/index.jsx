@@ -20,8 +20,8 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
     image,
     description,
     rating,
-    totalReview,
-    previousPrice,
+    totalReviews,
+    originalPrice,
     price,
     variants,
     tags,
@@ -37,7 +37,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Comp defaultValue={0} className="flex h-full w-full flex-col">
+          <Comp defaultValue={0} className="flex size-full flex-col">
             <div className="relative w-full">
               <div className="size-full">
                 {isVariant ? (
@@ -52,7 +52,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                       >
                         <Image
                           className={cn(
-                            "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                            "size-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
                           )}
                           height={320}
                           width={260}
@@ -70,7 +70,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                   >
                     <Image
                       className={cn(
-                        "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                        "size-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
                       )}
                       height={320}
                       width={260}
@@ -128,7 +128,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                     </span>
                     /
                     <span className="leading-none text-primary">
-                      {totalReview}
+                      {totalReviews}
                     </span>
                   </div>
                 </div>
@@ -155,11 +155,11 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                   </TabsList>
                 )}
                 <div className="relative -right-[1em] inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[0.25em] rounded-s-full bg-muted/25 py-[0.25em] pl-[0.5em] pr-[1em] text-end shadow-inner">
-                  {previousPrice && (
+                  {originalPrice && (
                     <del className="text-[0.75em] leading-none text-muted-foreground">
                       $
                       {toFixedAndLocaleStringCurrency({
-                        value: previousPrice,
+                        value: originalPrice,
                       })}
                     </del>
                   )}
@@ -193,7 +193,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Comp defaultValue={0} className="flex h-full w-full">
+          <Comp defaultValue={0} className="flex size-full">
             <div className="relative min-h-[12em] w-full min-w-[8em] flex-1 self-stretch">
               <div className="size-full">
                 {isVariant ? (
@@ -208,7 +208,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                       >
                         <Image
                           className={cn(
-                            "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                            "size-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
                           )}
                           height={320}
                           width={260}
@@ -226,7 +226,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                   >
                     <Image
                       className={cn(
-                        "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                        "size-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
                       )}
                       height={320}
                       width={260}
@@ -284,7 +284,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                     </span>
                     /
                     <span className="leading-none text-primary">
-                      {totalReview}
+                      {totalReviews}
                     </span>
                   </div>
                 </div>
@@ -311,11 +311,11 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                   </TabsList>
                 )}
                 <div className="relative -right-[1em] inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[0.25em] rounded-s-full bg-muted/25 py-[0.25em] pl-[0.5em] pr-[1em] text-end shadow-inner">
-                  {previousPrice && (
+                  {originalPrice && (
                     <del className="text-[0.75em] leading-none text-muted-foreground">
                       $
                       {toFixedAndLocaleStringCurrency({
-                        value: previousPrice,
+                        value: originalPrice,
                       })}
                     </del>
                   )}
@@ -349,7 +349,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Comp defaultValue={0} className="flex h-full w-full">
+          <Comp defaultValue={0} className="flex size-full">
             <div className="relative min-h-[10em] w-full min-w-[8em] flex-1 self-stretch">
               <div className="size-full">
                 {isVariant ? (
@@ -364,7 +364,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                       >
                         <Image
                           className={cn(
-                            "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                            "size-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
                           )}
                           height={320}
                           width={260}
@@ -382,7 +382,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                   >
                     <Image
                       className={cn(
-                        "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                        "size-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
                       )}
                       height={320}
                       width={260}
@@ -450,11 +450,11 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                   </TabsList>
                 )}
                 <div className="relative inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[0.25em] rounded-full bg-muted/25 px-[0.5em] py-[0.25em] text-end shadow-inner">
-                  {previousPrice && (
+                  {originalPrice && (
                     <del className="text-[0.75em] leading-none text-muted-foreground">
                       $
                       {toFixedAndLocaleStringCurrency({
-                        value: previousPrice,
+                        value: originalPrice,
                       })}
                     </del>
                   )}
@@ -479,7 +479,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                       <span className="font-semibold text-secondary">
                         {rating}
                       </span>
-                      /<span className="text-primary">{totalReview}</span>
+                      /<span className="text-primary">{totalReviews}</span>
                     </div>
                   </div>
                 )}

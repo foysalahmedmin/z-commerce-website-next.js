@@ -20,11 +20,11 @@ const ProductOfferCard = ({ item, className }) => {
     image,
     description,
     rating,
-    totalReview,
-    previousPrice,
+    totalReviews,
+    originalPrice,
     price,
-    available,
-    stock = 50,
+    initialStock,
+    availableStock,
     variants,
     tags,
   } = item;
@@ -34,7 +34,7 @@ const ProductOfferCard = ({ item, className }) => {
 
   return (
     <div className={cn("group/card h-full text-[1rem]", className)}>
-      <Comp defaultValue={0} className="flex h-full w-full flex-col">
+      <Comp defaultValue={0} className="flex size-full flex-col">
         <div className="relative w-full overflow-hidden rounded-md">
           <div className="size-full">
             {isVariant ? (
@@ -118,12 +118,12 @@ const ProductOfferCard = ({ item, className }) => {
               )}
             </div>
             <div className="flex items-center justify-between gap-[0.5em]">
-              <progress value={available} max={stock} />
+              <progress value={availableStock} max={initialStock} />
               <div className="ml-[2px] flex items-center gap-[0.25em] text-[0.75em] leading-none">
                 <span className="font-semibold text-secondary">
-                  {available}
+                  {availableStock}
                 </span>
-                /<span className="text-primary">{stock}</span>
+                /<span className="text-primary">{initialStock}</span>
               </div>
             </div>
             <div className="flex items-center justify-between gap-[0.5em]">
@@ -148,11 +148,11 @@ const ProductOfferCard = ({ item, className }) => {
                 </TabsList>
               )}
               <div className="relative -right-[1em] inline-flex min-w-[50%] shrink-0 items-end justify-end gap-[0.25em] rounded-s-full bg-muted/25 py-[0.25em] pl-[0.5em] pr-[1em] text-end shadow-inner">
-                {previousPrice && (
+                {originalPrice && (
                   <del className="text-[0.75em] leading-none text-muted-foreground">
                     $
                     {toFixedAndLocaleStringCurrency({
-                      value: previousPrice,
+                      value: originalPrice,
                     })}
                   </del>
                 )}
@@ -177,7 +177,7 @@ const ProductOfferCard = ({ item, className }) => {
                     <span className="font-semibold text-secondary">
                       {rating}
                     </span>
-                    /<span className="text-primary">{totalReview}</span>
+                    /<span className="text-primary">{totalReviews}</span>
                   </div>
                 </div>
               )}

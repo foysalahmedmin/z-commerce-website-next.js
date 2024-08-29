@@ -5,7 +5,7 @@ import Link from "next/link";
 const TeamMemberCard = ({ item }) => {
   const { name, image, designation, description, socials } = item;
   return (
-    <div className="group/card flex h-full w-full flex-col">
+    <div className="group/card flex size-full flex-col">
       <div
         className={
           "h-72 w-full overflow-hidden rounded-md border bg-muted/25 p-4 pb-12 shadow-inner dark:bg-background"
@@ -13,7 +13,7 @@ const TeamMemberCard = ({ item }) => {
       >
         <Image
           className={cn(
-            "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+            "size-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
           )}
           height={320}
           width={260}

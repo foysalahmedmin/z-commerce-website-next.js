@@ -42,7 +42,7 @@ const SignInSection = () => {
           </span>
           <div className="input h-8 w-full flex-row-reverse border-foreground/50 bg-background px-0">
             <input
-              className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
+              className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -88,7 +88,7 @@ const SignInSection = () => {
               }}
             />
             <input
-              className="peer h-full w-full flex-1 bg-transparent px-2 text-sm outline-none"
+              className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
               type={isPasswordVisible ? "text" : "password"}
               name="password"
               value={password}

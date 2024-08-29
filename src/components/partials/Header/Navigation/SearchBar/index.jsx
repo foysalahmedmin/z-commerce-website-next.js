@@ -12,7 +12,7 @@ const SearchBar = ({ className, ...props }) => {
       {...props}
     >
       <input
-        className="peer h-full w-full flex-1 bg-transparent px-4 text-xs outline-none lg:text-sm"
+        className="peer size-full flex-1 bg-transparent px-4 text-xs outline-none lg:text-sm"
         type="search"
         placeholder="What are you looking for?"
       />

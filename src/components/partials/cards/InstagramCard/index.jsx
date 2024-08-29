@@ -7,7 +7,7 @@ const InstagramCard = ({ item }) => {
   return (
     <div className="group relative aspect-square w-full">
       <Image
-        className="h-full w-full"
+        className="size-full"
         width={300}
         height={300}
         src={image}

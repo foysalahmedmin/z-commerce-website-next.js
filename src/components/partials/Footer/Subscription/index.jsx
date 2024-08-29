@@ -13,7 +13,7 @@ const Subscription = ({ className, ...props }) => {
         <span className="mb-2 block">Get 10% off your first order</span>
         <div className="input h-8 w-full gap-2 bg-card px-0 lg:w-80">
           <input
-            className="peer h-full w-full flex-1 bg-transparent px-4 text-sm outline-none"
+            className="peer size-full flex-1 bg-transparent px-4 text-sm outline-none"
             type="email"
             placeholder="Enter your email"
           />

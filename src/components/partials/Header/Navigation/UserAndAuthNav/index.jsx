@@ -22,7 +22,7 @@ const UserAndAuthNav = ({ access, user }) => {
               width={32}
               height={32}
               alt={user?.name}
-              className="h-full w-full rounded-full object-cover object-center"
+              className="size-full rounded-full object-cover object-center"
             />
           </div>
           <Dropdown
