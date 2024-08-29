@@ -17,6 +17,7 @@ import CartInfo from "../../CartInfo";
 const ProductCard = ({ item, className, variant = "grid" }) => {
   const {
     name,
+    image,
     description,
     rating,
     totalReview,
@@ -25,6 +26,8 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
     variants,
     tags,
   } = item;
+  const isVariant = variants?.length > 0;
+  const Comp = isVariant ? Tabs : "div";
   return (
     <>
       {variant === "grid" && (
@@ -34,27 +37,49 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Tabs defaultValue={0} className="flex h-full w-full flex-col">
-            <TabsContent className="relative w-full">
-              {variants.map((variant, i) => (
-                <TabsItem
-                  key={i}
-                  value={i}
-                  className={
-                    "h-[15em] w-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background"
-                  }
-                >
-                  <Image
-                    className={cn(
-                      "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
-                    )}
-                    height={320}
-                    width={260}
-                    src={variant?.image}
-                    alt={name}
-                  />
-                </TabsItem>
-              ))}
+          <Comp defaultValue={0} className="flex h-full w-full flex-col">
+            <div className="relative w-full">
+              <div className="size-full">
+                {isVariant ? (
+                  <TabsContent className="size-full">
+                    {variants.map((variant, i) => (
+                      <TabsItem
+                        key={i}
+                        value={i}
+                        className={
+                          "h-[15em] w-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background"
+                        }
+                      >
+                        <Image
+                          className={cn(
+                            "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                          )}
+                          height={320}
+                          width={260}
+                          src={variant?.image}
+                          alt={name}
+                        />
+                      </TabsItem>
+                    ))}
+                  </TabsContent>
+                ) : (
+                  <div
+                    className={
+                      "h-[15em] w-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background"
+                    }
+                  >
+                    <Image
+                      className={cn(
+                        "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                      )}
+                      height={320}
+                      width={260}
+                      src={image}
+                      alt={name}
+                    />
+                  </div>
+                )}
+              </div>
               {tags && tags.length > 0 && (
                 <div className="absolute left-0 top-[1em] inline-flex flex-col gap-y-[0.25em]">
                   {tags.map((tag, i) => (
@@ -81,7 +106,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
               <div className="absolute bottom-0 left-0 right-0 w-full py-[1em]">
                 <CartInfo />
               </div>
-            </TabsContent>
+            </div>
             <div className="flex grow flex-col space-y-[0.5em] bg-card px-[1em] py-[1em]">
               <div className="grid grow gap-[0.5em]">
                 <h3 className="text-[1em] leading-none text-title">{name}</h3>
@@ -109,7 +134,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                 </div>
               )}
               <div className="flex items-center justify-between gap-[0.5em]">
-                {variants?.length > 1 && (
+                {isVariant && (
                   <TabsList className="mb-0 flex-wrap justify-start gap-[0.5em] overflow-visible overflow-x-visible overflow-y-visible px-[0.25em]">
                     {variants.map((variant, i) => (
                       <TabsTrigger
@@ -158,7 +183,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                 </AddToCardButton>
               </div>
             </div>
-          </Tabs>
+          </Comp>
         </div>
       )}
       {variant === "list" && (
@@ -168,27 +193,49 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Tabs defaultValue={0} className="flex h-full w-full">
-            <TabsContent className="relative min-h-[12em] w-full min-w-[8em] flex-1 self-stretch">
-              {variants.map((variant, i) => (
-                <TabsItem
-                  key={i}
-                  value={i}
-                  className={
-                    "h-full w-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background"
-                  }
-                >
-                  <Image
-                    className={cn(
-                      "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
-                    )}
-                    height={320}
-                    width={260}
-                    src={variant?.image}
-                    alt={name}
-                  />
-                </TabsItem>
-              ))}
+          <Comp defaultValue={0} className="flex h-full w-full">
+            <div className="relative min-h-[12em] w-full min-w-[8em] flex-1 self-stretch">
+              <div className="size-full">
+                {isVariant ? (
+                  <TabsContent className="size-full">
+                    {variants.map((variant, i) => (
+                      <TabsItem
+                        key={i}
+                        value={i}
+                        className={
+                          "size-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background"
+                        }
+                      >
+                        <Image
+                          className={cn(
+                            "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                          )}
+                          height={320}
+                          width={260}
+                          src={variant?.image}
+                          alt={name}
+                        />
+                      </TabsItem>
+                    ))}
+                  </TabsContent>
+                ) : (
+                  <div
+                    className={
+                      "size-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background"
+                    }
+                  >
+                    <Image
+                      className={cn(
+                        "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                      )}
+                      height={320}
+                      width={260}
+                      src={image}
+                      alt={name}
+                    />
+                  </div>
+                )}
+              </div>
               {tags && tags.length > 0 && (
                 <div className="absolute left-0 top-[1em] inline-flex flex-col gap-y-[0.25em]">
                   {tags.map((tag, i) => (
@@ -212,10 +259,10 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                   ))}
                 </div>
               )}
-              <div className="absolute bottom-0 left-0 right-0 w-full py-[1.5em] text-[0.75em]">
+              <div className="absolute bottom-0 left-0 right-0 w-full py-[1em]">
                 <CartInfo />
               </div>
-            </TabsContent>
+            </div>
             <div className="flex min-w-[13.5em] flex-1 flex-shrink-0 grow flex-col space-y-[0.5em] self-stretch bg-card px-[1em] py-[1em]">
               <div className="grid grow gap-[0.5em]">
                 <h3 className="text-[1em] leading-none text-title">{name}</h3>
@@ -243,7 +290,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                 </div>
               )}
               <div className="flex items-center justify-between gap-[0.5em]">
-                {variants?.length > 1 && (
+                {isVariant && (
                   <TabsList className="mb-0 flex-wrap justify-start gap-[0.5em] overflow-visible overflow-x-visible overflow-y-visible px-[0.25em]">
                     {variants.map((variant, i) => (
                       <TabsTrigger
@@ -292,7 +339,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                 </AddToCardButton>
               </div>
             </div>
-          </Tabs>
+          </Comp>
         </div>
       )}
       {variant === "sidebar" && (
@@ -302,27 +349,49 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Tabs defaultValue={0} className="flex h-full w-full">
-            <TabsContent className="relative min-h-[10em] w-full min-w-[8em] flex-1 self-stretch">
-              {variants.map((variant, i) => (
-                <TabsItem
-                  key={i}
-                  value={i}
-                  className={
-                    "h-full w-full flex-1 overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background"
-                  }
-                >
-                  <Image
-                    className={cn(
-                      "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
-                    )}
-                    height={320}
-                    width={260}
-                    src={variant?.image}
-                    alt={name}
-                  />
-                </TabsItem>
-              ))}
+          <Comp defaultValue={0} className="flex h-full w-full">
+            <div className="relative min-h-[10em] w-full min-w-[8em] flex-1 self-stretch">
+              <div className="size-full">
+                {isVariant ? (
+                  <TabsContent className="size-full">
+                    {variants.map((variant, i) => (
+                      <TabsItem
+                        key={i}
+                        value={i}
+                        className={
+                          "size-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background"
+                        }
+                      >
+                        <Image
+                          className={cn(
+                            "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                          )}
+                          height={320}
+                          width={260}
+                          src={variant?.image}
+                          alt={name}
+                        />
+                      </TabsItem>
+                    ))}
+                  </TabsContent>
+                ) : (
+                  <div
+                    className={
+                      "size-full overflow-hidden border-b bg-muted/25 p-[1em] shadow-inner dark:bg-background"
+                    }
+                  >
+                    <Image
+                      className={cn(
+                        "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                      )}
+                      height={320}
+                      width={260}
+                      src={image}
+                      alt={name}
+                    />
+                  </div>
+                )}
+              </div>
               {tags && tags.length > 0 && (
                 <div className="absolute left-0 top-[1em] inline-flex flex-col gap-y-[0.25em]">
                   {tags.map((tag, i) => (
@@ -349,7 +418,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
               <div className="absolute bottom-0 left-0 right-0 w-full py-[1.5em] text-[0.75em]">
                 <CartInfo />
               </div>
-            </TabsContent>
+            </div>
             <div className="flex w-[13.5em] flex-1 flex-shrink-0 grow flex-col space-y-[0.5em] self-stretch bg-card px-[1em] py-[1em]">
               <div className="grid grow gap-[0.5em]">
                 <h3 className="text-[1em] leading-none text-title">{name}</h3>
@@ -360,7 +429,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                 )}
               </div>
               <div className="flex flex-wrap items-center justify-between gap-[0.5em]">
-                {variants?.length > 1 && (
+                {isVariant && (
                   <TabsList className="mb-0 flex-wrap justify-start gap-[0.5em] overflow-visible overflow-x-visible overflow-y-visible px-[0.25em]">
                     {variants.map((variant, i) => (
                       <TabsTrigger
@@ -422,7 +491,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                 </AddToCardButton>
               </div>
             </div>
-          </Tabs>
+          </Comp>
         </div>
       )}
     </>

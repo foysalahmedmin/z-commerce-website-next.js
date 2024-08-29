@@ -17,6 +17,7 @@ import TimeCounter from "../../TimeCounter";
 const ProductOfferCard = ({ item, className }) => {
   const {
     name,
+    image,
     description,
     rating,
     totalReview,
@@ -27,29 +28,55 @@ const ProductOfferCard = ({ item, className }) => {
     variants,
     tags,
   } = item;
+
+  const isVariant = variants?.length > 0;
+  const Comp = isVariant ? Tabs : "div";
+
   return (
     <div className={cn("group/card h-full text-[1rem]", className)}>
-      <Tabs defaultValue={0} className="flex h-full w-full flex-col">
-        <TabsContent className="relative w-full overflow-hidden rounded-md">
-          {variants.map((variant, i) => (
-            <TabsItem
-              key={i}
-              value={i}
-              className={
-                "h-[18em] w-full overflow-hidden rounded-md border bg-muted/25 p-[0.5em] pb-[3em] shadow-inner dark:bg-background"
-              }
-            >
-              <Image
-                className={cn(
-                  "h-full w-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
-                )}
-                height={320}
-                width={260}
-                src={variant?.image}
-                alt={name}
-              />
-            </TabsItem>
-          ))}
+      <Comp defaultValue={0} className="flex h-full w-full flex-col">
+        <div className="relative w-full overflow-hidden rounded-md">
+          <div className="size-full">
+            {isVariant ? (
+              <TabsContent className="size-full">
+                {variants.map((variant, i) => (
+                  <TabsItem
+                    key={i}
+                    value={i}
+                    className={
+                      "h-[18em] w-full overflow-hidden rounded-md border bg-muted/25 p-[0.5em] pb-[3em] shadow-inner dark:bg-background"
+                    }
+                  >
+                    <Image
+                      className={cn(
+                        "size-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                      )}
+                      height={320}
+                      width={260}
+                      src={variant?.image}
+                      alt={name}
+                    />
+                  </TabsItem>
+                ))}
+              </TabsContent>
+            ) : (
+              <div
+                className={
+                  "h-[18em] w-full overflow-hidden rounded-md border bg-muted/25 p-[0.5em] pb-[3em] shadow-inner dark:bg-background"
+                }
+              >
+                <Image
+                  className={cn(
+                    "size-full origin-center object-contain object-center transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-95 group-hover/card:delay-200",
+                  )}
+                  height={320}
+                  width={260}
+                  src={image}
+                  alt={name}
+                />
+              </div>
+            )}
+          </div>
           {tags && tags.length > 0 && (
             <div className="absolute left-0 top-[1em] inline-flex flex-col gap-y-[0.25em]">
               {tags.map((tag, i) => (
@@ -79,7 +106,7 @@ const ProductOfferCard = ({ item, className }) => {
           <div className="absolute bottom-[3em] left-[1em] right-[1em] px-[1em] py-[0.5em] text-center">
             <TimeCounter endDate={"2025-01-01"} variant="card" />
           </div>
-        </TabsContent>
+        </div>
         <div className="relative -mt-[3em] flex grow flex-col px-[0.5em]">
           <div className="flex grow flex-col space-y-[0.5em] rounded-md border bg-card px-[1em] py-[1em] shadow">
             <div className="grid grow gap-[0.5em]">
@@ -100,7 +127,7 @@ const ProductOfferCard = ({ item, className }) => {
               </div>
             </div>
             <div className="flex items-center justify-between gap-[0.5em]">
-              {variants?.length > 1 && (
+              {isVariant && (
                 <TabsList className="mb-0 flex-wrap justify-start gap-[0.5em] overflow-visible overflow-x-visible overflow-y-visible px-[0.25em]">
                   {variants.map((variant, i) => (
                     <TabsTrigger
@@ -163,7 +190,7 @@ const ProductOfferCard = ({ item, className }) => {
             </div>
           </div>
         </div>
-      </Tabs>
+      </Comp>
     </div>
   );
 };
