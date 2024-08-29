@@ -6,6 +6,5 @@ export const colors = [
   { label: "Warning", value: "warning", hex: "#e67e22" },
   { label: "Danger", value: "danger", hex: "#e74c3c" },
   { label: "Info", value: "info", hex: "#3498db" },
-  { label: "Light", value: "light", hex: "#ecf0f1" },
   { label: "Dark", value: "dark", hex: "#2c3e50" },
 ];

@@ -73,7 +73,7 @@ const StarRatting = forwardRef(
     return (
       <ul
         className={cn(
-          "inline-flex items-center justify-center gap-1",
+          "inline-flex items-center justify-center gap-[0.25em]",
           className,
         )}
         ref={ref}

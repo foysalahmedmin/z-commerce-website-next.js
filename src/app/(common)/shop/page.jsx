@@ -1,18 +1,14 @@
 import ProductSection from "@/components/(common)/shop/ProductSection";
 import FlashSalesProductSection from "@/components/partials/Sections/FlashSalesProductSection";
 import SubscriptionBanner from "@/components/partials/Sections/SubscriptionBanner";
-import Categories from "@/components/partials/Sidebar/Categories";
-import PopularProduct from "@/components/partials/Sidebar/PopularProduct";
-import PriceAndVariants from "@/components/partials/Sidebar/PriceAndVariants";
+import Sidebar from "@/components/partials/Sidebar";
 
 const ShopePage = () => {
   return (
     <main>
       <div className="container relative flex md:gap-x-6 xl:gap-x-8">
-        <aside className="space-y-4 self-stretch py-4 md:w-60 md:space-y-6 md:py-6 xl:w-80 xl:py-8">
-          <Categories />
-          <PriceAndVariants />
-          <PopularProduct />
+        <aside className="self-stretch py-4 md:w-80 md:space-y-6 md:py-6 xl:py-8">
+          <Sidebar className="space-y-4" />
         </aside>
         <div className="w-full flex-1 space-y-4 self-stretch py-4 md:max-w-[calc(100%-16.5rem)] md:space-y-6 md:py-6 xl:max-w-[calc(100%-22rem)] xl:space-y-8 xl:py-8">
           <div>

@@ -33,7 +33,7 @@ const ServicesSection = () => {
               <div
                 key={i}
                 className={cn(
-                  "flex w-full items-center justify-start gap-2 bg-card px-4 py-4 xl:justify-center",
+                  "flex w-full items-center justify-start gap-2 px-4 py-4 xl:justify-center",
                   {
                     "md:border-l": i === 1 || i == 3,
                   },

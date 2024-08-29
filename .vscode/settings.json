@@ -1,0 +1,23 @@
+{
+  "terminal.integrated.tabs.defaultIcon": "clone",
+  "terminal.integrated.env.linux": {},
+  "editor.fontSize": 16,
+  "editor.wordWrap": "on",
+  "diffEditor.wordWrap": "on",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "git.enableSmartCommit": true,
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  }
+}
