@@ -1,11 +1,11 @@
 import { productDetails } from "@/assets/data/product-details";
-import ProductPsSection from "@/components/(common)/product/ProductPsSection";
+import ProductSection from "@/components/(common)/product/ProductSection";
 import ProductTabSection from "@/components/(common)/product/ProductTabSection";
 
 const ProductPage = () => {
   return (
     <main>
-      <ProductPsSection product={productDetails} />
+      <ProductSection product={productDetails} />
       <ProductTabSection />
     </main>
   );

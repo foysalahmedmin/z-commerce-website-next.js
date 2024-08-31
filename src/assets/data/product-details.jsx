@@ -12,7 +12,8 @@ export const productDetails = {
   rating: 4.9,
   totalReviews: 800,
   tags: ["sale", "new", "save 10%"],
-  description: "Comfortable and stylish slim fit jeans for everyday wear.",
+  description:
+    "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   variants: [
     {
       color: "#aa5f26",
@@ -21,18 +22,9 @@ export const productDetails = {
       availableStock: 10,
       totalSold: 10,
       images: [
-        {
-          _id: "001",
-          url: "/images/products/01.png",
-        },
-        {
-          _id: "002",
-          url: "/images/products/01.png",
-        },
-        {
-          _id: "003",
-          url: "/images/products/01.png",
-        },
+        "/images/products/01.png",
+        "/images/products/01.png",
+        "/images/products/01.png",
       ],
     },
     {
@@ -42,18 +34,9 @@ export const productDetails = {
       availableStock: 10,
       totalSold: 10,
       images: [
-        {
-          _id: "001",
-          url: "/images/products/02.png",
-        },
-        {
-          _id: "002",
-          url: "/images/products/02.png",
-        },
-        {
-          _id: "003",
-          url: "/images/products/02.png",
-        },
+        "/images/products/02.png",
+        "/images/products/02.png",
+        "/images/products/02.png",
       ],
     },
     {
@@ -63,18 +46,9 @@ export const productDetails = {
       availableStock: 10,
       totalSold: 10,
       images: [
-        {
-          _id: "001",
-          url: "/images/products/03.png",
-        },
-        {
-          _id: "002",
-          url: "/images/products/03.png",
-        },
-        {
-          _id: "003",
-          url: "/images/products/03.png",
-        },
+        "/images/products/03.png",
+        "/images/products/03.png",
+        "/images/products/03.png",
       ],
     },
   ],

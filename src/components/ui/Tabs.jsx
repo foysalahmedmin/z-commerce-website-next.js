@@ -42,7 +42,7 @@ const TabsList = forwardRef(({ className, ...props }, ref) => {
     <ul
       ref={ref}
       className={cn(
-        "mb-4 flex items-center justify-center gap-1 overflow-x-auto",
+        "flex items-center justify-center gap-1 overflow-x-auto",
         className,
       )}
       {...props}
@@ -108,3 +108,4 @@ TabsItem.displayName = "TabsItem";
 // ------- //
 
 export { Tabs, TabsContent, TabsItem, TabsList, TabsTrigger };
+
