@@ -12,7 +12,7 @@ import Image from "next/image";
 const CartItem = ({ className, item, index }) => {
   const { name, price, image, availableStock } = item;
   return (
-    <tr className={cn("border-b last:border-b-0", className)}>
+    <tr className={cn("border-b", className)}>
       <td className="w-16 whitespace-nowrap py-2 text-center">{index + 1}</td>
       <td className="whitespace-nowrap px-4 py-2 text-left">
         <div className="inline-flex items-center gap-2">
@@ -43,7 +43,11 @@ const CartItem = ({ className, item, index }) => {
       </td>
       <td className="whitespace-nowrap px-4 py-2 text-center">${price}</td>
       <td className="whitespace-nowrap px-4 py-2 text-center">
-        <QuantitySelector defaultValue={2} className="inline-flex">
+        <QuantitySelector
+          defaultValue={2}
+          maxValue={availableStock}
+          className="inline-flex"
+        >
           <QuantityDecreaseTrigger />
           <QuantityInput />
           <QuantityIncreaseTrigger />
