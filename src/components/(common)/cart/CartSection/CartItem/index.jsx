@@ -13,10 +13,12 @@ const CartItem = ({ className, item, index }) => {
   const { name, price, image, availableStock } = item;
   return (
     <tr className={cn("border-b", className)}>
-      <td className="w-16 whitespace-nowrap py-2 text-center">{index + 1}</td>
-      <td className="whitespace-nowrap px-4 py-2 text-left">
-        <div className="inline-flex items-center gap-2">
-          <div className="size-16 rounded bg-muted/15 p-1 shadow-inner dark:bg-background">
+      <td className="w-[4em] whitespace-nowrap py-[0.5em] text-center text-[1em]">
+        {index + 1}
+      </td>
+      <td className="whitespace-nowrap px-[1em] py-[0.5em] text-left text-[1em]">
+        <div className="inline-flex items-center gap-[0.5em]">
+          <div className="size-[4em] rounded bg-muted/15 p-[0.25em] shadow-inner dark:bg-background">
             <Image
               className="size-full object-contain object-center"
               src={image}
@@ -26,23 +28,29 @@ const CartItem = ({ className, item, index }) => {
             />
           </div>
           <div className="flex-1">
-            <h5>{name}</h5>
-            <div>
-              <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <strong className="text-foreground">Color:</strong>{" "}
-                <span className="size-4 rounded-full bg-orange-500" />{" "}
-                <span>Orange</span>
+            <h5 className="text-[1.15em] leading-[1.5em]">{name}</h5>
+            <div className="leading-[1.25em]">
+              <div className="flex items-center gap-[0.25em] text-muted-foreground">
+                <strong className="text-[0.875em] text-foreground">
+                  Color:
+                </strong>
+                <span className="size-[1em] rounded-full bg-orange-500" />
+                <span className="text-[0.875em]">Orange</span>
               </div>
-              <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <strong className="text-foreground">Size:</strong>
-                <span>XXL</span>
+              <div className="flex items-center gap-[0.25em] text-muted-foreground">
+                <strong className="text-[0.875em] text-foreground">
+                  Size:
+                </strong>
+                <span className="text-[0.875em]">XXL</span>
               </div>
             </div>
           </div>
         </div>
       </td>
-      <td className="whitespace-nowrap px-4 py-2 text-center">${price}</td>
-      <td className="whitespace-nowrap px-4 py-2 text-center">
+      <td className="whitespace-nowrap px-[1em] py-[0.5em] text-center text-[1em]">
+        ${price}
+      </td>
+      <td className="whitespace-nowrap px-[1em] py-[0.5em] text-center text-[1em]">
         <QuantitySelector
           defaultValue={2}
           maxValue={availableStock}
@@ -53,14 +61,14 @@ const CartItem = ({ className, item, index }) => {
           <QuantityIncreaseTrigger />
         </QuantitySelector>
       </td>
-      <td className="whitespace-nowrap py-2 text-center font-semibold">
+      <td className="whitespace-nowrap py-[0.5em] text-center text-[1em] font-semibold">
         ${price * 2}
       </td>
-      <td className="whitespace-nowrap py-2 text-center">
+      <td className="whitespace-nowrap py-[0.5em] text-center text-[1em]">
         <Button
-          className="[--accent:var(--destructive)]"
+          className="text-[0.75em] [--accent:var(--destructive)]"
           variant="outline"
-          size="icon-sm"
+          size="icon"
         >
           <X />
         </Button>

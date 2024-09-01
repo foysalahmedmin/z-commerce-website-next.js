@@ -12,7 +12,7 @@ const ProductTabSection = () => {
   return (
     <section className="container">
       <div className="rounded-md border">
-        <div className="px-8 py-12 md:px-12">
+        <div className="p-6 md:p-8">
           <Tabs defaultValue="description">
             <TabsList className="mb-6 gap-2 border-b md:mb-8 md:justify-start">
               <TabsTrigger value="description" activeClassName="shadow-inner">

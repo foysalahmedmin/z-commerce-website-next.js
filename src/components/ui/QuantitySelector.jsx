@@ -99,7 +99,7 @@ export const QuantitySelector = forwardRef(
       >
         <div
           ref={ref}
-          className={cn("flex h-10 items-center", className)}
+          className={cn("flex h-[2.5em] items-center", className)}
           {...props}
         >
           {children}
@@ -120,7 +120,7 @@ export const QuantityInput = forwardRef(
       <input
         ref={inputRef}
         className={cn(
-          "input icon-none h-full w-20 appearance-none rounded-none px-2 text-center outline-none",
+          "input icon-none h-[2.5em] w-[5em] appearance-none rounded-none px-[0.5em] text-center text-[1em] outline-none",
           className,
         )}
         type={type}
@@ -151,7 +151,7 @@ export const QuantityIncreaseTrigger = forwardRef(
     return (
       <Button
         className={cn(
-          "rounded-l-none border-l-0 border-border text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground",
+          "rounded-l-none border-l-0 border-border text-[1em] text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground",
           className,
         )}
         onClick={handleIncrement}
@@ -186,7 +186,7 @@ export const QuantityDecreaseTrigger = forwardRef(
     return (
       <Button
         className={cn(
-          "rounded-r-none border-r-0 border-border text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground",
+          "rounded-r-none border-r-0 border-border text-[1em] text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground",
           className,
         )}
         onClick={handleDecrement}
