@@ -22,7 +22,7 @@ const ProductTabSection = () => {
               </TabsTrigger>
               <TabsTrigger value="reviews" activeClassName="shadow-inner">
                 <span className="inline-block px-4 py-1 text-xl font-semibold capitalize md:text-2xl">
-                  Reviews
+                  Reviews <span>({5})</span>
                 </span>
               </TabsTrigger>
             </TabsList>
