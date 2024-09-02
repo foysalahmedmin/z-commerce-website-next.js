@@ -19,5 +19,20 @@
   "git.enableSmartCommit": true,
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
-  }
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list",
+    "activeClass",
+    "activeClassName",
+    "variants",
+    "variant",
+    "size",
+    "default",
+    "cn",
+    "cva"
+  ]
 }
