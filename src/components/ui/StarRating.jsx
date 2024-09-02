@@ -6,9 +6,10 @@ import {
   StarHalf,
 } from "@/assets/images/icons/Stars";
 import { cn } from "@/lib/utils";
+import { forwardRef, useMemo, useState } from "react";
 
-const { forwardRef, useState } = require("react");
-const ratingProcessor = (rating = 0, range = 5) => {
+// Utility function to process the rating
+export const ratingProcessor = (rating = 0, range = 5, total = 5) => {
   if (
     rating < 0 ||
     range < 0 ||
@@ -18,56 +19,52 @@ const ratingProcessor = (rating = 0, range = 5) => {
   ) {
     return 0;
   }
-  return (Number(rating) * 5) / Number(range);
+  return (Number(rating) * total) / Number(range);
 };
 
-const StarRatting = forwardRef(
+const StarRating = forwardRef(
   (
     {
       setRating: setRatingProp = () => {},
       rating: ratingProp = 0,
       range: rangeProp = 5,
+      total = 5,
       className,
       color = "#ff7f45",
       clickable = false,
+      fullIcon = <StarFull />,
+      halfIcon = <StarHalf />,
+      emptyIcon = <StarEmpty />,
       ...props
     },
     ref,
   ) => {
     const [rating, setRating] = useState(
-      ratingProcessor(ratingProp, rangeProp),
+      ratingProcessor(ratingProp, rangeProp, total),
     );
 
-    const fullStars =
-      Array.from({ length: Math.floor(rating) }, (_, i) => {
-        return {
-          state: "half",
-          element: <StarFull key={i} color={color} />,
-        };
-      }) || [];
-    const halfStars =
-      Array.from({ length: !Number.isInteger(rating) ? 1 : 0 }, (_, i) => {
-        return {
-          state: "half",
-          element: <StarHalf key={i} color={color} />,
-        };
-      }) || [];
-    const emptyStars =
-      Array.from({ length: 5 - Math.ceil(rating) }, (_, i) => {
-        return {
-          state: "empty",
-          element: <StarEmpty key={i} />,
-        };
-      }) || [];
+    const stars = useMemo(() => {
+      const fullStars = Array.from(
+        { length: Math.floor(rating) },
+        () => "full",
+      );
+      const halfStars = Array.from(
+        { length: !Number.isInteger(rating) ? 1 : 0 },
+        () => "half",
+      );
+      const emptyStars = Array.from(
+        { length: total - Math.ceil(rating) },
+        () => "empty",
+      );
+      return [...fullStars, ...halfStars, ...emptyStars];
+    }, [rating, total]);
 
-    const stars = [...fullStars, ...halfStars, ...emptyStars];
+    const handleStarClick = (index) => {
+      if (!clickable) return;
 
-    const onStarClick = (rating) => {
-      if (!clickable) {
-        return;
-      }
-      setRating(ratingProcessor(rating));
-      setRatingProp(ratingProcessor(rating));
+      const newRating = ratingProcessor(index + 1, rangeProp, total);
+      setRating(newRating);
+      setRatingProp(newRating);
     };
 
     return (
@@ -79,15 +76,24 @@ const StarRatting = forwardRef(
         ref={ref}
         {...props}
       >
-        {stars.map(({ state, element }, i) => (
+        {stars.map((state, index) => (
           <li
-            key={i}
-            className={cn("", state, {
-              "cursor-pointer": clickable,
-            })}
-            onClick={() => onStarClick(i + 1)}
+            key={index}
+            className={state}
+            style={{
+              ...(clickable && { cursor: "pointer" }),
+              ...((state === "full" || state === "half") &&
+                color && {
+                  color,
+                }),
+            }}
+            onClick={() => handleStarClick(index)}
           >
-            {element}
+            {state === "full"
+              ? fullIcon
+              : state === "half"
+                ? halfIcon
+                : emptyIcon}
           </li>
         ))}
       </ul>
@@ -95,6 +101,6 @@ const StarRatting = forwardRef(
   },
 );
 
-StarRatting.displayName = "StarRatting";
+StarRating.displayName = "StarRating";
 
-export { StarRatting };
+export { StarRating };
