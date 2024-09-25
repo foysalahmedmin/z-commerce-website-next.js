@@ -1,4 +1,4 @@
-import { StarRatting } from "@/components/ui/StarRating";
+import { StarRating } from "@/components/ui/StarRating";
 import { cn, toFixedAndLocaleStringCurrency } from "@/lib/utils";
 import ProductPurchase from "./ProductPurchase";
 import ProductSizeList from "./ProductSizeList";
@@ -29,7 +29,7 @@ const ProductPs = ({ className, product, isVariant }) => {
           <h2 className="text-3xl md:text-5xl">{name}</h2>
           <div className="flex divide-x-2">
             <div className="flex items-center gap-2 pr-4">
-              <StarRatting
+              <StarRating
                 rating={rating}
                 className="text-[1.5em] leading-none"
               />

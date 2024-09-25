@@ -22,6 +22,20 @@ export const ratingProcessor = (rating = 0, range = 5, total = 5) => {
   return (Number(rating) * total) / Number(range);
 };
 
+// Utility function to generate star states (full, half, empty)
+const generateStars = (rating, total) => {
+  const fullStars = Array.from({ length: Math.floor(rating) }, () => "full");
+  const halfStars = Array.from(
+    { length: !Number.isInteger(rating) ? 1 : 0 },
+    () => "half",
+  );
+  const emptyStars = Array.from(
+    { length: total - Math.ceil(rating) },
+    () => "empty",
+  );
+  return [...fullStars, ...halfStars, ...emptyStars];
+};
+
 const StarRating = forwardRef(
   (
     {
@@ -43,21 +57,7 @@ const StarRating = forwardRef(
       ratingProcessor(ratingProp, rangeProp, total),
     );
 
-    const stars = useMemo(() => {
-      const fullStars = Array.from(
-        { length: Math.floor(rating) },
-        () => "full",
-      );
-      const halfStars = Array.from(
-        { length: !Number.isInteger(rating) ? 1 : 0 },
-        () => "half",
-      );
-      const emptyStars = Array.from(
-        { length: total - Math.ceil(rating) },
-        () => "empty",
-      );
-      return [...fullStars, ...halfStars, ...emptyStars];
-    }, [rating, total]);
+    const stars = useMemo(() => generateStars(rating, total), [rating, total]);
 
     const handleStarClick = (index) => {
       if (!clickable) return;
@@ -73,6 +73,7 @@ const StarRating = forwardRef(
           "inline-flex items-center justify-center gap-[0.25em]",
           className,
         )}
+        value={rating}
         ref={ref}
         {...props}
       >

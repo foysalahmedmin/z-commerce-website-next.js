@@ -1,6 +1,6 @@
 import { CartOutline } from "@/assets/images/icons/Cart";
 import { Button } from "@/components/ui/Button";
-import { StarRatting } from "@/components/ui/StarRating";
+import { StarRating } from "@/components/ui/StarRating";
 import {
   Tabs,
   TabsContent,
@@ -169,7 +169,7 @@ const ProductOfferCard = ({ item, className }) => {
             <div className="flex items-center justify-between gap-[0.5em]">
               {rating && (
                 <div>
-                  <StarRatting
+                  <StarRating
                     rating={rating}
                     className="text-[1em] leading-none"
                   />

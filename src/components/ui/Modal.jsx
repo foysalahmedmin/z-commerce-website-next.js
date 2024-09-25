@@ -5,7 +5,39 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import { X } from "lucide-react";
-import { forwardRef } from "react";
+import { createContext, forwardRef, useContext, useState } from "react";
+
+export const ModalContext = createContext(null);
+
+export const useModal = () => {
+  const context = useContext(ModalContext);
+
+  if (!context) {
+    throw new Error("useModal must be used within a <Modal />");
+  }
+
+  return context;
+};
+
+const Modal = forwardRef(
+  ({ className, defaultValue, children, ...props }, ref) => {
+    const [value, setValue] = useState(defaultValue);
+    return (
+      <ModalContext.Provider
+        value={{
+          value,
+          setValue,
+        }}
+      >
+        <div ref={ref} className={cn("relative", className)} {...props}>
+          {children}
+        </div>
+      </ModalContext.Provider>
+    );
+  },
+);
+Modal.displayName = "Modal";
+// ------- //
 
 const modalVariants = cva(
   "transition-[opacity,transform] absolute m-auto duration-300 bg-card origin-center text-card-foreground border rounded",

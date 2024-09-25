@@ -1,4 +1,4 @@
-import { StarRatting } from "@/components/ui/StarRating";
+import { StarRating } from "@/components/ui/StarRating";
 import Image from "next/image";
 
 const ReviewCard = ({ item }) => {
@@ -25,7 +25,7 @@ const ReviewCard = ({ item }) => {
           <h5>{name}</h5>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <StarRatting rating={rating} />
+              <StarRating rating={rating} />
               <span>{rating}</span>
             </div>
             <div>{date}</div>

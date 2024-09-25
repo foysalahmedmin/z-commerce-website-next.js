@@ -21,7 +21,7 @@
   },
   "plugins": ["prettier"],
   "rules": {
-    "no-undef": "warn",
+    "no-undef": "error",
     "no-unused-vars": "warn",
     "no-console": "warn"
   }

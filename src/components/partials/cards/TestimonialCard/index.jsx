@@ -1,4 +1,4 @@
-import { StarRatting } from "@/components/ui/StarRating";
+import { StarRating } from "@/components/ui/StarRating";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -37,7 +37,7 @@ const TestimonialCard = ({ className, item }) => {
         </div>
         <div className="flex items-center justify-end">
           <div className="relative -mb-3 rounded-full rounded-tr-lg border-2 border-b-0 border-r-0 border-background bg-card px-4 py-1 shadow-inner">
-            <StarRatting rating={3.5} />
+            <StarRating rating={3.5} />
           </div>
         </div>
       </div>
