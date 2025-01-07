@@ -1,6 +1,6 @@
 "use client";
 
-import useRippleEffect from "@/hooks/useRippleEffect";
+import useRippleEffect from "@/hooks/ui/useRippleEffect";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import { forwardRef, useImperativeHandle, useRef } from "react";
@@ -8,24 +8,23 @@ import { forwardRef, useImperativeHandle, useRef } from "react";
 const buttonVariants = cva("button", {
   variants: {
     variant: {
-      default: "bg-accent text-accent-foreground hover:bg-accent/75",
-      gradient:
-        "to-accent-secondary hover:to-accent-secondary/75 bg-gradient-to-b from-accent text-accent-foreground hover:from-accent/75 active:bg-gradient-to-t",
-      outline:
-        "bg-transparent border border-accent/50 text-accent hover:bg-accent/15",
-      ghost: "bg-transparent text-accent hover:bg-accent/15",
-      link: "text-accent underline-offset-2 bg-none bg-transparent border-none hover:bg-none hover:bg-transparent hover:underline",
+      default: "button-variant-default",
+      gradient: "button-variant-gradient",
+      outline: "button-variant-outline",
+      ghost: "button-variant-ghost",
+      link: "button-variant-link",
       none: "",
     },
     size: {
-      default: "h-[2.5em] rounded px-[1em] text-base",
-      sm: "h-8 rounded px-4 text-sm",
-      base: "h-10 rounded px-4",
-      lg: "h-12 rounded-lg px-6",
-      icon: "size-[2.5em] rounded",
-      "icon-sm": "size-8 rounded",
-      "icon-base": "size-10 rounded",
-      "icon-lg": "size-12 rounded-lg",
+      default: "button-size-default",
+      sm: "button-size-sm",
+      md: "button-size-md",
+      lg: "button-size-lg text-base",
+      none: "",
+    },
+    shape: {
+      default: "button-shape-default",
+      icon: "button-shape-icon",
       none: "",
     },
     loading: {
@@ -37,6 +36,7 @@ const buttonVariants = cva("button", {
   defaultVariants: {
     variant: "default",
     size: "default",
+    shape: "default",
     loading: "center",
   },
 });
@@ -45,33 +45,41 @@ const Button = forwardRef(
   (
     {
       className,
+      loadingClassName,
       variant,
       size,
+      shape,
       loading,
+      as = "button",
       asChild = false,
       disabled = false,
       isLoading = false,
+      animation = false,
       ...props
     },
     ref,
   ) => {
     const buttonRef = useRef(ref?.current || null);
 
-    useRippleEffect(buttonRef);
     useImperativeHandle(ref, () => buttonRef.current);
+    useRippleEffect(buttonRef, !animation);
 
-    const Comp = asChild ? "span" : "button";
+    const Comp = asChild ? "span" : as;
     return (
       <Comp
-        data-loading={isLoading}
-        disabled={isLoading || disabled}
+        data-as={as || null}
+        disabled={disabled || isLoading}
         className={cn(
           buttonVariants({
             variant,
             size,
+            shape,
             loading,
             className,
           }),
+          {
+            [cn("loading", loadingClassName)]: isLoading,
+          },
         )}
         ref={buttonRef}
         {...props}

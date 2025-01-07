@@ -16,7 +16,7 @@ const ProductPurchase = ({ className, product }) => {
   return (
     <div className={cn("flex gap-4", className)}>
       <QuantitySelector
-        defaultValue={1}
+        value={1}
         minValue={1}
         maxValue={Number(availableStock)}
       >
@@ -29,7 +29,7 @@ const ProductPurchase = ({ className, product }) => {
 
       <Button
         className="border-border text-foreground"
-        size="icon"
+        shape="icon"
         variant="outline"
       >
         {wishListed ? (

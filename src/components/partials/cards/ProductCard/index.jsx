@@ -37,7 +37,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Comp defaultValue={0} className="flex size-full flex-col">
+          <Comp value={0} className="flex size-full flex-col">
             <div className="relative w-full">
               <div className="size-full">
                 {isVariant ? (
@@ -147,7 +147,8 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                           style={{ background: variant?.color }}
                           className="size-full rounded-full"
                           variant="none"
-                          size="icon-sm"
+                          shape="icon"
+                          size="sm"
                           asChild={true}
                         />
                       </TabsTrigger>
@@ -193,7 +194,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Comp defaultValue={0} className="flex size-full">
+          <Comp value={0} className="flex size-full">
             <div className="relative min-h-[12em] w-full min-w-[8em] flex-1 self-stretch">
               <div className="size-full">
                 {isVariant ? (
@@ -303,7 +304,8 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                           style={{ background: variant?.color }}
                           className="size-full rounded-full"
                           variant="none"
-                          size="icon-sm"
+                          shape="icon"
+                          size="sm"
                           asChild={true}
                         />
                       </TabsTrigger>
@@ -349,7 +351,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Comp defaultValue={0} className="flex size-full">
+          <Comp value={0} className="flex size-full">
             <div className="relative min-h-[10em] w-full min-w-[8em] flex-1 self-stretch">
               <div className="size-full">
                 {isVariant ? (
@@ -442,7 +444,8 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                           style={{ background: variant?.color }}
                           className="size-full rounded-full"
                           variant="none"
-                          size="icon-sm"
+                          shape="icon"
+                          size="sm"
                           asChild={true}
                         />
                       </TabsTrigger>

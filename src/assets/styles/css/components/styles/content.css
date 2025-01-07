@@ -1,0 +1,13 @@
+.content {
+  @apply text-title;
+  a {
+    @apply text-primary underline hover:decoration-2;
+  }
+
+  ul {
+    @apply my-2 ml-4 list-outside list-disc;
+    li {
+      @apply space-y-2;
+    }
+  }
+}

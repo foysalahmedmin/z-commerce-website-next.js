@@ -1,0 +1,65 @@
+.radio {
+  display: inline-block;
+  flex-shrink: 0;
+  appearance: none;
+  animation: theme("animation.pop");
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: 1px solid currentColor;
+  border-radius: theme("borderRadius.full");
+  width: 1em;
+  height: 1em;
+  font-size: var(--radio-height, 1.25rem);
+
+  &.checked,
+  &:checked {
+    animation: radio 1s;
+    box-shadow: 0 0 0 0.125em theme("colors.accent.foreground") inset;
+    border-color: theme("colors.accent.DEFAULT");
+    background-color: theme("colors.accent.DEFAULT");
+  }
+
+  &.disabled,
+  &:disabled {
+    opacity: 0.5;
+    animation: none;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+/* radio sizes */
+.radio-size-default {
+  font-size: var(--radio-height, 1.25rem);
+  line-height: 1;
+}
+
+.radio-size-sm {
+  font-size: var(--radio-height-sm);
+  line-height: 1;
+}
+
+.radio-size-md {
+  font-size: var(--radio-height-md);
+  line-height: 1;
+}
+
+.radio-size-lg {
+  font-size: var(--radio-height-lg);
+  line-height: 1;
+}
+
+@keyframes radio {
+  0% {
+    box-shadow: 0 0 0 0.5em theme("colors.accent.foreground") inset;
+  }
+  45% {
+    box-shadow: 0 0 0 0.1em theme("colors.accent.foreground") inset;
+  }
+  75% {
+    box-shadow: 0 0 0 0.25em theme("colors.accent.foreground") inset;
+  }
+  100% {
+    box-shadow: 0 0 0 0.125em theme("colors.accent.foreground") inset;
+  }
+}

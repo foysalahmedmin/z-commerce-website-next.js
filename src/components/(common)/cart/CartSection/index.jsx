@@ -72,13 +72,13 @@ const CartSection = () => {
               <div className="flex flex-col gap-[1em] sm:flex-row">
                 <div className="flex h-8 w-full sm:flex-1">
                   <input
-                    className="input flex-1 rounded-r-none"
+                    className="form-control form-control-variant-defaultflex-1 rounded-r-none"
                     type="text"
                     placeholder="Coupon Code"
                   />
                   <Button
                     className="rounded-l-none border border-primary"
-                    size="icon"
+                    shape="icon"
                   >
                     <SendHorizontal strokeWidth={1} />
                   </Button>

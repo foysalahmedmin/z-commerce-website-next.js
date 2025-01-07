@@ -34,7 +34,7 @@ const TeamMemberCard = ({ item }) => {
               {socials?.map((item, i) => (
                 <li key={i} className="inline-block">
                   <Link
-                    href={item?.link}
+                    href={item?.link || "#"}
                     className="text-title/75 hover:text-primary"
                   >
                     {item?.icon}

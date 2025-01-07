@@ -1,0 +1,35 @@
+/* Font Size Adjustments Based on Screen Width */
+/* Process:
+  base-font-size: 16px;
+  base-screen-width: 1600px;
+  current-font-size : (base-font-size / base-screen-width) * current-screen-width;
+*/
+@media (min-width: 1728px) {
+  html {
+    font-size: 17.28px;
+  }
+}
+
+@media (min-width: 1800px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 19.2px;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 25.6px;
+  }
+}
+
+@media (min-width: 3840px) {
+  html {
+    font-size: 38.4px;
+  }
+}

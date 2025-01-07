@@ -1,0 +1,65 @@
+.modal {
+  position: fixed;
+  transform: scale(0);
+  visibility: hidden;
+  opacity: 0;
+  transition-delay: 300ms;
+  inset: 0;
+  overflow: hidden;
+
+  &.open,
+  &[open] {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: contain;
+
+    & > .drawer-backdrop {
+      transform: scale(1);
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s;
+      overscroll-behavior-x: contain;
+      overscroll-behavior-y: contain;
+    }
+
+    & > .drawer-content {
+      transform: scale(1);
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 300ms;
+      overscroll-behavior-x: contain;
+      overscroll-behavior-y: contain;
+    }
+  }
+}
+
+.modal-backdrop {
+  position: absolute;
+  transform: scale(0);
+  visibility: hidden;
+  opacity: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition-delay: 300ms;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+  inset: 0;
+  overflow: hidden;
+}
+
+.modal-content {
+  position: absolute;
+  transform: scaleX(0);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+  inset: 0;
+}

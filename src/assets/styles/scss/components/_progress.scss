@@ -1,9 +1,0 @@
-progress {
-  @apply w-full h-[0.5em] rounded-full;
-}
-progress::-webkit-progress-bar {
-  @apply shadow-inner bg-muted/25 rounded-full;
-}
-progress::-webkit-progress-value {
-  @apply rounded-full bg-accent;
-}

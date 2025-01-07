@@ -35,7 +35,7 @@ const UserAndAuthNav = ({ access, user }) => {
               <div className="mb-4 text-center">
                 <div
                   className="relative mx-auto inline-block size-20 rounded-full"
-                  size="icon"
+                  shape="icon"
                 >
                   <Image
                     src={user?.image || "/images/svg/user.svg"}
@@ -47,7 +47,8 @@ const UserAndAuthNav = ({ access, user }) => {
                   <Button
                     // onClick={() => setIsEditModalOpen(true)}
                     className="absolute bottom-0 right-0 cursor-pointer rounded-full border hover:bg-accent"
-                    size="icon-sm"
+                    shape="icon"
+                    size="sm"
                   >
                     <Edit size={16} />
                   </Button>

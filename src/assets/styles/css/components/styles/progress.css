@@ -1,0 +1,16 @@
+progress {
+  border-radius: 9999em;
+  width: 100%;
+  height: 0.5em;
+}
+
+progress::-webkit-progress-bar {
+  box-shadow: inset 0 0.125em 0.25em rgba(0, 0, 0, 0.06);
+  border-radius: 9999em;
+  background-color: hsl(var(--accent) / 0.1);
+}
+
+progress::-webkit-progress-value {
+  border-radius: 9999em;
+  background-color: hsl(var(--accent));
+}

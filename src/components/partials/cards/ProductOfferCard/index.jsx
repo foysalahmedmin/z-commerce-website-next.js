@@ -34,7 +34,7 @@ const ProductOfferCard = ({ item, className }) => {
 
   return (
     <div className={cn("group/card h-full text-[1rem]", className)}>
-      <Comp defaultValue={0} className="flex size-full flex-col">
+      <Comp value={0} className="flex size-full flex-col">
         <div className="relative w-full overflow-hidden rounded-md">
           <div className="size-full">
             {isVariant ? (
@@ -140,7 +140,8 @@ const ProductOfferCard = ({ item, className }) => {
                         style={{ background: variant?.color }}
                         className="size-full rounded-full"
                         variant="none"
-                        size="icon-sm"
+                        shape="icon"
+                        size="sm"
                         asChild={true}
                       />
                     </TabsTrigger>

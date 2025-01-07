@@ -18,7 +18,8 @@ const ProductVariantList = ({ className, variants }) => {
               style={{ background: variant?.color }}
               className="size-full rounded-full"
               variant="none"
-              size="icon-sm"
+              shape="icon"
+              size="sm"
               asChild={true}
             />
           </TabsTrigger>

@@ -13,7 +13,7 @@ const ProductVariant = ({ variant, name }) => {
   const images = [image, ...(isImages ? othersImages : [])];
   return (
     <Tabs
-      defaultValue={0}
+      value={0}
       className="static flex size-full flex-col-reverse gap-4 md:flex-row"
     >
       {isImages && (

@@ -17,7 +17,7 @@ const CartInfo = ({ className }) => {
         <Button
           className="bg-card text-[0.75em] text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
           title="Wish List"
-          size="icon"
+          shape="icon"
         >
           {wishListed ? (
             <Heart className="size-[1.5em] text-primary-foreground" />
@@ -30,7 +30,7 @@ const CartInfo = ({ className }) => {
         <Button
           className="bg-card text-[0.75em] text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
           title="Quick View"
-          size="icon"
+          shape="icon"
         >
           <Magnify className="size-[1.5em]" />
         </Button>
@@ -39,7 +39,7 @@ const CartInfo = ({ className }) => {
         <Button
           className="bg-card text-[0.75em] text-title shadow hover:bg-primary hover:text-primary-foreground  hover:shadow-primary"
           title="Share"
-          size="icon"
+          shape="icon"
         >
           <Share className="size-[1.5em]" />
         </Button>

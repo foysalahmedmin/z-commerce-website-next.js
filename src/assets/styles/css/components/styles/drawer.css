@@ -1,0 +1,92 @@
+.drawer {
+  position: fixed;
+  transform: scale(0);
+  visibility: hidden;
+  opacity: 0;
+  transition-delay: 300ms;
+  inset: 0;
+  overflow: hidden;
+
+  &.open,
+  &[open] {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+
+    & > .drawer-backdrop {
+      transform: scale(1);
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s;
+    }
+
+    & > .drawer-content {
+      transform: scaleX(1);
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 300ms;
+    }
+  }
+}
+
+.drawer-backdrop {
+  position: absolute;
+  transform: scale(0);
+  visibility: hidden;
+  opacity: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition-delay: 300ms;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+  inset: 0;
+  overflow: hidden;
+}
+
+.drawer-content {
+  position: absolute;
+  transform: scaleX(0);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+  inset: 0;
+}
+
+/* Drawer utilities */
+.drawer-open {
+  position: static;
+  transform: scaleX(1);
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+  overflow: hidden;
+
+  & > .drawer-backdrop {
+    all: unset;
+    display: none;
+    transform: scaleX(0);
+    visibility: hidden;
+    opacity: 0;
+    transition-delay: 0s;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  & > .drawer-content {
+    position: static;
+    transform: scaleX(1);
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 300ms;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+}

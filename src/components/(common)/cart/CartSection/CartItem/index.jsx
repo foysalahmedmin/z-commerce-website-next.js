@@ -52,7 +52,7 @@ const CartItem = ({ className, item, index }) => {
       </td>
       <td className="whitespace-nowrap px-[1em] py-[0.5em] text-center text-[1em]">
         <QuantitySelector
-          defaultValue={2}
+          value={2}
           maxValue={availableStock}
           className="inline-flex"
         >
@@ -68,7 +68,7 @@ const CartItem = ({ className, item, index }) => {
         <Button
           className="text-[0.75em] [--accent:var(--destructive)]"
           variant="outline"
-          size="icon"
+          shape="icon"
         >
           <X />
         </Button>

@@ -1,9 +1,8 @@
 "use client";
 
 import Logo from "@/components/partials/Logo";
-import { Toggler } from "@/components/ui/Toggler";
-import { cn } from "@/lib/utils";
-import { AlignRight, X } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { AlignRight } from "lucide-react";
 import { useState } from "react";
 import Cart from "./Cart";
 import NavMenu from "./NavMenu";
@@ -20,36 +19,8 @@ const Navigation = ({ access, user }) => {
           <div>
             <Logo />
           </div>
-          <ul className="mr-auto hidden items-center justify-center gap-4 lg:flex">
-            <NavMenu />
-          </ul>
-          <div
-            className={cn(
-              "fixed inset-0 z-50 h-screen w-screen origin-top bg-card px-container-space py-4 transition-all duration-300 lg:hidden",
-              {
-                "visible scale-y-100 opacity-100": isOpen,
-                "invisible scale-y-0 opacity-0": !isOpen,
-              },
-            )}
-          >
-            <div className="flex items-center justify-between">
-              <div className="w-1/2">
-                <SearchBar />
-              </div>
-              <Toggler
-                onClick={() => setIsOpen((value) => !value)}
-                isOn={isOpen}
-                on={{
-                  children: <X />,
-                }}
-                off={{
-                  children: <AlignRight />,
-                }}
-              />
-            </div>
-            <ul className="flex size-full flex-col items-center justify-center gap-4">
-              <NavMenu />
-            </ul>
+          <div className="mr-auto">
+            <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
           <div className="flex items-center justify-end gap-4">
             <div className="flex items-center justify-end gap-2 lg:gap-4">
@@ -59,16 +30,14 @@ const Navigation = ({ access, user }) => {
               <UserAndAuthNav access={access} user={user} />
             </div>
             <div className="lg:hidden">
-              <Toggler
-                onClick={() => setIsOpen((value) => !value)}
-                isOn={isOpen}
-                on={{
-                  children: <X />,
-                }}
-                off={{
-                  children: <AlignRight />,
-                }}
-              />
+              <Button
+                onClick={() => setIsOpen(true)}
+                variant="none"
+                shape="icon"
+                className=""
+              >
+                <AlignRight className="size-6" />
+              </Button>
             </div>
           </div>
         </div>

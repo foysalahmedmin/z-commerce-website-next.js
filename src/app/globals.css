@@ -1,0 +1,14 @@
+/* base styles */
+@import "tailwindcss/base";
+@import "../assets/styles/css/base/index.css";
+/* ----- */
+
+/* components styles */
+@import "tailwindcss/components";
+@import "../assets/styles/css/components/index.css";
+/* ----- */
+
+/* utilities styles */
+@import "tailwindcss/utilities";
+@import "../assets/styles/css/utilities/index.css";
+/* ----- */

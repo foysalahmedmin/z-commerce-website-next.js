@@ -1,0 +1,225 @@
+/* Default CSS Variables */
+:root {
+  /* Background and Foreground Colors */
+  --background: 0 0% 98%;
+  --foreground: 0 0% 25%;
+
+  /* Contrast Styling */
+  --contrast: 0 0% 9%;
+  --contrast-foreground: 0 0% 83%;
+
+  /* Card Styling */
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 25%;
+
+  /* Popover Styling */
+  --popover: 0 0% 25%;
+  --popover-foreground: 0 0% 83%;
+
+  /* Accent Colors */
+  --accent: 0 0% 9%;
+  --accent-foreground: 0 0% 98%;
+
+  /* Primary Colors */
+  --primary: 147 37% 52%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary Colors */
+  --secondary: 19 100% 64%;
+  --secondary-foreground: 0 0% 100%;
+
+  /* Tertiary Colors */
+  --ternary: 237 100% 75%;
+  --ternary-foreground: 0 0% 100%;
+
+  /* Muted Colors */
+  --muted: 0 0% 83%;
+  --muted-foreground: 0 0% 45%;
+
+  /* Destructive Colors */
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+
+  /* Light and Dark Modes */
+  --light: 0 0% 98%;
+  --light-foreground: 0 0% 25%;
+
+  --dark: 0 0% 9%;
+  --dark-foreground: 0 0% 83%;
+
+  /* Miscellaneous Colors */
+  --title: 0 0% 9%;
+  --input: 0 0% 45%;
+  --border: 0 0% 83%;
+  --ring: 0 0% 83%;
+
+  /* Layout and Spacing */
+  --radius: 0.25rem;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2.5rem;
+  --container-inset: 5vw;
+
+  /* Button */
+  --button-height: 2.25rem;
+  --button-height-sm: 2rem;
+  --button-height-md: 3rem;
+  --button-height-lg: 3.5rem;
+  --button-padding: 1.25em;
+  --button-radius: 0.25rem;
+
+  /* Form Control */
+  --form-control-height: 2.25rem;
+  --form-control-height-sm: 2rem;
+  --form-control-height-md: 3rem;
+  --form-control-height-lg: 3.5rem;
+  --form-control-padding: 1.25em;
+  --form-control-radius: 0.25rem;
+
+  /* Switch */
+  --switch-height: calc(var(--form-control-height, 2.5rem) / 2);
+  --switch-height-sm: calc(var(--form-control-height-sm, 2rem) / 2);
+  --switch-height-md: calc(var(--form-control-height-md, 3rem) / 2);
+  --switch-height-lg: calc(var(--form-control-height-lg, 3.5rem) / 2);
+
+  /* Checkbox */
+  --checkbox-size: calc(var(--form-control-height, 2.5rem) / 2);
+  --checkbox-height-sm: calc(var(--form-control-height-sm, 2rem) / 2);
+  --checkbox-height-md: calc(var(--form-control-height-md, 3rem) / 2);
+  --checkbox-height-lg: calc(var(--form-control-height-lg, 3.5rem) / 2);
+
+  /* Radio */
+  --radio-size: calc(var(--form-control-height, 2.5rem) / 2);
+  --radio-height-sm: calc(var(--form-control-height-sm, 2rem) / 2);
+  --radio-height-md: calc(var(--form-control-height-md, 3rem) / 2);
+  --radio-height-lg: calc(var(--form-control-height-lg, 3.5rem) / 2);
+
+  /* Tooltip */
+  --tooltip-offset: 0.5rem;
+  --tooltip-tail: 0.25rem;
+
+  /* Partials */
+  --header-height: 3.5rem;
+  --header-height-top: 0rem;
+  --header-height-combind: calc(
+    var(--header-height) + var(--header-height-top)
+  );
+}
+
+/* Light Theme Variables */
+[data-theme="light"],
+.light {
+  --background: 0 0% 98%;
+  --foreground: 0 0% 25%;
+  --contrast: 0 0% 9%;
+  --contrast-foreground: 0 0% 83%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 25%;
+  --popover: 0 0% 25%;
+  --popover-foreground: 0 0% 83%;
+  --accent: 0 0% 9%;
+  --accent-foreground: 0 0% 98%;
+  --primary: 147 37% 52%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 19 100% 64%;
+  --secondary-foreground: 0 0% 100%;
+  --ternary: 237 100% 75%;
+  --ternary-foreground: 0 0% 100%;
+  --muted: 0 0% 83%;
+  --muted-foreground: 0 0% 45%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --light: 0 0% 98%;
+  --light-foreground: 0 0% 25%;
+  --dark: 0 0% 9%;
+  --dark-foreground: 0 0% 83%;
+  --title: 0 0% 9%;
+  --input: 0 0% 45%;
+  --border: 0 0% 83%;
+  --ring: 0 0% 83%;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"],
+.dark {
+  --background: 0 0% 9%;
+  --foreground: 0 0% 83%;
+  --contrast: 0 0% 98%;
+  --contrast-foreground: 0 0% 25%;
+  --card: 0 0% 25%;
+  --card-foreground: 0 0% 83%;
+  --popover: 0 0% 83%;
+  --popover-foreground: 0 0% 25%;
+  --accent: 0 0% 98%;
+  --accent-foreground: 0 0% 9%;
+  --primary: 147 37% 52%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 19 100% 64%;
+  --secondary-foreground: 0 0% 100%;
+  --ternary: 237 100% 75%;
+  --ternary-foreground: 0 0% 100%;
+  --muted: 0 0% 25%;
+  --muted-foreground: 0 0% 45%;
+  --destructive: 0 72.2% 50.6%;
+  --destructive-foreground: 0 0% 98%;
+  --title: 0 0% 98%;
+  --input: 0 0% 45%;
+  --border: 0 0% 25%;
+  --ring: 0 0% 25%;
+}
+
+/* Accent Theme Variables */
+.accent {
+  --accent: var(--foreground);
+  --accent-foreground: var(--accent-foreground);
+  --primary: var(--accent);
+  --primary-foreground: var(--accent-foreground);
+  --secondary: var(--accent);
+  --secondary-foreground: var(--accent-foreground);
+  --tertiary: var(--accent);
+  --tertiary-foreground: var(--accent-foreground);
+}
+
+/* Color Variations for Primary, Secondary, and Tertiary Themes */
+.primary {
+  --accent: var(--primary);
+  --accent-foreground: var(--primary-foreground);
+}
+
+.secondary {
+  --accent: var(--secondary);
+  --accent-foreground: var(--secondary-foreground);
+}
+
+.tertiary {
+  --accent: var(--tertiary);
+  --accent-foreground: var(--tertiary-foreground);
+}
+
+/* Responsive Layout Adjustments */
+@screen md {
+  :root {
+    --container-inset: 3.5vw;
+  }
+}
+
+@screen lg {
+  :root {
+    --container-inset: 2.5vw;
+  }
+}
+
+@screen xl {
+  :root {
+    --container-inset: 2vw;
+  }
+}
+
+@screen 2xl {
+  :root {
+    --container-inset: 4rem;
+  }
+}

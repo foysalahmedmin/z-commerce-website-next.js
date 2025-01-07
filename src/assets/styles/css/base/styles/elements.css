@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  border-color: theme("colors.border");
+  font-weight: theme("fontWeight.light");
+
+  &::placeholder {
+    color: theme("colors.input");
+  }
+}
+
+html {
+  @apply selection:bg-dark selection:text-light;
+  scroll-behavior: smooth;
+  scroll-padding-top: theme("scrollPadding.16");
+  font-size: 16px;
+}
+body {
+  background-color: theme("colors.background");
+  scroll-behavior: smooth;
+  color: theme("colors.foreground");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: theme("colors.title");
+  line-height: theme("lineHeight.tight");
+}
+h1 {
+  font-weight: theme("fontWeight.bold");
+  font-size: theme("fontSize.4xl");
+}
+h2 {
+  font-weight: theme("fontWeight.semibold");
+  font-size: theme("fontSize.3xl");
+}
+h3 {
+  font-weight: theme("fontWeight.medium");
+  font-size: theme("fontSize.2xl");
+}
+h4 {
+  font-weight: theme("fontWeight.medium");
+  font-size: theme("fontSize.xl");
+}
+h5 {
+  font-weight: theme("fontWeight.medium");
+  font-size: theme("fontSize.lg");
+}
+h6 {
+  font-weight: theme("fontWeight.medium");
+  font-size: theme("fontSize.base");
+}
+
+strong,
+th {
+  display: inline-block;
+  color: theme("colors.title");
+  font-weight: theme("fontWeight.medium");
+}
+
+span {
+  display: inline-block;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+input,
+textarea {
+  @apply cursor-pointer accent-accent disabled:animate-none disabled:cursor-not-allowed disabled:opacity-50 disabled:checked:animate-none;
+
+  /* Hide the spin buttons for number input when .icon-none is applied */
+  &[type="number"].icon-none::-webkit-inner-spin-button,
+  &[type="number"].icon-none::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Hide the calendar and clock icons for date, time, and datetime-local inputs */
+  &[type="date"].icon-none::-webkit-calendar-picker-indicator,
+  &[type="time"].icon-none::-webkit-calendar-picker-indicator,
+  &[type="datetime-local"].icon-none::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+  /* Remove native appearance for all browsers (including Firefox) */
+  &[type="date"].icon-none,
+  &[type="time"].icon-none,
+  &[type="datetime-local"].icon-none {
+    -moz-appearance: none;
+    appearance: none;
+  }
+}

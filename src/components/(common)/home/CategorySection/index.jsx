@@ -8,7 +8,7 @@ const CategorySection = () => {
     <section className="py-12 md:py-16">
       <div className="container">
         {categories.length > 0 && (
-          <Tabs defaultValue={categories[0]?.value}>
+          <Tabs value={categories[0]?.value}>
             <div className="mb-6 flex flex-wrap items-end gap-4 md:mb-8">
               <SectionTitle className="mb-0 md:mb-0">
                 <Subtitle>Category</Subtitle>

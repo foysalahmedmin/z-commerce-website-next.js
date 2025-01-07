@@ -14,7 +14,7 @@ const Pagination = forwardRef(
         {...props}
         ref={ref}
       >
-        <Button className="rounded-full" size="icon">
+        <Button className="rounded-full" shape="icon">
           <ArrowLeft />
         </Button>
         <>
@@ -27,7 +27,7 @@ const Pagination = forwardRef(
             />
           ))}
         </>
-        <Button className="rounded-full" size="icon">
+        <Button className="rounded-full" shape="icon">
           <ArrowRight />
         </Button>
       </div>

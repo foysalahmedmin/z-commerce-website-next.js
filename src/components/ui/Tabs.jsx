@@ -1,7 +1,13 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { createContext, forwardRef, useContext, useState } from "react";
+import {
+  createContext,
+  forwardRef,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 // tabs context //
 export const TabsContext = createContext(null);
@@ -17,13 +23,30 @@ export const useTabs = () => {
 };
 
 const Tabs = forwardRef(
-  ({ className, defaultValue, children, ...props }, ref) => {
-    const [value, setValue] = useState(defaultValue);
+  (
+    { className, value: valueProp, setValue: setValueProp, children, ...props },
+    ref,
+  ) => {
+    const [value, setValue] = useState(valueProp);
+
+    const onTabSelect = (value) => {
+      setValue(value);
+      if (setValueProp) {
+        setValueProp(value);
+      }
+    };
+
+    useEffect(() => {
+      if (valueProp !== undefined) {
+        setValue(valueProp);
+      }
+    }, [valueProp]);
+
     return (
       <TabsContext.Provider
         value={{
           value,
-          setValue,
+          onTabSelect,
         }}
       >
         <div ref={ref} className={cn("relative", className)} {...props}>
@@ -56,19 +79,20 @@ const TabsTrigger = forwardRef(
     { className, activeClassName, value, disabled, isLoading, ...props },
     ref,
   ) => {
-    const { value: contextValue, setValue } = useTabs();
+    const { value: contextValue, onTabSelect } = useTabs();
     return (
       <li
         ref={ref}
         onClick={() =>
           !disabled &&
           !isLoading &&
-          value !== (undefined || null) &&
-          setValue(value)
+          value !== undefined &&
+          value !== null &&
+          onTabSelect(value)
         }
         data-state={value === contextValue ? "active" : "inactive"}
         className={cn(
-          "underline-animated cursor-pointer text-title after:mx-auto after:origin-center after:border-title disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+          "hover-underline-overlay cursor-pointer text-title after:mx-auto after:origin-center after:border-title disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
           className,
           {
             [cn(
@@ -108,4 +132,3 @@ TabsItem.displayName = "TabsItem";
 // ------- //
 
 export { Tabs, TabsContent, TabsItem, TabsList, TabsTrigger };
-

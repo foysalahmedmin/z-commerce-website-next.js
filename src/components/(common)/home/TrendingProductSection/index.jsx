@@ -20,7 +20,7 @@ const TrendingProductSection = () => {
       <div className="container">
         <div className="mb-6 md:mb-8">
           {tabs.length > 0 && (
-            <Tabs defaultValue={tabs[0]}>
+            <Tabs value={tabs[0]}>
               <div className="mb-6 flex flex-wrap items-end gap-4 md:mb-8">
                 <SectionTitle className="mb-0 md:mb-0">
                   <Subtitle>New Products</Subtitle>

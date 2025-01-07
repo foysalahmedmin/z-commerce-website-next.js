@@ -13,7 +13,7 @@ const ProductTabSection = () => {
     <section className="container">
       <div className="rounded-md border">
         <div className="p-6 md:p-8">
-          <Tabs defaultValue="description">
+          <Tabs value="description">
             <TabsList className="mb-6 gap-2 border-b md:mb-8 md:justify-start">
               <TabsTrigger value="description" activeClassName="shadow-inner">
                 <span className="inline-block px-4 py-1 text-xl font-semibold capitalize md:text-2xl">

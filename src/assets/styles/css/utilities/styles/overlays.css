@@ -1,0 +1,63 @@
+.overline-overlay {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    transition: all 300ms ease-in-out;
+    inset: 0;
+    border-top-width: 1px;
+    border-color: currentColor;
+    width: 100%;
+    content: "";
+  }
+}
+
+.underline-overlay {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    transition: all 300ms ease-in-out;
+    inset: 0;
+    border-bottom-width: 1px;
+    border-color: currentColor;
+    width: 100%;
+    content: "";
+  }
+}
+
+.hover-overline-overlay {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    transition: all 300ms ease-in-out;
+    inset: 0;
+    border-top-width: 1px;
+    border-color: currentColor;
+    width: 0;
+    content: "";
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.hover-underline-overlay {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    transition: all 300ms ease-in-out;
+    inset: 0;
+    border-bottom-width: 1px;
+    border-color: currentColor;
+    width: 0;
+    content: "";
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}

@@ -46,11 +46,11 @@ const PopularProduct = ({ className }) => {
             <div className="absolute -top-4 right-0 inline-flex -translate-y-full items-center gap-2">
               <CarouselPreviousTrigger
                 className="static bottom-0 top-0 inline-flex -translate-y-0 text-[0.75rem] transition-all duration-300"
-                size="icon"
+                shape="icon"
               />
               <CarouselNextTrigger
                 className="static bottom-0 top-0 inline-flex -translate-y-0 text-[0.75rem] transition-all duration-300"
-                size="icon"
+                shape="icon"
               />
             </div>
           </Carousel>

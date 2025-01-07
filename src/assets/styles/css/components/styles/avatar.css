@@ -1,0 +1,8 @@
+.avatar {
+  flex-shrink: 0;
+  border-radius: theme("borderRadius.full");
+  width: theme("size.form-control");
+  height: theme("size.form-control");
+  object-fit: cover;
+  object-position: center;
+}

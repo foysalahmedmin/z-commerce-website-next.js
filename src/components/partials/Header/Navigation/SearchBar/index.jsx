@@ -6,7 +6,7 @@ const SearchBar = ({ className, ...props }) => {
   return (
     <label
       className={cn(
-        "input h-8 w-full gap-2 bg-background px-0 lg:w-80",
+        "form-control form-control-variant-defaulth-8 w-full gap-2 bg-background px-0 lg:w-80",
         className,
       )}
       {...props}
@@ -19,7 +19,7 @@ const SearchBar = ({ className, ...props }) => {
       <Button
         className="rounded-l-none border-y-0 border-l border-r-0 border-border text-foreground hover:text-primary peer-focus-within:border-foreground"
         variant="outline"
-        size="icon"
+        shape="icon"
       >
         <Search className="size-6" />
       </Button>

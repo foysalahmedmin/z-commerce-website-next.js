@@ -11,7 +11,7 @@ const Subscription = ({ className, ...props }) => {
       <label>
         <strong className="mb-4 block text-lg">Subscribe</strong>
         <span className="mb-2 block">Get 10% off your first order</span>
-        <div className="input h-8 w-full gap-2 bg-card px-0 xl:w-80">
+        <div className="form-control form-control-variant-defaulth-8 w-full gap-2 bg-card px-0 xl:w-80">
           <input
             className="peer size-full flex-1 bg-transparent px-4 text-sm outline-none"
             type="email"
@@ -20,7 +20,7 @@ const Subscription = ({ className, ...props }) => {
           <Button
             className="rounded-l-none border-y-0 border-l border-r-0 border-border text-foreground hover:text-primary peer-focus-within:border-foreground"
             variant="outline"
-            size="icon"
+            shape="icon"
           >
             <SendHorizontal strokeWidth={1} />
           </Button>

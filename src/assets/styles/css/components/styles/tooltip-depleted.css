@@ -1,0 +1,116 @@
+.tooltip[data-tooltip] {
+  position: relative;
+  --tooltip-offset: 0.5rem;
+  --tooltip-tail: 0.25rem;
+
+  &::before {
+    position: absolute;
+    z-index: 10;
+    transition: all 0.3s ease;
+    border: 1px solid theme("colors.border");
+    border-radius: 0.125em;
+    background-color: theme("colors.card.DEFAULT");
+    padding-top: 0.25em;
+    padding-right: 0.5em;
+    padding-bottom: 0.25em;
+    padding-left: 0.5em;
+    width: fit-content;
+    height: fit-content;
+    content: attr(data-tooltip);
+    color: theme("colors.foreground");
+    font-size: theme("fontSize.sm");
+  }
+
+  &::after {
+    position: absolute;
+    transform-origin: center;
+    z-index: 20;
+    transition: all 0.3s ease;
+    margin-right: auto;
+    margin-left: auto;
+    border: var(--tooltip-tail) solid;
+    border-color: transparent theme("colors.border") theme("colors.border")
+      transparent;
+    width: fit-content;
+    height: fit-content;
+    content: " ";
+    color: hsl(var(--foreground));
+    font-size: 0.875rem;
+  }
+}
+
+.tooltip-top {
+  &::before {
+    top: calc(var(--tooltip-offset) * -1);
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transform-origin: bottom;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &::after {
+    top: calc(calc(var(--tooltip-offset) * -2) + var(--tooltip-tail));
+    right: calc(50% - var(--tooltip-tail));
+    left: calc(50% - var(--tooltip-tail));
+    rotate: 45deg;
+  }
+}
+
+.tooltip-bottom {
+  &::before {
+    right: 0;
+    bottom: calc(var(--tooltip-offset) * -1);
+    left: 0;
+    transform: translateY(100%);
+    transform-origin: top;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &::after {
+    right: calc(50% - var(--tooltip-tail));
+    bottom: calc(calc(var(--tooltip-offset) * -2) + var(--tooltip-tail));
+    left: calc(50% - var(--tooltip-tail));
+    rotate: 225deg;
+  }
+}
+
+.tooltip-left {
+  &::before {
+    top: 0;
+    bottom: 0;
+    left: calc(var(--tooltip-offset) * -1);
+    transform: translateX(-100%);
+    transform-origin: right;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &::after {
+    top: calc(50% - var(--tooltip-tail));
+    bottom: calc(50% - var(--tooltip-tail));
+    left: calc(calc(var(--tooltip-offset) * -2) + var(--tooltip-tail));
+    rotate: 315deg;
+  }
+}
+
+.tooltip-right {
+  &::before {
+    top: 0;
+    right: calc(var(--tooltip-offset) * -1);
+    bottom: 0;
+    transform: translateX(100%);
+    transform-origin: left;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &::after {
+    top: calc(50% - var(--tooltip-tail));
+    right: calc(calc(var(--tooltip-offset) * -2) + var(--tooltip-tail));
+    bottom: calc(50% - var(--tooltip-tail));
+    rotate: 135deg;
+  }
+}

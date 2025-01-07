@@ -61,7 +61,8 @@ const Header = forwardRef(
           <Button
             className="ml-auto size-6"
             variant="ghost"
-            size="icon-sm"
+            shape="icon"
+            size="sm"
             onClick={() => minimizeToggler()}
           >
             <ChevronRight
@@ -77,7 +78,8 @@ const Header = forwardRef(
           <Button
             className="ml-auto size-6"
             variant="outline"
-            size="icon-sm"
+            shape="icon"
+            size="sm"
             onClick={() => onClose()}
           >
             <X size={16} />

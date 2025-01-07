@@ -259,16 +259,23 @@ const CarouselItem = forwardRef(({ className, ...props }, ref) => {
 CarouselItem.displayName = "CarouselItem";
 
 const CarouselPreviousTrigger = forwardRef(
-  ({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  (
+    {
+      className,
+      size = "icon",
+      children = <ArrowLeft className="size-4" />,
+      ...props
+    },
+    ref,
+  ) => {
     const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
     return (
       <Button
         ref={ref}
-        variant={variant}
         size={size}
         className={cn(
-          "absolute  rounded-full text-[1em]",
+          "absolute rounded-full text-[1em]",
           orientation === "horizontal"
             ? "left-0 top-1/2 -translate-y-1/2"
             : "left-1/2 top-0 -translate-x-1/2 rotate-90",
@@ -278,8 +285,7 @@ const CarouselPreviousTrigger = forwardRef(
         onClick={scrollPrev}
         {...props}
       >
-        <ArrowLeft className="h-4 w-4" />
-        <span className="sr-only">Previous slide</span>
+        {children}
       </Button>
     );
   },
@@ -287,13 +293,20 @@ const CarouselPreviousTrigger = forwardRef(
 CarouselPreviousTrigger.displayName = "CarouselPreviousTrigger";
 
 const CarouselNextTrigger = forwardRef(
-  ({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  (
+    {
+      className,
+      size = "icon",
+      children = <ArrowRight className="size-4" />,
+      ...props
+    },
+    ref,
+  ) => {
     const { orientation, scrollNext, canScrollNext } = useCarousel();
 
     return (
       <Button
         ref={ref}
-        variant={variant}
         size={size}
         className={cn(
           "absolute rounded-full text-[1em]",
@@ -306,8 +319,7 @@ const CarouselNextTrigger = forwardRef(
         onClick={scrollNext}
         {...props}
       >
-        <ArrowRight className="h-4 w-4" />
-        <span className="sr-only">Next slide</span>
+        {children}
       </Button>
     );
   },

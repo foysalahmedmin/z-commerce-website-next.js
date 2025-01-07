@@ -2,121 +2,213 @@
 
 import { cn } from "@/lib/utils";
 import { ArrowBigDownDash, ArrowBigUpDash } from "lucide-react";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  forwardRef,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
+// Context for RangeSlider
+const RangeSliderContext = createContext(null);
+
+const useRangeSliderContext = () => {
+  const context = useContext(RangeSliderContext);
+  if (!context) {
+    throw new Error(
+      "useRangeSliderContext must be used within <RangeSlider />",
+    );
+  }
+  return context;
+};
+
+// RangeSlider Component
 const RangeSlider = forwardRef(
   (
     {
       className,
-      defaultMinValue = 2500,
-      defaultMaxValue = 7500,
-      minRange = 0,
-      maxRange = 10000,
-      step = 100,
-      priceGap = 500,
+      minValue: minValueProp = 2500,
+      maxValue: maxValueProp = 7500,
+      minGap = 500,
+      minLimit = 0,
+      maxLimit = 10000,
+      stepSize = 100,
+      children,
       ...props
     },
     ref,
   ) => {
-    const [minValue, setMinValue] = useState(defaultMinValue);
-    const [maxValue, setMaxValue] = useState(defaultMaxValue);
-    const rangeMinRef = useRef(null);
-    const rangeMaxRef = useRef(null);
-    const rangeProgressRef = useRef(null);
+    const [minValue, setMinValue] = useState(minValueProp);
+    const [maxValue, setMaxValue] = useState(maxValueProp);
+
+    const minInputRef = useRef(null);
+    const maxInputRef = useRef(null);
+    const progressRef = useRef(null);
+
+    const onMinChange = useCallback(
+      (value) => {
+        if (maxValue - value >= minGap) setMinValue(value);
+      },
+      [maxValue, minGap],
+    );
+
+    const onMaxChange = useCallback(
+      (value) => {
+        if (value - minValue >= minGap) setMaxValue(value);
+      },
+      [minValue, minGap],
+    );
 
     useEffect(() => {
-      const updateRange = () => {
-        rangeProgressRef.current.style.left = `${(minValue / rangeMinRef.current.max) * 100}%`;
-        rangeProgressRef.current.style.right = `${100 - (maxValue / rangeMaxRef.current.max) * 100}%`;
-      };
-
-      updateRange();
-    }, [minValue, maxValue]);
-
-    const handleMinInputChange = (e) => {
-      const value = parseInt(e.target.value);
-      if (maxValue - value >= priceGap) {
-        setMinValue(value);
+      if (minValueProp !== undefined) {
+        onMinChange(minValueProp);
       }
-    };
+    }, [minValueProp, onMinChange]);
 
-    const handleMaxInputChange = (e) => {
-      const value = parseInt(e.target.value);
-      if (value - minValue >= priceGap) {
-        setMaxValue(value);
+    useEffect(() => {
+      if (maxValueProp !== undefined) {
+        onMaxChange(maxValueProp);
       }
-    };
+    }, [maxValueProp, onMaxChange]);
 
-    const handleMinRangeChange = (e) => {
-      const value = parseInt(e.target.value);
-      if (maxValue - value >= priceGap) {
-        setMinValue(value);
+    useEffect(() => {
+      if (progressRef.current && minInputRef.current && maxInputRef.current) {
+        progressRef.current.style.left = `${(minValue / maxLimit) * 100}%`;
+        progressRef.current.style.right = `${100 - (maxValue / maxLimit) * 100}%`;
       }
-    };
-
-    const handleMaxRangeChange = (e) => {
-      const value = parseInt(e.target.value);
-      if (value - minValue >= priceGap) {
-        setMaxValue(value);
-      }
-    };
+    }, [minValue, maxValue, maxLimit]);
 
     return (
-      <div className={cn("", className)} ref={ref} {...props}>
-        <div className="mb-4 flex w-full items-center">
-          <label className="input h-6 flex-1 gap-0 divide-x rounded-r-none px-2 py-2">
-            <span className="inline-block shrink-0 pr-1">
-              <ArrowBigDownDash strokeWidth={1} size={24} />
-            </span>
-            <input
-              type="number"
-              className="size-full bg-transparent pl-2 text-sm outline-none"
-              value={minValue}
-              onChange={handleMinInputChange}
-            />
-          </label>
-          <label className="input h-6 flex-1 gap-0 divide-x rounded-l-none px-2 py-2">
-            <span className="inline-block shrink-0 pr-1">
-              <ArrowBigUpDash strokeWidth={1} size={24} />
-            </span>
-            <input
-              type="number"
-              className="size-full bg-transparent pl-2 text-sm outline-none"
-              value={maxValue}
-              onChange={handleMaxInputChange}
-            />
-          </label>
+      <RangeSliderContext.Provider
+        value={{
+          minValue,
+          maxValue,
+          minLimit,
+          maxLimit,
+          stepSize,
+          onMinChange,
+          onMaxChange,
+          minInputRef,
+          maxInputRef,
+          progressRef,
+        }}
+      >
+        <div ref={ref} className={cn("relative", className)} {...props}>
+          {children}
         </div>
-        <div className="slider shadow-inner">
-          <div ref={rangeProgressRef} className="progress" />
-        </div>
-        <div className="range-input relative">
-          <input
-            type="range"
-            ref={rangeMinRef}
-            className="range-min"
-            min={minRange}
-            max={maxRange}
-            value={minValue}
-            step={step}
-            onChange={handleMinRangeChange}
-          />
-          <input
-            type="range"
-            ref={rangeMaxRef}
-            className="range-max"
-            min={minRange}
-            max={maxRange}
-            value={maxValue}
-            step={step}
-            onChange={handleMaxRangeChange}
-          />
-        </div>
-      </div>
+      </RangeSliderContext.Provider>
     );
   },
 );
 
 RangeSlider.displayName = "RangeSlider";
 
-export { RangeSlider };
+// RangeSliderInput Component
+const RangeSliderInput = forwardRef(({ className, ...props }, ref) => {
+  const {
+    minValue,
+    maxValue,
+    minLimit,
+    maxLimit,
+    stepSize,
+    onMinChange,
+    onMaxChange,
+    minInputRef,
+    maxInputRef,
+    progressRef,
+  } = useRangeSliderContext();
+
+  return (
+    <div className={cn("", className)} ref={ref} {...props}>
+      <div className="slider shadow-inner">
+        <div ref={progressRef} className="progress" />
+      </div>
+      <div className="range-input relative">
+        <input
+          type="range"
+          ref={minInputRef}
+          className="range-min"
+          min={minLimit}
+          max={maxLimit}
+          value={minValue}
+          step={stepSize}
+          onChange={(e) => onMinChange(Number(e.target.value))}
+        />
+        <input
+          type="range"
+          ref={maxInputRef}
+          className="range-max"
+          min={minLimit}
+          max={maxLimit}
+          value={maxValue}
+          step={stepSize}
+          onChange={(e) => onMaxChange(Number(e.target.value))}
+        />
+      </div>
+    </div>
+  );
+});
+
+RangeSliderInput.displayName = "RangeSliderInput";
+
+// MinInput Component
+const MinInput = forwardRef(({ className, ...props }, ref) => {
+  const { minValue, onMinChange } = useRangeSliderContext();
+
+  return (
+    <label
+      className={cn(
+        "form-control form-control-variant-defaultgap-0 divide-x rounded-r-none px-2 py-2",
+        className,
+      )}
+      ref={ref}
+      {...props}
+    >
+      <span className="inline-block shrink-0 pr-1">
+        <ArrowBigDownDash className="size-[1.25em]" strokeWidth={1} />
+      </span>
+      <input
+        type="number"
+        className="size-full bg-transparent pl-2 outline-none"
+        value={minValue}
+        onChange={(e) => onMinChange(Number(e.target.value))}
+      />
+    </label>
+  );
+});
+
+MinInput.displayName = "MinInput";
+
+// MaxInput Component
+const MaxInput = forwardRef(({ className, ...props }, ref) => {
+  const { maxValue, onMaxChange } = useRangeSliderContext();
+
+  return (
+    <label
+      className={cn(
+        "form-control form-control-variant-defaultgap-0 divide-x rounded-r-none px-2 py-2",
+        className,
+      )}
+      ref={ref}
+      {...props}
+    >
+      <span className="inline-block shrink-0 pr-1">
+        <ArrowBigUpDash className="size-[1.25em]" strokeWidth={1} />
+      </span>
+      <input
+        type="number"
+        className="size-full bg-transparent pl-2 outline-none"
+        value={maxValue}
+        onChange={(e) => onMaxChange(Number(e.target.value))}
+      />
+    </label>
+  );
+});
+
+MaxInput.displayName = "MaxInput";
+
+// Export Components
+export { MaxInput, MinInput, RangeSlider, RangeSliderInput };

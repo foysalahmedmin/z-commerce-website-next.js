@@ -1,0 +1,18 @@
+/* components styles */
+@import "./styles/button.css";
+@import "./styles/form-control.css";
+@import "./styles/radio.css";
+@import "./styles/checkbox.css";
+@import "./styles/switch.css";
+@import "./styles/progress.css";
+@import "./styles/range-slider.css";
+@import "./styles/badge.css";
+@import "./styles/tooltip.css";
+@import "./styles/parallax.css";
+@import "./styles/accordion.css";
+@import "./styles/countdown.css";
+@import "./styles/dropdown.css";
+@import "./styles/motion.css";
+@import "./styles/content.css";
+/* @import "./styles/drawer.css"; */
+/* @import "./styles/modal.css"; */

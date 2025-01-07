@@ -1,0 +1,31 @@
+.accordion {
+  display: grid;
+  position: relative;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+
+  &.open,
+  &[open] {
+    grid-template-rows: 1fr;
+
+    & > .accordion-content {
+      transform: scaleY(1);
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0.1s;
+      min-height: fit-content;
+    }
+  }
+}
+
+.accordion-content {
+  transform: scaleY(0);
+  transform-origin: top;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    min-height 0.3s ease,
+    transform 0.3s ease;
+  min-height: 0;
+}

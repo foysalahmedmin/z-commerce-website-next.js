@@ -1,6 +1,6 @@
 import Provider from "@/components/provider";
 import { Comfortaa, Mulish, Philosopher } from "next/font/google";
-import "./globals.scss";
+import "./globals.css";
 
 const mulish = Mulish({
   subsets: ["latin"],

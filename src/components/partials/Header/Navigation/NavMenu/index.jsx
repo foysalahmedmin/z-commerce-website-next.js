@@ -1,6 +1,10 @@
-import { ActiveLink } from "@/components/ui/ActiveLink";
-import { pathProcessor } from "@/lib/utils";
-import { HomeIcon, Info, ReceiptText, Store } from "lucide-react";
+"use client";
+
+import Logo from "@/components/partials/Logo";
+import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
+import { HomeIcon, Info, ReceiptText, Store, X } from "lucide-react";
+import NavItems from "./NavItems";
 
 const routes = [
   {
@@ -25,22 +29,44 @@ const routes = [
   },
 ];
 
-const NavMenu = () => {
+const NavMenu = ({ isOpen, setIsOpen }) => {
   return (
     <>
-      {routes.map((route, i) => (
-        <li key={i}>
-          <ActiveLink
-            href={"/" + pathProcessor(route?.path)}
-            className={
-              "underline-animated font-comfortaa cursor-pointer gap-1 py-1 text-title after:mx-auto after:border-title"
-            }
-            activeClassName="after:border-primary after:w-full"
-          >
-            <span className="text-sm uppercase">{route?.label}</span>
-          </ActiveLink>
-        </li>
-      ))}
+      {/* Desktop Screen */}
+      <div className="relative hidden px-8 md:block">
+        <ul className="flex size-full items-center justify-start gap-[1em]">
+          <NavItems routes={routes} />
+        </ul>
+      </div>
+      {/* Mobile Screen */}
+      <div
+        className={cn(
+          "fixed inset-0 z-50 h-screen w-screen origin-left bg-card transition-all duration-300 lg:hidden",
+          {
+            "visible translate-x-0": isOpen,
+            "invisible -translate-x-full": !isOpen,
+          },
+        )}
+      >
+        <div className="container space-y-6">
+          <div className="flex h-header items-center justify-between">
+            <div>
+              <Logo />
+            </div>
+            <Button
+              onClick={() => setIsOpen(false)}
+              variant="ghost"
+              shape="icon"
+              className="rounded-full bg-accent/5"
+            >
+              <X className="size-[1.25em]" />
+            </Button>
+          </div>
+          <ul className="flex size-full flex-col gap-[1em]">
+            <NavItems isOpen={isOpen} setIsOpen={setIsOpen} routes={routes} />
+          </ul>
+        </div>
+      </div>
     </>
   );
 };

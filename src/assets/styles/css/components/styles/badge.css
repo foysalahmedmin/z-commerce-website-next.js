@@ -1,0 +1,21 @@
+.badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25em;
+  animation: theme("animation.pop");
+  transition: all 0.3s ease-in-out;
+  border-radius: theme("borderRadius.form-control");
+  background-color: theme("colors.accent.DEFAULT");
+  padding: 0.25em;
+  min-width: 2em;
+  min-height: 2em;
+  color: theme("colors.accent.foreground");
+  font-weight: bold;
+  font-size: 0.5rem;
+  line-height: 1;
+
+  & > * {
+    line-height: 1;
+  }
+}

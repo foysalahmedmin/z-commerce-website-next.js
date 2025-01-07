@@ -1,15 +1,15 @@
-const plugin = require("tailwindcss/plugin");
+import drawerStyles from "./styles/drawer";
+import overlaysStyles from "./styles/overlays";
+import partialsStyles from "./styles/partials";
 
-module.exports = plugin(function ({ addUtilities }) {
-  addUtilities({
-    ".content-auto": {
-      "content-visibility": "auto",
-    },
-    ".content-hidden": {
-      "content-visibility": "hidden",
-    },
-    ".content-visible": {
-      "content-visibility": "visible",
-    },
-  });
-});
+const addUtilitiesStyles = ({ addUtilities, theme }) => {
+  const styles = {
+    ...(partialsStyles({ theme }) || {}),
+    ...(overlaysStyles({ theme }) || {}),
+    ...(drawerStyles({ theme }) || {}),
+    // ...(loadingStyles({ theme }) || {}),
+  };
+  addUtilities(styles, ["responsive", "hover"]);
+};
+
+export default addUtilitiesStyles;

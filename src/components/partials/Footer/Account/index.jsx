@@ -28,7 +28,7 @@ const Account = ({ className, ...props }) => {
       <ul className="space-y-2">
         {links?.map((item, i) => (
           <li key={i}>
-            <Link className="hover:text-primary" href={item?.path}>
+            <Link className="hover:text-primary" href={item?.path || "#"}>
               {item?.label}
             </Link>
           </li>
