@@ -4,6 +4,7 @@ import Logo from "@/components/partials/Logo";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { HomeIcon, Info, ReceiptText, Store, X } from "lucide-react";
+import SearchBar from "../SearchBar";
 import NavItems from "./NavItems";
 
 const routes = [
@@ -33,7 +34,7 @@ const NavMenu = ({ isOpen, setIsOpen }) => {
   return (
     <>
       {/* Desktop Screen */}
-      <div className="relative hidden px-8 md:block">
+      <div className="relative hidden px-8 lg:block">
         <ul className="flex size-full items-center justify-start gap-[1em]">
           <NavItems routes={routes} />
         </ul>
@@ -48,8 +49,8 @@ const NavMenu = ({ isOpen, setIsOpen }) => {
           },
         )}
       >
-        <div className="container space-y-6">
-          <div className="flex h-header items-center justify-between">
+        <div className="container space-y-6 py-6">
+          <div className="flex items-center justify-between">
             <div>
               <Logo />
             </div>
@@ -61,6 +62,9 @@ const NavMenu = ({ isOpen, setIsOpen }) => {
             >
               <X className="size-[1.25em]" />
             </Button>
+          </div>
+          <div>
+            <SearchBar />
           </div>
           <ul className="flex size-full flex-col gap-[1em]">
             <NavItems isOpen={isOpen} setIsOpen={setIsOpen} routes={routes} />

@@ -51,7 +51,7 @@ const SignUpSection = () => {
           <span className="font-comfortaa mb-2 block px-2 capitalize">
             Name
           </span>
-          <div className="form-control form-control-variant-defaulth-8 w-full flex-row-reverse border-foreground/50 bg-background px-0">
+          <div className="form-control form-control-variant-default h-10 w-full flex-row-reverse border-foreground/50 bg-background px-0">
             <input
               className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
               type="text"
@@ -61,7 +61,7 @@ const SignUpSection = () => {
               placeholder="Name"
             />
             <span
-              className="inline-grid aspect-square h-full place-items-center rounded-l border-r border-foreground/50 bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+              className="inline-grid aspect-square h-full place-items-center rounded-l border-r border-foreground/50 bg-transparent text-foreground/75 transition-all duration-500 peer-focus-within:border-foreground peer-focus-within:text-foreground"
               variant="outline"
               shape="icon"
               type="button"
@@ -75,7 +75,7 @@ const SignUpSection = () => {
           <span className="font-comfortaa mb-2 block px-2 capitalize">
             Email
           </span>
-          <div className="form-control form-control-variant-defaulth-8 w-full flex-row-reverse border-foreground/50 bg-background px-0">
+          <div className="form-control form-control-variant-default h-10 w-full flex-row-reverse border-foreground/50 bg-background px-0">
             <input
               className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
               type="email"
@@ -85,7 +85,7 @@ const SignUpSection = () => {
               placeholder="email"
             />
             <span
-              className="inline-grid aspect-square h-full place-items-center rounded-l border-r border-foreground/50 bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+              className="inline-grid aspect-square h-full place-items-center rounded-l border-r border-foreground/50 bg-transparent text-foreground/75 transition-all duration-500 peer-focus-within:border-foreground peer-focus-within:text-foreground"
               variant="outline"
               shape="icon"
               type="button"
@@ -99,7 +99,7 @@ const SignUpSection = () => {
           <span className="font-comfortaa mb-2 block px-2 capitalize">
             Password
           </span>
-          <div className="form-control form-control-variant-defaulth-8 w-full flex-row-reverse border-foreground/50 bg-background px-0">
+          <div className="form-control form-control-variant-default h-10 w-full flex-row-reverse border-foreground/50 bg-background px-0">
             <Toggler
               onClick={() => setPasswordVisible((value) => !value)}
               type="button"
@@ -131,7 +131,7 @@ const SignUpSection = () => {
               placeholder="Password"
             />
             <span
-              className="inline-grid aspect-square h-full place-items-center rounded-l border-r border-foreground/50 bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+              className="inline-grid aspect-square h-full place-items-center rounded-l border-r border-foreground/50 bg-transparent text-foreground/75 transition-all duration-500 peer-focus-within:border-foreground peer-focus-within:text-foreground"
               variant="outline"
               shape="icon"
               type="button"

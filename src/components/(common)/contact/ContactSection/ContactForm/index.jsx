@@ -5,7 +5,7 @@ const ContactFormSection = () => {
   return (
     <form>
       <div className="grid grid-cols-1 gap-x-2 gap-y-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-        <label className="form-control form-control-variant-defaulth-8 w-full flex-row-reverse gap-2 bg-background px-0">
+        <label className="form-control form-control-variant-default h-10 w-full flex-row-reverse gap-2 bg-background px-0">
           <input
             className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
             type="text"
@@ -13,7 +13,7 @@ const ContactFormSection = () => {
             required
           />
           <span
-            className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+            className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500 peer-focus-within:border-foreground peer-focus-within:text-foreground"
             variant="outline"
             shape="icon"
             type="button"
@@ -22,7 +22,7 @@ const ContactFormSection = () => {
             <User className="size-6" strokeWidth={1} />
           </span>
         </label>
-        <label className="form-control form-control-variant-defaulth-8 w-full flex-row-reverse gap-2 bg-background px-0">
+        <label className="form-control form-control-variant-default h-10 w-full flex-row-reverse gap-2 bg-background px-0">
           <input
             className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
             type="email"
@@ -30,7 +30,7 @@ const ContactFormSection = () => {
             required
           />
           <span
-            className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+            className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500 peer-focus-within:border-foreground peer-focus-within:text-foreground"
             variant="outline"
             shape="icon"
             type="button"
@@ -39,7 +39,7 @@ const ContactFormSection = () => {
             <AtSign className="size-6" strokeWidth={1} />
           </span>
         </label>
-        <label className="form-control form-control-variant-defaulth-8 w-full flex-row-reverse gap-2 bg-background px-0">
+        <label className="form-control form-control-variant-default h-10 w-full flex-row-reverse gap-2 bg-background px-0">
           <input
             className="peer size-full flex-1 bg-transparent px-2 text-sm outline-none"
             type="tel"
@@ -47,7 +47,7 @@ const ContactFormSection = () => {
             required
           />
           <span
-            className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+            className="inline-grid aspect-square h-full place-items-center rounded-l border-r bg-transparent text-foreground/75 transition-all duration-500 peer-focus-within:border-foreground peer-focus-within:text-foreground"
             variant="outline"
             shape="icon"
             type="button"
@@ -56,7 +56,7 @@ const ContactFormSection = () => {
             <Phone className="size-6" strokeWidth={1} />
           </span>
         </label>
-        <label className="form-control form-control-variant-defaultw-full flex-row-reverse items-start gap-2 bg-background px-0 sm:col-span-3 lg:col-span-1 xl:col-span-3">
+        <label className="form-control form-control-variant-default w-full flex-row-reverse items-start gap-2 bg-background px-0 sm:col-span-3 lg:col-span-1 xl:col-span-3">
           <textarea
             className="peer h-40 w-full flex-1 resize-y bg-transparent px-2 py-2 text-sm outline-none lg:h-60"
             type="tel"
@@ -65,7 +65,7 @@ const ContactFormSection = () => {
             required
           />
           <span
-            className="inline-grid aspect-square h-8 place-items-center rounded-br rounded-tl border-b border-r bg-transparent text-foreground/75 transition-all duration-500  peer-focus-within:border-foreground peer-focus-within:text-foreground"
+            className="inline-grid aspect-square h-10 place-items-center rounded-br rounded-tl border-b border-r bg-transparent text-foreground/75 transition-all duration-500 peer-focus-within:border-foreground peer-focus-within:text-foreground"
             variant="outline"
             shape="icon"
             type="button"

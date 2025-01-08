@@ -7,8 +7,7 @@ import { forwardRef } from "react";
 const formControlVariants = cva("form-control", {
   variants: {
     variant: {
-      default:
-        "form-control-variant-default cursor-pointer bg-card outline-transparent focus-within:bg-card active:bg-card",
+      default: "form-control-variant-default",
       gradient: "form-control-variant-gradient",
       outline: "form-control-variant-outline",
       ghost: "form-control-variant-ghost",

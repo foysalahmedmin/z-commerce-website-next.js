@@ -4,8 +4,11 @@ import Navigation from "./Navigation";
 import TopHeader from "./TopHeader";
 
 const Header = async () => {
-  const access = cookies().get("z-access-token");
-  const user = access?.value && (await getUserByToken(access?.value));
+  const cookiesData = await cookies();
+  const access = cookiesData?.get("z-access-token");
+
+  const user = access?.value ? await getUserByToken(access.value) : null;
+
   return (
     <>
       <TopHeader access={access} user={user} />

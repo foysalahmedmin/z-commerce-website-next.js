@@ -161,7 +161,7 @@ const MinInput = forwardRef(({ className, ...props }, ref) => {
   return (
     <label
       className={cn(
-        "form-control form-control-variant-defaultgap-0 divide-x rounded-r-none px-2 py-2",
+        "form-control form-control-variant-default gap-0 divide-x rounded-r-none px-2 py-2",
         className,
       )}
       ref={ref}
@@ -189,7 +189,7 @@ const MaxInput = forwardRef(({ className, ...props }, ref) => {
   return (
     <label
       className={cn(
-        "form-control form-control-variant-defaultgap-0 divide-x rounded-r-none px-2 py-2",
+        "form-control form-control-variant-default gap-0 divide-x rounded-r-none px-2 py-2",
         className,
       )}
       ref={ref}

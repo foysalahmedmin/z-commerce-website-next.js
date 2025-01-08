@@ -1,8 +1,8 @@
 "use client";
 
+import { useTheme } from "@/components/provider/ThemeProvider";
 import { Toggler } from "@/components/ui/Toggler";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 
 const ThemeToggler = () => {
   const { theme, setTheme } = useTheme();

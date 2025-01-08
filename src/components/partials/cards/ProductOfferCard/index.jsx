@@ -16,6 +16,7 @@ import TimeCounter from "../../TimeCounter";
 
 const ProductOfferCard = ({ item, className }) => {
   const {
+    id,
     name,
     image,
     description,
@@ -30,11 +31,15 @@ const ProductOfferCard = ({ item, className }) => {
   } = item;
 
   const isVariant = variants?.length > 0;
-  const Comp = isVariant ? Tabs : "div";
+  const Comp = isVariant ? Tabs : id ? Link : "div";
 
   return (
     <div className={cn("group/card h-full text-[1rem]", className)}>
-      <Comp value={0} className="flex size-full flex-col">
+      <Comp
+        href={id ? `/shope/${id}` : "#"}
+        value={0}
+        className="flex size-full flex-col"
+      >
         <div className="relative w-full overflow-hidden rounded-md">
           <div className="size-full">
             {isVariant ? (
@@ -112,7 +117,7 @@ const ProductOfferCard = ({ item, className }) => {
             <div className="grid grow gap-[0.5em]">
               <h3 className="text-[1em] leading-none text-title">{name}</h3>
               {description && (
-                <p className="text-[0.75em] leading-none text-foreground/75 ">
+                <p className="text-[0.75em] leading-none text-foreground/75">
                   {description}
                 </p>
               )}
@@ -183,7 +188,7 @@ const ProductOfferCard = ({ item, className }) => {
                 </div>
               )}
               <AddToCardButton
-                className="text-[0.875em] uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
+                className="primary text-[0.875em] uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
                 variant="outline"
               >
                 ADD <CartOutline className="shrink-0 text-[1.25em]" />

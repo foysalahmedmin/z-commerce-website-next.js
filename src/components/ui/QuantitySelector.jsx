@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { SetCartProductQuantity } from "@/redux/slices/cartSlice.js";
 import { Minus, Plus } from "lucide-react";
 import {
   createContext,
@@ -10,8 +9,8 @@ import {
   useEffect,
   useImperativeHandle,
   useRef,
+  useState,
 } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Button } from "./Button";
 
 // QuantitySelector context //
@@ -33,8 +32,8 @@ export const QuantitySelector = forwardRef(
   (
     {
       className,
-      quantity,
-      setQuantity,
+      quantity: quantityProp = 0,
+      setQuantity: setQuantityProp,
       maxValue = 100,
       minValue = 0,
       isDispatch,
@@ -44,33 +43,20 @@ export const QuantitySelector = forwardRef(
     },
     ref,
   ) => {
+    const [quantity, setQuantity] = useState(quantityProp);
     const inputRef = useRef(null);
-    const dispatch = useDispatch();
-    const { products } = useSelector((state) => state.cart);
-
-    const handleBenefitInputChange = (name, value) => {
-      const updatedInputs = products?.map((p) => ({ ...p }));
-      updatedInputs[index][name] = value;
-      dispatch(SetCartProductQuantity(updatedInputs));
-    };
 
     const handleIncrement = () => {
-      if (quantity < maxValue) {
-        if (isDispatch) {
-          handleBenefitInputChange("quantity", quantity + 1);
-        } else {
-          setQuantity((prev) => prev + 1);
-        }
+      setQuantity((prev) => prev + 1);
+      if (setQuantityProp) {
+        setQuantityProp((prev) => prev + 1);
       }
     };
 
     const handleDecrement = () => {
-      if (quantity > minValue) {
-        if (isDispatch) {
-          handleBenefitInputChange("quantity", quantity - 1);
-        } else {
-          setQuantity((prev) => prev - 1);
-        }
+      setQuantity((prev) => prev - 1);
+      if (setQuantityProp) {
+        setQuantityProp((prev) => prev - 1);
       }
     };
 
@@ -79,12 +65,9 @@ export const QuantitySelector = forwardRef(
 
       if (inputElement) {
         const handleChange = () => {
-          if (isDispatch) {
-            handleBenefitInputChange("quantity", Number(inputElement.value));
-          } else {
-            setQuantity(Number(inputElement.value));
-          }
+          setQuantity(parseFloat(inputElement.value));
         };
+
         inputElement.addEventListener("change", handleChange);
 
         return () => {
@@ -100,14 +83,26 @@ export const QuantitySelector = forwardRef(
         if (quantity < minValue) {
           inputElement.value = minValue;
           setQuantity(minValue);
+          if (setQuantityProp) {
+            setQuantityProp(minValue);
+          }
         } else if (quantity > maxValue) {
           inputElement.value = maxValue;
           setQuantity(maxValue);
+          if (setQuantityProp) {
+            setQuantityProp(maxValue);
+          }
         } else {
           inputElement.value = quantity;
         }
       }
-    }, [quantity, inputRef, minValue, maxValue]);
+    }, [inputRef, quantity, minValue, maxValue]);
+
+    useEffect(() => {
+      if (typeof quantityProp === "number") {
+        setQuantity(quantityProp);
+      }
+    }, [quantityProp]);
 
     return (
       <QuantitySelectorContext.Provider
@@ -143,7 +138,7 @@ export const QuantityInput = forwardRef(
       <input
         ref={inputRef}
         className={cn(
-          "form-control form-control-variant-defaulticon-none h-[2.5em] w-[5em] appearance-none rounded-none px-[0.5em] text-center text-[1em] outline-none",
+          "icon-none form-control form-control-variant-default form-control-size-default w-[5em] appearance-none rounded-none px-[0.5em] text-center text-[1em] outline-none",
           className,
         )}
         type={type}
@@ -162,7 +157,7 @@ export const QuantityIncreaseTrigger = forwardRef(
     {
       className,
       variant = "outline",
-      size = "icon",
+      shape = "icon",
       type = "button",
       children = <Plus className="text-[1em]" />,
       ...props
@@ -179,7 +174,7 @@ export const QuantityIncreaseTrigger = forwardRef(
         )}
         onClick={handleIncrement}
         variant={variant}
-        size={size}
+        shape={shape}
         type={type}
         ref={ref}
         {...props}
@@ -197,7 +192,7 @@ export const QuantityDecreaseTrigger = forwardRef(
     {
       className,
       variant = "outline",
-      size = "icon",
+      shape = "icon",
       type = "button",
       children = <Minus className="text-[1em]" />,
       ...props
@@ -214,7 +209,7 @@ export const QuantityDecreaseTrigger = forwardRef(
         )}
         onClick={handleDecrement}
         variant={variant}
-        size={size}
+        shape={shape}
         type={type}
         ref={ref}
         {...props}

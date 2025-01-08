@@ -3,11 +3,11 @@
 import { Button } from "@/components/ui/Button";
 import { forwardRef } from "react";
 
-const BayNowButton = forwardRef((props, children = <span>
-    Bay Now
-  </span>, ref) => {
+const BayNowButton = forwardRef(({ className, children = <span>
+      Bay Now
+    </span>, ...props }, ref) => {
   return (
-    <Button {...props} ref={ref}>
+    <Button className={cn("", className)} {...props} ref={ref}>
       {children}
     </Button>
   );

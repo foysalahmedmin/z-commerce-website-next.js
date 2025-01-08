@@ -1,13 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: ["class"],
+import plugin from "tailwindcss/plugin";
+import addComponentStyles from "./src/assets/styles/plugin/components";
+import addUtilitiesStyles from "./src/assets/styles/plugin/utilities";
+
+const tailwindConfig = {
   content: [
-    "./pages/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
-    "./app/**/*.{js,jsx}",
-    "./src/**/*.{js,jsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  prefix: "",
+  darkMode: "class",
   theme: {
     container: {
       center: true,
@@ -182,5 +184,22 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    plugin(function ({
+      addVariant,
+      addComponents,
+      matchComponents,
+      addUtilities,
+      matchUtilities,
+      theme,
+    }) {
+      addVariant("hocus", ["&:hover", "&:focus"]);
+
+      // styles //
+      addComponentStyles({ addComponents, matchComponents, theme });
+      addUtilitiesStyles({ addUtilities, matchUtilities, theme });
+    }),
+  ],
 };
+
+export default tailwindConfig;

@@ -1,25 +1,15 @@
 import Provider from "@/components/provider";
-import { Comfortaa, Mulish, Philosopher } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const mulish = Mulish({
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  variable: "--font-mulish",
-  display: "swap",
-  adjustFontFallback: true,
 });
-const comfortaa = Comfortaa({
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  variable: "--font-comfortaa",
-  display: "swap",
-  adjustFontFallback: true,
-});
-const philosopher = Philosopher({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-philosopher",
-  display: "swap",
-  adjustFontFallback: true,
 });
 
 export const metadata = {
@@ -29,15 +19,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `  
+            (function() {
+              const theme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+              document.documentElement.classList.add(theme);
+            })();
+            `,
+          }}
+        />
+      </head>
       <body
-        className={
-          mulish.variable +
-          " " +
-          comfortaa.variable +
-          " " +
-          philosopher.variable
-        }
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Provider>{children}</Provider>
       </body>

@@ -262,7 +262,8 @@ const CarouselPreviousTrigger = forwardRef(
   (
     {
       className,
-      size = "icon",
+      shape = "icon",
+      variant = "outline",
       children = <ArrowLeft className="size-4" />,
       ...props
     },
@@ -273,7 +274,8 @@ const CarouselPreviousTrigger = forwardRef(
     return (
       <Button
         ref={ref}
-        size={size}
+        shape={shape}
+        variant={variant}
         className={cn(
           "absolute rounded-full text-[1em]",
           orientation === "horizontal"
@@ -296,7 +298,8 @@ const CarouselNextTrigger = forwardRef(
   (
     {
       className,
-      size = "icon",
+      shape = "icon",
+      variant = "outline",
       children = <ArrowRight className="size-4" />,
       ...props
     },
@@ -307,7 +310,8 @@ const CarouselNextTrigger = forwardRef(
     return (
       <Button
         ref={ref}
-        size={size}
+        shape={shape}
+        variant={variant}
         className={cn(
           "absolute rounded-full text-[1em]",
           orientation === "horizontal"

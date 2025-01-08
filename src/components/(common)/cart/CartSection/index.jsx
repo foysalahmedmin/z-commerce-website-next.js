@@ -70,9 +70,9 @@ const CartSection = () => {
                 </tbody>
               </table>
               <div className="flex flex-col gap-[1em] sm:flex-row">
-                <div className="flex h-8 w-full sm:flex-1">
+                <div className="flex h-10 w-full sm:flex-1">
                   <input
-                    className="form-control form-control-variant-defaultflex-1 rounded-r-none"
+                    className="form-control form-control-variant-default flex-1 rounded-r-none"
                     type="text"
                     placeholder="Coupon Code"
                   />

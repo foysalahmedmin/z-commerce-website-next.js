@@ -6,7 +6,7 @@ const SearchBar = ({ className, ...props }) => {
   return (
     <label
       className={cn(
-        "form-control form-control-variant-defaulth-8 w-full gap-2 bg-background px-0 lg:w-80",
+        "form-control form-control-variant-default h-10 w-full gap-2 bg-background px-0 lg:w-80",
         className,
       )}
       {...props}

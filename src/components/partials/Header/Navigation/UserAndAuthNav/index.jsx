@@ -72,7 +72,7 @@ const UserAndAuthNav = ({ access, user }) => {
         </div>
       ) : (
         <Link title="Sign-In" href={"/user/sign-in"}>
-          <Button asChild className="uppercase" size="sm">
+          <Button asChild className="primary uppercase" size="sm">
             Sign-In
           </Button>
         </Link>

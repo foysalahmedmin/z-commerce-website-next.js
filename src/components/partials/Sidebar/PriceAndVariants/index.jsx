@@ -1,6 +1,11 @@
 import { colors } from "@/assets/data/colors";
 import { sizes } from "@/assets/data/sizes";
-import { RangeSlider } from "@/components/ui/RangeSlider";
+import {
+  MaxInput,
+  MinInput,
+  RangeSlider,
+  RangeSliderInput,
+} from "@/components/ui/RangeSlider";
 import { cn } from "@/lib/utils";
 import { convertColorFormat } from "@/utils/convertColorFormat";
 
@@ -12,7 +17,16 @@ const PriceAndVariants = ({ className }) => {
       </div>
       <div className="space-y-4 md:space-y-6">
         <div className="px-4">
-          <RangeSlider className="mb-4" />
+          <RangeSlider className="mb-4 space-y-4">
+            <div className="flex items-center gap-2">
+              <MinInput />
+              -
+              <MaxInput />
+            </div>
+            <div className="text-xs">
+              <RangeSliderInput />
+            </div>
+          </RangeSlider>
         </div>
         <hr />
         <div className="px-4">

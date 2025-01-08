@@ -4,18 +4,22 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const addCookie = async (data) => {
-  cookies().set("z-access-token", data?.accessToken);
-  cookies().set("z-refresh-token", data?.refreshToken);
-  cookies().set("z-role", data?.role);
+  const cookiesData = await cookies();
+  // Awaiting cookiesData for setting values
+  cookiesData.set("z-access-token", data?.accessToken);
+  cookiesData.set("z-refresh-token", data?.refreshToken);
+  cookiesData.set("z-role", data?.role);
 };
 
-export const handleLogout = async ({ locate }) => {
-  cookies().delete("z-access-token");
-  cookies().delete("z-refresh-token");
-  cookies().delete("z-role");
-  redirect(`/${locate}`);
+export const handleLogout = async () => {
+  const cookiesData = await cookies();
+  // Awaiting cookiesData for deleting values
+  cookiesData.delete("z-access-token");
+  cookiesData.delete("z-refresh-token");
+  cookiesData.delete("z-role");
+  redirect(`/`);
 };
 
-export const routespa = ({ locale }) => {
-  redirect(`/${locale}/profile`);
+export const routespa = async () => {
+  redirect(`/profile`);
 };

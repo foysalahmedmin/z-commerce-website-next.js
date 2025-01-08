@@ -11,11 +11,13 @@ import {
 import { cn, toFixedAndLocaleStringCurrency } from "@/lib/utils";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import AddToCardButton from "../../Buttons/AddToCardButton";
 import CartInfo from "../../CartInfo";
 
 const ProductCard = ({ item, className, variant = "grid" }) => {
   const {
+    id,
     name,
     image,
     description,
@@ -27,7 +29,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
     tags,
   } = item;
   const isVariant = variants?.length > 0;
-  const Comp = isVariant ? Tabs : "div";
+  const Comp = isVariant ? Tabs : id ? Link : "div";
   return (
     <>
       {variant === "grid" && (
@@ -37,7 +39,11 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
             className,
           )}
         >
-          <Comp value={0} className="flex size-full flex-col">
+          <Comp
+            href={id ? `/shope/${id}` : "#"}
+            value={0}
+            className="flex size-full flex-col"
+          >
             <div className="relative w-full">
               <div className="size-full">
                 {isVariant ? (
@@ -111,7 +117,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
               <div className="grid grow gap-[0.5em]">
                 <h3 className="text-[1em] leading-none text-title">{name}</h3>
                 {description && (
-                  <p className="text-[0.75em] leading-none text-foreground/75 ">
+                  <p className="text-[0.75em] leading-none text-foreground/75">
                     {description}
                   </p>
                 )}
@@ -176,7 +182,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
               </div>
               <div className="!mt-[1em]">
                 <AddToCardButton
-                  className="w-full rounded-md rounded-t-none text-[0.875em] uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
+                  className="primary w-full rounded-md rounded-t-none text-[0.875em] uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
                   variant="outline"
                 >
                   <span>Add to Cart</span>{" "}
@@ -333,7 +339,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
               </div>
               <div className="!mt-[1em]">
                 <AddToCardButton
-                  className="w-full rounded-md rounded-t-none text-[0.875em] uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
+                  className="primary w-full rounded-md rounded-t-none text-[0.875em] uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
                   variant="outline"
                 >
                   <span>Add to Cart</span>{" "}
@@ -487,7 +493,7 @@ const ProductCard = ({ item, className, variant = "grid" }) => {
                   </div>
                 )}
                 <AddToCardButton
-                  className="text-[0.875em] uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
+                  className="primary text-[0.875em] uppercase hover:bg-primary/75 group-hover/card:bg-primary group-hover/card:text-primary-foreground"
                   variant="outline"
                 >
                   ADD <CartOutline className="shrink-0 text-[1.25em]" />
