@@ -176,11 +176,34 @@ const tailwindConfig = {
             transform: "scale(1)",
           },
         },
+        "pop-circle": {
+          "0%": {
+            transform: "scale(.0)",
+            borderRadius: "100%",
+          },
+          "20%": {
+            transform: "scale(1.3)",
+            borderRadius: "100%",
+          },
+          "40%": {
+            transform: "scale(1.1)",
+            borderRadius: "35%",
+          },
+          "60%": {
+            transform: "scale(1.5)",
+            borderRadius: "45%",
+          },
+          "100%": {
+            transform: "scale(1)",
+            borderRadius: "100%",
+          },
+        },
       },
       animation: {
         "loading-spin":
           "loading-spin 3s cubic-bezier(0.56, -0.24, 0.41, 1.23) infinite",
         pop: "pop 0.5s ease-in-out",
+        "pop-circle": "pop-circle 3s",
       },
     },
   },

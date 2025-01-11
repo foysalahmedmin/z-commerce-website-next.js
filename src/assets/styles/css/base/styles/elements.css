@@ -56,11 +56,11 @@ h6 {
 
 strong,
 th {
-  display: inline-block;
   color: theme("colors.title");
   font-weight: theme("fontWeight.medium");
 }
 
+strong,
 span {
   display: inline-block;
 }

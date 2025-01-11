@@ -1,38 +1,41 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 const Countdown = forwardRef(
-  ({ className, value = 0, maxValue = 999, ...props }, ref) => {
-    const countdownRef = useRef(null);
+  ({ className, value = 2, maxValue = 99, ...props }, ref) => {
+    const [content, setContent] = useState("00");
 
     useEffect(() => {
-      if (countdownRef.current && typeof maxValue === "number") {
-        const countdownElement = countdownRef.current;
+      if (typeof maxValue === "number") {
         let content = "";
-
         for (let i = 0; i <= maxValue; i++) {
-          content += i.toString().padStart(2, "0") + "\n";
+          content += i.toString().padStart(2, "0") + "</br>";
         }
-
-        countdownElement.style.setProperty("--content", content);
+        setContent(content);
       }
     }, [maxValue]);
 
     return (
-      <span
-        className={cn("countdown-container", className)}
+      <div
+        className={cn(
+          "relative inline-grid h-[1em] overflow-hidden",
+          className,
+        )}
         {...props}
         ref={ref}
       >
-        <span
-          className="countdown"
-          data-value={value}
-          style={{ "--value": value }}
-          ref={countdownRef}
+        <div
+          style={{
+            "--value": value,
+            top: "calc(var(--value) * -1em)",
+            transition: "all 1s cubic-bezier(1, 0, 0, 1)",
+          }}
+          className="relative left-0 right-0 inline-block leading-none transition-all duration-1000"
+          dangerouslySetInnerHTML={{ __html: content }}
         />
-      </span>
+      </div>
     );
   },
 );

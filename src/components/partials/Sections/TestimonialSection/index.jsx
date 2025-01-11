@@ -29,7 +29,7 @@ const TestimonialSection = () => {
                 {instagram?.slice(0, 12).map((item, index) => (
                   <CarouselItem
                     key={index}
-                    className="group/slide slide relative -z-20 basis-1/2 self-stretch px-4 py-16 aria-[current=true]:z-10 xl:basis-1/3 xl:py-12"
+                    className="group/slide -px-4 relative basis-1/2 self-stretch py-0"
                   >
                     <TestimonialCard item={item} />
                   </CarouselItem>
@@ -39,12 +39,10 @@ const TestimonialSection = () => {
                 <CarouselPreviousTrigger
                   className="static bottom-0 top-0 inline-flex -translate-y-0 transition-all duration-300"
                   shape="icon"
-                  size="md"
                 />
                 <CarouselNextTrigger
                   className="static bottom-0 top-0 inline-flex -translate-y-0 transition-all duration-300"
                   shape="icon"
-                  size="md"
                 />
               </div>
               <CarouselPagination className="-bottom-6" />

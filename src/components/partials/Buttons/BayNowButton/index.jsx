@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 import { forwardRef } from "react";
 
 const BayNowButton = forwardRef(({ className, children = <span>

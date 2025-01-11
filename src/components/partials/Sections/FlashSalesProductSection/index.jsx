@@ -31,7 +31,7 @@ const FlashSalesProductSection = () => {
                 {products.slice(0, 12).map((item, index) => (
                   <CarouselItem
                     key={index}
-                    className="4xl:basis-[12.5%] p-2 md:basis-1/2 xl:basis-1/4 2xl:basis-1/5 3xl:basis-1/6"
+                    className="4xl:basis-[12.5%] p-2 md:basis-1/2 xl:basis-1/4 2xl:basis-1/5"
                   >
                     <ProductOfferCard item={item} />
                   </CarouselItem>

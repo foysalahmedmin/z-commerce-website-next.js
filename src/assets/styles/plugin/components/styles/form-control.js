@@ -29,7 +29,7 @@ const formControlStyles = ({ theme }) => {
     },
 
     /* form-control variants */
-    ".form-control-variant-default": {
+    ".form-control-variant-default ": {
       borderWidth: "1px",
       borderColor: theme("colors.border"),
       borderRadius: theme("borderRadius.form-control"),

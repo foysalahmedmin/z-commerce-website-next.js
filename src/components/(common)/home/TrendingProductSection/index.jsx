@@ -1,5 +1,4 @@
 import { products } from "@/assets/data/products";
-import { Button } from "@/components/ui/Button";
 import { SectionTitle, Subtitle, Title } from "@/components/ui/SectionTitle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 import TrendingProductTabItem from "./TrendingProductTabItem";
@@ -51,9 +50,6 @@ const TrendingProductSection = () => {
               </TabsContent>
             </Tabs>
           )}
-        </div>
-        <div className="text-center">
-          <Button>View All Products</Button>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import emblaCarouselAutoplay from "embla-carousel-autoplay";
+import emblaCarouselClassNames from "embla-carousel-class-names";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
@@ -14,26 +15,22 @@ import {
   useState,
 } from "react";
 
-// carousel hooks //
+// ----- Custom Hooks -----
+
+// Navigation hook for carousel (prev/next buttons)
 export const useCarouselNavigation = (api) => {
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
 
-  const scrollPrev = useCallback(() => {
-    api?.scrollPrev();
-  }, [api]);
+  const scrollPrev = useCallback(() => api?.scrollPrev(), [api]);
+  const scrollNext = useCallback(() => api?.scrollNext(), [api]);
 
-  const scrollNext = useCallback(() => {
-    api?.scrollNext();
-  }, [api]);
-
-  const onSelect = useCallback((api) => {
-    if (!api) {
-      return;
+  const onSelect = useCallback(() => {
+    if (api) {
+      setCanScrollPrev(api.canScrollPrev());
+      setCanScrollNext(api.canScrollNext());
     }
-    setCanScrollPrev(api.canScrollPrev());
-    setCanScrollNext(api.canScrollNext());
-  }, []);
+  }, [api]);
 
   const handleKeyDown = useCallback(
     (event) => {
@@ -49,10 +46,10 @@ export const useCarouselNavigation = (api) => {
   );
 
   useEffect(() => {
-    if (!api) return;
-
-    onSelect(api);
-    api.on("reInit", onSelect).on("select", onSelect);
+    if (api) {
+      onSelect();
+      api.on("reInit", onSelect).on("select", onSelect);
+    }
   }, [api, onSelect]);
 
   return {
@@ -64,92 +61,93 @@ export const useCarouselNavigation = (api) => {
   };
 };
 
+// Pagination hook for carousel (pagination, index tracking)
 export const useCarouselPagination = (api) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
 
   const scrollToIndex = useCallback(
     (index) => {
-      if (!api) return;
-      api.scrollTo(index);
+      if (api) api.scrollTo(index);
     },
     [api],
   );
 
-  const onInit = useCallback((api) => {
-    setScrollSnaps(api?.scrollSnapList());
-  }, []);
+  const onInit = useCallback(() => {
+    if (api) setScrollSnaps(api.scrollSnapList());
+  }, [api]);
 
-  const onSelect = useCallback((api) => {
-    setSelectedIndex(api?.selectedScrollSnap());
-  }, []);
+  const onSelect = useCallback(() => {
+    if (api) setSelectedIndex(api.selectedScrollSnap());
+  }, [api]);
 
   useEffect(() => {
-    if (!api) return;
-
-    onInit(api);
-    onSelect(api);
-    api.on("reInit", onInit).on("reInit", onSelect).on("select", onSelect);
+    if (api) {
+      onInit();
+      onSelect();
+      api.on("reInit", onInit).on("reInit", onSelect).on("select", onSelect);
+    }
   }, [api, onInit, onSelect]);
 
-  return {
-    selectedIndex,
-    scrollSnaps,
-    scrollToIndex,
-  };
+  return { selectedIndex, scrollSnaps, scrollToIndex };
 };
 
-export const useCarouselActiveSlide = (api) => {
-  const [selectedNode, setSelectedNode] = useState(null);
+// Hover hook for autoplay control
+export const useCarouselAutoplayHover = (api) => {
+  const [isHovered, setIsHovered] = useState(false);
 
-  const onSelect = useCallback((api) => {
-    if (!api) {
-      return;
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+    if (api && api.plugins && api.plugins().autoplay) {
+      api.plugins().autoplay.stop();
+    } else {
+      console.warn("Autoplay plugin is not available.");
     }
+  }, [api]);
 
-    const slideNodes = api.slideNodes();
-    const selectedScrollSnap = api.selectedScrollSnap();
-
-    if (
-      slideNodes &&
-      selectedScrollSnap !== null &&
-      slideNodes[selectedScrollSnap]
-    ) {
-      slideNodes.forEach((node) => {
-        node.classList.remove("active-slide-node");
-        node.setAttribute("aria-current", "false");
-      });
-      slideNodes[selectedScrollSnap].classList.add("active-slide-node");
-      slideNodes[selectedScrollSnap].setAttribute("aria-current", "true");
-      setSelectedNode(slideNodes[selectedScrollSnap]);
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    if (api && api.plugins && api.plugins().autoplay) {
+      api.plugins().autoplay.play();
+    } else {
+      console.warn("Autoplay plugin is not available.");
     }
-  }, []);
+  }, [api]);
 
   useEffect(() => {
-    if (!api) return;
+    if (api && api.containerNode && api.plugins && api.plugins().autoplay) {
+      const node = api.containerNode();
 
-    onSelect(api);
-    api.on("reInit", onSelect).on("select", onSelect);
-  }, [api, onSelect]);
+      if (node) {
+        node.addEventListener("mouseenter", handleMouseEnter);
+        node.addEventListener("mouseleave", handleMouseLeave);
+        return () => {
+          node.removeEventListener("mouseenter", handleMouseEnter);
+          node.removeEventListener("mouseleave", handleMouseLeave);
+        };
+      }
+    } else {
+      console.warn("API or Autoplay plugin is not available.");
+    }
+  }, [api, handleMouseEnter, handleMouseLeave]);
 
-  return {
-    selectedNode,
-  };
+  return { isHovered };
 };
-// ------- //
 
-// carousel context //
+// ----- Carousel Context -----
+
+// Context for sharing carousel-related data
 export const CarouselContext = createContext(null);
 
 export const useCarousel = () => {
   const context = useContext(CarouselContext);
-
   if (!context) {
     throw new Error("useCarousel must be used within a <Carousel />");
   }
-
   return context;
 };
+
+// ----- Carousel Component -----
 
 const Carousel = forwardRef(
   (
@@ -165,24 +163,18 @@ const Carousel = forwardRef(
     },
     ref,
   ) => {
-    const autoplayPlugin = autoplay ? [emblaCarouselAutoplay()] : [];
     const [carouselRef, api] = useEmblaCarousel(
-      {
-        ...opts,
-        axis: orientation === "horizontal" ? "x" : "y",
-      },
-      [...autoplayPlugin, ...plugins],
+      { ...opts, axis: orientation === "horizontal" ? "x" : "y" },
+      [
+        emblaCarouselClassNames(),
+        ...(autoplay ? [emblaCarouselAutoplay({ delay: 5000 })] : []),
+        ...plugins,
+      ],
     );
-    const {
-      canScrollPrev,
-      canScrollNext,
-      scrollPrev,
-      scrollNext,
-      handleKeyDown,
-    } = useCarouselNavigation(api);
-    const { selectedIndex, scrollSnaps, scrollToIndex } =
-      useCarouselPagination(api);
-    const { selectedNode } = useCarouselActiveSlide(api);
+
+    const navigation = useCarouselNavigation(api);
+    const pagination = useCarouselPagination(api);
+    const hover = useCarouselAutoplayHover(api);
 
     return (
       <CarouselContext.Provider
@@ -191,21 +183,15 @@ const Carousel = forwardRef(
           api,
           setApi,
           opts,
-          orientation:
-            orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
-          selectedNode,
-          selectedIndex,
-          scrollSnaps,
-          scrollPrev,
-          scrollNext,
-          scrollToIndex,
-          canScrollPrev,
-          canScrollNext,
+          orientation,
+          ...navigation,
+          ...pagination,
+          ...hover,
         }}
       >
         <div
           ref={ref}
-          onKeyDownCapture={handleKeyDown}
+          onKeyDownCapture={navigation.handleKeyDown}
           className={cn("relative", className)}
           role="region"
           aria-roledescription="carousel"
@@ -218,21 +204,18 @@ const Carousel = forwardRef(
   },
 );
 Carousel.displayName = "Carousel";
-// ------- //
 
-// carousel components //
+// ----- Carousel Components -----
+
 const CarouselContent = forwardRef(({ className, ...props }, ref) => {
   const { carouselRef, orientation } = useCarousel();
-
   return (
     <div ref={carouselRef} className="overflow-hidden">
       <div
         ref={ref}
         className={cn(
           "flex h-full",
-          {
-            "flex-col": orientation === "vertical",
-          },
+          { "flex-col": orientation === "vertical" },
           className,
         )}
         {...props}
@@ -270,7 +253,6 @@ const CarouselPreviousTrigger = forwardRef(
     ref,
   ) => {
     const { orientation, scrollPrev, canScrollPrev } = useCarousel();
-
     return (
       <Button
         ref={ref}
@@ -306,7 +288,6 @@ const CarouselNextTrigger = forwardRef(
     ref,
   ) => {
     const { orientation, scrollNext, canScrollNext } = useCarousel();
-
     return (
       <Button
         ref={ref}
@@ -335,8 +316,7 @@ const CarouselPaginationTrigger = forwardRef(
     {
       className,
       activeClassName,
-      index,
-      selectedIndex,
+      isActive,
       variant = "none",
       size = "none",
       ...props
@@ -347,11 +327,9 @@ const CarouselPaginationTrigger = forwardRef(
       <Button
         ref={ref}
         className={cn(
-          `h-1.5 w-4 rounded-full bg-muted md:h-2 md:w-6`,
+          `h-1.5 w-full max-w-6 flex-1 rounded-full bg-muted px-0`,
           className,
-          {
-            [cn("bg-primary", activeClassName)]: index === selectedIndex,
-          },
+          { [cn("bg-primary", activeClassName)]: isActive },
         )}
         variant={variant}
         size={size}
@@ -363,14 +341,13 @@ const CarouselPaginationTrigger = forwardRef(
 CarouselPaginationTrigger.displayName = "CarouselPaginationTrigger";
 
 const CarouselPagination = forwardRef(
-  ({ className, carouselButton, ...props }, ref) => {
+  ({ className, buttonProps, ...props }, ref) => {
     const { selectedIndex, scrollSnaps, scrollToIndex } = useCarousel();
-
     return (
       <div
         ref={ref}
         className={cn(
-          "absolute bottom-4 left-0 right-0 mx-auto flex w-full items-center justify-center gap-x-1",
+          "absolute bottom-4 left-0 right-0 mx-auto flex w-full items-center justify-center gap-1",
           className,
         )}
         {...props}
@@ -378,10 +355,9 @@ const CarouselPagination = forwardRef(
         {scrollSnaps.map((_, index) => (
           <CarouselPaginationTrigger
             key={index}
-            index={index}
-            selectedIndex={selectedIndex}
+            isActive={index === selectedIndex}
             onClick={() => scrollToIndex(index)}
-            {...carouselButton}
+            {...buttonProps}
           />
         ))}
       </div>
@@ -389,7 +365,6 @@ const CarouselPagination = forwardRef(
   },
 );
 CarouselPagination.displayName = "CarouselPagination";
-// ------- //
 
 export {
   Carousel,
@@ -397,5 +372,6 @@ export {
   CarouselItem,
   CarouselNextTrigger,
   CarouselPagination,
+  CarouselPaginationTrigger,
   CarouselPreviousTrigger,
 };
