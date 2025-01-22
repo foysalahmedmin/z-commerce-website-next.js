@@ -43,7 +43,8 @@ export const PageButton = forwardRef(
       currentPage = 0,
       className,
       activeClassName,
-      size = "icon-sm",
+      shape="icon",
+      size = "sm",
       variant = "outline",
       ...props
     },
@@ -58,10 +59,11 @@ export const PageButton = forwardRef(
             activeClassName,
           )]: isActive,
         })}
-        {...props}
-        ref={ref}
+        shape={shape}
         size={size}
         variant={variant}
+        {...props}
+        ref={ref}
       >
         {pageNumber}
       </Button>
