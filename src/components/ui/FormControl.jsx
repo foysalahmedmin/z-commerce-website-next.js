@@ -41,7 +41,7 @@ const FormControl = forwardRef(
       variant,
       size,
       loading,
-      as = "form-control",
+      as = "input",
       asChild = false,
       disabled = false,
       isLoading = false,

@@ -66,6 +66,9 @@ export const QuantitySelector = forwardRef(
       if (inputElement) {
         const handleChange = () => {
           setQuantity(parseFloat(inputElement.value));
+          if (setQuantityProp) {
+            setQuantityProp(parseFloat(inputElement.value));
+          }
         };
 
         inputElement.addEventListener("change", handleChange);
@@ -138,7 +141,7 @@ export const QuantityInput = forwardRef(
       <input
         ref={inputRef}
         className={cn(
-          "icon-none form-control form-control-variant-default form-control-size-default w-[5em] appearance-none rounded-none px-[0.5em] text-center text-[1em] outline-none",
+          "icon-none form-control form-control-variant-default form-control-size-default h-[2.5em] w-[5em] appearance-none rounded-none px-[0.5em] text-center text-[1em] outline-none",
           className,
         )}
         type={type}
@@ -159,7 +162,7 @@ export const QuantityIncreaseTrigger = forwardRef(
       variant = "outline",
       shape = "icon",
       type = "button",
-      children = <Plus className="text-[1em]" />,
+      children = <Plus className="size-[1em]" />,
       ...props
     },
     ref,
@@ -169,7 +172,7 @@ export const QuantityIncreaseTrigger = forwardRef(
     return (
       <Button
         className={cn(
-          "rounded-l-none border-l-0 border-border text-[1em] text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground",
+          "h-[2.5em] rounded-l-none border-l-0 border-border text-[1em] text-foreground hover:border-accent hover:bg-accent hover:text-primary-foreground",
           className,
         )}
         onClick={handleIncrement}
@@ -194,7 +197,7 @@ export const QuantityDecreaseTrigger = forwardRef(
       variant = "outline",
       shape = "icon",
       type = "button",
-      children = <Minus className="text-[1em]" />,
+      children = <Minus className="size-[1em]" />,
       ...props
     },
     ref,
@@ -204,7 +207,7 @@ export const QuantityDecreaseTrigger = forwardRef(
     return (
       <Button
         className={cn(
-          "rounded-r-none border-r-0 border-border text-[1em] text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground",
+          "h-[2.5em] rounded-r-none border-r-0 border-border text-[1em] text-foreground hover:border-accent hover:bg-accent hover:text-primary-foreground",
           className,
         )}
         onClick={handleDecrement}

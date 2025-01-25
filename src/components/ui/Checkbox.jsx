@@ -26,7 +26,7 @@ const Checkbox = forwardRef(
       loadingClassName,
       size,
       type = "checkbox",
-      as = "form-control",
+      as = "input",
       asChild = false,
       disabled = false,
       isLoading = false,

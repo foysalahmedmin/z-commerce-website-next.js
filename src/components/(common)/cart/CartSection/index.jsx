@@ -33,7 +33,7 @@ const CartSection = () => {
                 </tr>
               </thead>
               <tbody>
-                {products.slice(0, 5).map((item, index) => (
+                {products?.slice(0, 5).map((item, index) => (
                   <CartItem key={index} item={item} index={index} />
                 ))}
               </tbody>

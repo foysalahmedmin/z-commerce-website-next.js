@@ -53,6 +53,7 @@ const Toggler = forwardRef(({ className, isOn, on, off, ...props }, ref) => {
       className={cn("relative size-6", className)}
       variant="none"
       size="none"
+      shape="none"
       {...props}
     >
       <On isOn={isOn} {...on} />

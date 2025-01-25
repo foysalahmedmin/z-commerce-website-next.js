@@ -1,3 +1,5 @@
+"use client";
+
 import { ActiveLink } from "@/components/ui/ActiveLink";
 import trimPath from "@/utils/trimPath";
 import { ChevronRight } from "lucide-react";

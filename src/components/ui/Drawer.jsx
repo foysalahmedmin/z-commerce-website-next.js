@@ -267,7 +267,7 @@ const DrawerCloseTrigger = forwardRef(
     {
       onClick,
       variant = "outline",
-      size = "icon",
+      shape = "icon",
       children = <X className="size-[1.5em]" />,
       ...props
     },
@@ -285,7 +285,7 @@ const DrawerCloseTrigger = forwardRef(
           }
         }}
         variant={variant}
-        size={size}
+        shape={shape}
         ref={ref}
         {...props}
       >
